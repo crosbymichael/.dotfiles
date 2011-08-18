@@ -1,0 +1,10 @@
+[user]
+	name = Michael Crosby
+	email = crosby.michael@gmail.com
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ca = commit -a
+	ga = add .
