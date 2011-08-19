@@ -8,3 +8,5 @@
 	br = branch
 	ca = commit -a
 	ga = add .
+	lg = log --graph
+	undo = reset --hard

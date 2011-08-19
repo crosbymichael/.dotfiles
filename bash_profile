@@ -1,5 +1,4 @@
-export PATH=${PATH}:$HOME/go/bin/
-export GOBIN=$HOME/go/bin/
-export GOROOT=$HOME/go/
-export GOARCH=amd64
-export GOOS=darwin
+export AXON9=$HOME/Development/Projects/axon9
+export CROSBY=$HOME/Development/Projects/crosbymichael
+export OPENSOURCE=$HOME/Development/Projects/opensource
+export PATH=$PATH:$HOME/.mike-scripts/bin/
