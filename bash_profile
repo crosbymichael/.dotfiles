@@ -6,3 +6,13 @@ export GOBIN=$HOME/go/bin/
 export GOROOT=$HOME/go/
 export GOOS=darwin
 export GOARCH=amd64
+
+alias gs='git status'
+alias gmt='git mergetool'
+alias gca='git commit -a'
+alias gb='git branch'
+alias gpo='git push origin'
+alias gaa='git add .'
+alias gco='git checkout'
+alias glg='git log --graph'
+alias gl='git log'
