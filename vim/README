@@ -1,0 +1,6 @@
+ To install this on your own system, paste the following into the Terminal. 
+
+ git clone https://github.com/JeffreyWay/My-Vim-Repo ~/.vim
+ ln -s ~/.vim/vimrc ~/.vim
+
+ ...That's it. Let me know if you have any questions!
