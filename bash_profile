@@ -16,3 +16,5 @@ alias gaa='git add .'
 alias gco='git checkout'
 alias glg='git log --graph'
 alias gl='git log'
+
+alias cd..='cd ..'
