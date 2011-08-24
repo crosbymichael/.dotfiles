@@ -1,6 +1,0 @@
-getElementById
-getElementsByTagName
-document
-getElementsByClassName
-console.log(
-
