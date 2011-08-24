@@ -5,7 +5,7 @@
 "
 
 "Forget compatibility with Vi. Who cares.
-set nocompatible
+"set nocompatible
 
 "Enable filetypes
 filetype on
