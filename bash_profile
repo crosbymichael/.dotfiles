@@ -20,3 +20,4 @@ alias gm='git merge'
 alias gtk='gitk'
 
 alias cd..='cd ..'
+alias ls-la='ls -la'
