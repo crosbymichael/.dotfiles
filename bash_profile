@@ -26,3 +26,4 @@ alias gtk='gitk'
 
 alias cd..='cd ..'
 alias ls-la='ls -la'
+alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
