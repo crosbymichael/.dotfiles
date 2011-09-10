@@ -1,7 +1,7 @@
 "Michael Crosby crosbymichael.com
 syntax on
 set number
-colorscheme desert
+colorscheme delek
 set tabstop=4
 set shiftwidth=4
 set nocompatible
@@ -30,3 +30,6 @@ filetype plugin on
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+"key mappings
+inoremap <Nul> <C-x><C-o>
