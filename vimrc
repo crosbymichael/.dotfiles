@@ -33,3 +33,4 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 
 "key mappings
 inoremap <Nul> <C-x><C-o>
+nmap <F5> :call Run(&ft)<CR>

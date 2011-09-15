@@ -27,3 +27,12 @@ alias gtk='gitk'
 alias cd..='cd ..'
 alias ls-la='ls -la'
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+
+##
+# Your previous /Users/michael/.bash_profile file was backed up as /Users/michael/.bash_profile.macports-saved_2011-09-10_at_22:18:22
+##
+
+# MacPorts Installer addition on 2011-09-10_at_22:18:22: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
