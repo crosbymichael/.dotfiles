@@ -11,9 +11,10 @@ export GOOS=darwin
 export GOARCH=amd64
 
 
-
+#git aliases
 alias gs='git status'
 alias gmt='git mergetool'
+alias gc='git commit'
 alias gca='git commit -a'
 alias gb='git branch'
 alias gpo='git push origin'
@@ -23,6 +24,8 @@ alias glg='git log --graph'
 alias gl='git log'
 alias gm='git merge'
 alias gtk='gitk'
+alias gcl='git clone'
+
 
 alias cd..='cd ..'
 alias ls-la='ls -la'
