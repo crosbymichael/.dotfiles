@@ -10,7 +10,7 @@ set nocompatible
 "additoins
 set title
 set wildmenu
-set completeopt=menuone,longest,preview
+set completeopt=menuone,preview
 set ruler
 set cursorline
 
