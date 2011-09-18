@@ -23,6 +23,8 @@ set smartindent
 set autoindent
 set expandtab
 
+set mouse=a
+
 "For autocomplete
 "
 autocmd BufEnter * :syntax sync fromstart
