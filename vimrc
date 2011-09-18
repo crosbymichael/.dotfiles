@@ -14,6 +14,9 @@ set completeopt=menuone,preview
 set ruler
 set cursorline
 
+set hlsearch
+set incsearch
+set showmatch
 
 ""for indentions
 set smartindent
