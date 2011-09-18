@@ -23,12 +23,14 @@ set smartindent
 set autoindent
 set expandtab
 
+
+
 set mouse=a
 
 "For autocomplete
 "
 autocmd BufEnter * :syntax sync fromstart
-
+filetype on
 filetype plugin on
 
 " Python
@@ -39,3 +41,4 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 "key mappings
 inoremap <Nul> <C-x><C-o>
 nmap <F5> :call Run(&ft)<CR>
+nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
