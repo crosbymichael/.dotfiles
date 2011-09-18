@@ -5,6 +5,18 @@ Compile vim for python
 
 Add .dotfiles/bin to your PATH
 
+VIM Plugins
+---
+ctags
+pyflakes
+NERDTree
+Python Omnicomplete
+GoCode
+Go Syntax
+Tasklist
+SnipMate
+
+
 System links
 ---
 ln -s ~/.dotfiles/git/gitconfig .gitconfig
