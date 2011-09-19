@@ -39,6 +39,8 @@ au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smart
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 "key mappings
+nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F4> :Tlist<CR>
 inoremap <Nul> <C-x><C-o>
 nmap <F5> :call Run(&ft)<CR>
 nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
