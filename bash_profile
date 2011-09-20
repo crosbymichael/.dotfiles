@@ -31,7 +31,8 @@ alias utar='tar -zxvf'
 alias cd..='cd ..'
 alias ls-la='ls -la'
 
-alias vim=$HOME/.dotfiles/bin/Vim
+alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+
 
 ##
 # Your previous /Users/michael/.bash_profile file was backed up as /Users/michael/.bash_profile.macports-saved_2011-09-10_at_22:18:22
