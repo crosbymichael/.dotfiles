@@ -10,3 +10,5 @@
 	ga = add .
 	lg = log --graph
 	undo = reset --hard
+[color]
+	ui = true
