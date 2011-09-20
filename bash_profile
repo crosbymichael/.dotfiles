@@ -3,12 +3,7 @@ export CROSBY=$HOME/Projects/crosbymichael
 export OPENSOURCE=$HOME/Projects/opensource
 
 
-export PATH=$PATH:$HOME/go/bin/:$HOME/.dotfiles/bin/
-export GOBIN=$HOME/go/bin/
-export GOROOT=$HOME/go/
-export GOOS=darwin
-export GOARCH=amd64
-
+export PATH=$PATH:$HOME/.dotfiles/bin/
 
 #git aliases
 alias gs='git status'
@@ -32,7 +27,6 @@ alias cd..='cd ..'
 alias ls-la='ls -la'
 
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
-
 
 ##
 # Your previous /Users/michael/.bash_profile file was backed up as /Users/michael/.bash_profile.macports-saved_2011-09-10_at_22:18:22
