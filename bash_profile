@@ -25,6 +25,7 @@ alias utar='tar -zxvf'
 
 alias cd..='cd ..'
 alias ls-la='ls -la'
+alias cl='clear'
 
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
