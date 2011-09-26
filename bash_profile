@@ -24,8 +24,10 @@ alias ztar='tar -zcvf'
 alias utar='tar -zxvf'
 
 alias cd..='cd ..'
-alias ls-la='ls -la'
+alias lsa='ls -la'
 alias cl='clear'
+alias md='mkdir'
+alias rd='rmdir'
 
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 
