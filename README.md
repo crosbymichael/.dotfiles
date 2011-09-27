@@ -6,6 +6,16 @@ Compile vim for python
 
 Add .dotfiles/bin to your PATH
 
+Commandline Apps
+---
+Boom
+
+irssi
+
+todotxt
+
+vim 
+
 VIM Plugins
 ---
 ctags
@@ -28,6 +38,8 @@ Cocoa docs and codecompletion
 
 fugitive Git Plugin
 
+vim auto complete popup
+
 HowTo
 ---
 :TlistToggle
@@ -43,4 +55,3 @@ ln -s ~/.dotfiles/vimrc .vimrc
 ln -s ~/.dotfiles/vim .vim
 
 ln -s ~/.dofiles/todotxt/todo.cfg todo.cfg
-

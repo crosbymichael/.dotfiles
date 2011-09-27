@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pelican src/content -o . -s src/settings.py
