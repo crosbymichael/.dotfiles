@@ -1,2 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/michael/Projects/crosbymichael/TWiTLive/src/views'
+let g:netrw_dirhist_2='/Users/michael/Dropbox/my-mind/snippets'
+let g:netrw_dirhist_3='/Users/michael/Dropbox/my-mind/snippets/php'
+let g:netrw_dirhist_4='/Users/michael/Dropbox/my-mind/projects'
+let g:netrw_dirhist_5='/Users/michael/Dropbox/my-mind/snippets/html'
+let g:netrw_dirhist_6='/Users/michael/.dotfiles/vim/snippets'

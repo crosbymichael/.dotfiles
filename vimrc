@@ -18,11 +18,14 @@ set hlsearch
 set incsearch
 set showmatch
 
-""for indentions
+"for indentions
 set smartindent
 set autoindent
 set expandtab
 
+"Code folding fold with za
+set foldmethod=indent
+set nofoldenable
 
 "For autocomplete
 autocmd BufEnter * :syntax sync fromstart

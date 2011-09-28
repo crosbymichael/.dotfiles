@@ -21,7 +21,7 @@ alias gtk='gitk'
 alias gcl='git clone'
 
 alias ztar='tar -zcvf'
-alias utar='tar -zxvf'
+alias uztar='tar -zxvf'
 
 alias cd..='cd ..'
 alias lsa='ls -la'

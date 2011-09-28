@@ -1,0 +1,34 @@
+#!/usr/bin/python
+
+'''
+    Michael Crosby 2011 http://crosbymichael.com
+    This uses the google url shortener to shorten urls passed
+    via the command line and automatically copies the short 
+    url to the clipboard.
+'''
+
+
+import urllib2
+import json
+import sys
+import os
+
+url = sys.argv[1]
+shortenerURL = 'https://www.googleapis.com/urlshortener/v1/url'
+
+longURL = json.dumps({ 'longUrl' : '%s' % url })
+
+request = urllib2.Request(shortenerURL)
+
+request.add_header('Content-Type', 'application/json')
+
+opener = urllib2.build_opener()
+
+output = opener.open(request, longURL).read()
+doc = json.loads(output)
+
+short = doc['id']
+
+os.system('echo %s | pbcopy' % short)
+
+print 'The short link %s was copied to your clipboard.' % short
