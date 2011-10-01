@@ -1,10 +1,14 @@
 #!/usr/bin/python
+'''
+Performs a backup and shutdown operation whenever a thunderstorm is coming.
+
+'''
 
 import time
 import os
 
 def main():
-    os.system('say "Holy shit, a storm is coming"')
+    os.system('say "Holy shit, a thunderstorm is coming"')
     print '--------------------------------------'
     print 'Starting storm shutdown operations...'
     print '--------------------------------------'
@@ -15,10 +19,10 @@ def main():
     print 'Shutdown operations have finished.'
     print '--------------------------------------'
     print 'Remember to unplug your servers and desktops.'
-    os.system('say "Remember to unplug your servers and desktops"')
+    os.system('say "Remember to unplug your servers and desktop."')
 
 def backupDesktop(commands):
-    os.system('say "Starting to backup your files your lazy bastard"')
+    os.system('say "Starting to backup your files, you lazy bastard"')
     print '--------------------------------------'
     print 'Starting backup to servers....'
     for cmd in commands:
