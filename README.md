@@ -1,3 +1,6 @@
+##Changes
+Added my cron tab for osx to the cron folder
+
 Prereq
 ---
 port install ctags
