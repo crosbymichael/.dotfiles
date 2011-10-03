@@ -1,7 +1,7 @@
 "Michael Crosby crosbymichael.com
 syntax on
 set number
-colorscheme delek
+colorscheme slate
 set tabstop=4
 set shiftwidth=4
 set nocompatible
@@ -50,9 +50,6 @@ map <C-l> <C-W>l
 
 "Resize panes with the mouse and select text
 set mouse=a
-
-"Spell Checking
-nnoremap scp<cr> :setlocal spell<cr>
 
 "Move lines up and down
 nnoremap m2<cr> :m+2
