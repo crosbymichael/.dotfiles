@@ -19,8 +19,8 @@ set incsearch
 set showmatch
 
 "for indentions
-set smartindent
-set autoindent
+"set smartindent
+"set autoindent
 set expandtab
 
 "Code folding fold with za
