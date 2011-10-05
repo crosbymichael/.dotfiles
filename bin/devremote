@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -azv --delete -e ssh $HOME/Development/ cmrepo@crosbymichael.com:/home/cmrepo/rsync/Development
