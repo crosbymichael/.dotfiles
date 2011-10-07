@@ -1,0 +1,12 @@
+Applications
+Dropbox
+Library
+Movies
+Music
+Pictures
+Public
+go
+gocode
+.subversion
+.dropbox
+.Trash
