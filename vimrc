@@ -43,6 +43,10 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Objective C 
 au BufNewFile, BufRead *.m, *.h set ft=objc
 
+" Arduino syntax
+au BufNewFile, BufRead *.pde set ft=arduino
+
+
 "key mappings
 "----------------------------
 "Pane movement
