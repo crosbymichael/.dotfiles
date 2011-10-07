@@ -1,11 +1,16 @@
 ##Changes
 Added my cron tab for osx to the cron folder
 
+Added setup scripts to system link the dotfiles configs to your home dir.  Make sure you backup and remove the files in the setup scripts before running them or it will not work.  
+
 Prereq
 ---
 port install ctags
 
 Compile vim for python
+
+For web.py
+easy_install web
 
 Add .dotfiles/bin to your PATH
 
