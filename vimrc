@@ -40,6 +40,9 @@ au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+" Objective C 
+au BufNewFile, BufRead *.m, *.h set ft=objc
+
 "key mappings
 "----------------------------
 "Pane movement
@@ -66,5 +69,8 @@ nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
 nmap <F5> :call Run(&ft)<CR>
 "Task List toggle
 nmap <F6> :TaskList<CR>
+"Objective syntax
+nnoremap <F7> :helptags ~/.vim/doc<CR>
+
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>

@@ -19,6 +19,9 @@ todotxt
 
 vim 
 
+quicktest
+* Quickly test GET and POST request with a fast python webserver that echos back data passed
+
 VIM Plugins
 ---
 ctags
