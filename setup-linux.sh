@@ -12,3 +12,4 @@ ln -s $HOME/.dotfiles/git/gitignore $HOME/.gitignore
 echo "Setup bash configs..."
 ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
 echo "Remember to restart your bash session for the changes to appear."
+echo "Be sure to install ctags or you will get an error when starting vim"

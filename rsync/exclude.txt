@@ -9,4 +9,5 @@ go
 gocode
 .subversion
 .dropbox
-.Trash
+.Trash/*
+VirtualBox\ VMs/*

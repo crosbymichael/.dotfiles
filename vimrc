@@ -19,8 +19,8 @@ set incsearch
 set showmatch
 
 "for indentions
-"set smartindent
-"set autoindent
+set smartindent
+set autoindent
 set expandtab
 
 "Code folding fold with za
@@ -43,6 +43,8 @@ au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\
 " Objective C 
 au BufNewFile, BufRead *.m, *.h set ft=objc
 
+" Set Arduino dictionary word list
+au FileType arduino set dictionary=~/.vim/dicts/arduinowords
 
 "key mappings
 "----------------------------
