@@ -30,9 +30,11 @@ alias lsa='ls -la'
 alias cl='clear'
 alias md='mkdir'
 alias rd='rmdir'
+alias ls='ls -l'
 
 #todotxt aliases
 alias tol='todo ls'
 alias toa='todo a'
 alias tod='todo do'
 
+alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
