@@ -32,6 +32,9 @@ alias md='mkdir'
 alias rd='rmdir'
 alias ls='ls -l'
 
+alias pbc='pbcopy'
+alias pbp='pbpaste'
+
 #todotxt aliases
 alias tol='todo ls'
 alias toa='todo a'
