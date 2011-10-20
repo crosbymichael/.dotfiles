@@ -19,6 +19,8 @@ alias gtk='gitk'
 alias gcl='git clone'
 alias gp='git push'
 alias gd='git diff'
+alias gsl='git stash list'
+alias gsa='git stash apply'
 
 #Tar aliases 
 alias ztar='tar -zcvf'
