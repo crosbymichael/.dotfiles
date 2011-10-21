@@ -21,6 +21,8 @@ alias gp='git push'
 alias gd='git diff'
 alias gsl='git stash list'
 alias gsa='git stash apply'
+alias gpu='git pull'
+alias gpuo='git pull origin'
 
 #Tar aliases 
 alias ztar='tar -zcvf'
