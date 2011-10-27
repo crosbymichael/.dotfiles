@@ -3,6 +3,11 @@ Added my cron tab for osx to the cron folder
 
 Added setup scripts to system link the dotfiles configs to your home dir.  Make sure you backup and remove the files in the setup scripts before running them or it will not work.  
 
+##Automation
+Rsync to USB drive
+Rsync to server for projects
+Gmail backups
+
 Prereq
 ---
 port install ctags
@@ -16,6 +21,9 @@ Add .dotfiles/bin to your PATH
 
 Commandline Apps
 ---
+Commandline Assistant
+* Quickly see today and tomorrows events from your ical
+
 Boom
 
 irssi

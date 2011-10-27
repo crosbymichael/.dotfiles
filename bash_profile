@@ -45,12 +45,16 @@ alias toa='todo a'
 alias tod='todo do'
 
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
-echo ""
 echo "-----------------------------------------------"
 uptime
-echo ""
 echo "-----------------------------------------------"
-echo ""
 df -hl
 echo "-----------------------------------------------"
+echo "Up coming events:"
+echo "-----------------"
+CommandLineAssistant
+echo "-----------------------------------------------"
+echo "Todo Tasks:"
+echo "-----------"
+todo list
 echo ""
