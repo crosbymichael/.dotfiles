@@ -1,6 +1,3 @@
-export CROSBY=$HOME/Projects/crosbymichael
-export OPENSOURCE=$HOME/Projects/opensource
-
 export PATH=/usr/local/bin:$HOME/.dotfiles/bin/:$PATH
 
 #git aliases
