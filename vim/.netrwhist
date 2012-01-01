@@ -1,7 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/michael/Desktop/ios-tutorial/backend'
-let g:netrw_dirhist_2='/Users/michael/Dropbox/my-presentation/slides'
-let g:netrw_dirhist_3='/Users/michael/Dropbox/my-mind/projects'
-let g:netrw_dirhist_4='/Users/michael/Development/Code/ThirdParty/markdownsharp'
-let g:netrw_dirhist_5='/Users/michael/Development/Code/ThirdParty/vagranception'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/michael/Desktop/crosbymichael-codeassistant-1e67063e6878/CodeAssistant/Parameters'
