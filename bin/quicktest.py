@@ -23,6 +23,8 @@ app = web.application(urls, globals())
 class QuickRequest:
 
     def GET(self, name):
+        web.ctx.status = '401 Unauthorized'
+        return
         print 'Url passed: %s' % name
         data = web.input()
         if data:
@@ -30,6 +32,7 @@ class QuickRequest:
         else:
             encodedJSON = 'No data passed.'
         print 'Data passed: %s' % encodedJSON
+        print web.ctx.environ['HTTP_ACCEPT']
         output = 'Url passed is: %s \nrequest data is: %s ' % (name, encodedJSON)
         return output
 

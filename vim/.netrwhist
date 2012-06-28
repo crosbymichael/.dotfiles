@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/michael/Projects/backend'
 let g:netrw_dirhist_2='/Users/michael/Projects/crosbymichael/cm.com/src/theme'
 let g:netrw_dirhist_3='/Users/michael/Projects/opensource/pyder-web/src'
+let g:netrw_dirhist_4='/Users/michael/Desktop/git/xdiff'
+let g:netrw_dirhist_5='/Users/michael/Projects/monodevelop/setup'

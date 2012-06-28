@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -azv --delete -e ssh $HOME/Dropbox/Projects/ $HOME/Projects
