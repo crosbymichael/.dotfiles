@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#bootstrap a web.py application
+wget https://raw.github.com/gist/3114004/e9a1e0419e172f17d98bd0abb52e096b947b7b3b/index.py
+
+#build structure
+mkdir application
+cd application
+touch __init__.py
+
+mkdir controllers
+touch controllers/__init__.py
+
+mkdir models
+touch models/__init__.py
+
+mkdir core
+touch core/__init__.py
+
+mkdir helpers
+touch helpers/__init__.py
+
+mkdir templates
+mkdir static
+
+cd ..
+
+#create repository
+echo "*.pyc" >> .gitignore
+
+git init
+git add .
+git commit -m "Inital Commit"

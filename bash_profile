@@ -1,4 +1,5 @@
 export PATH=/usr/local/bin:$HOME/.dotfiles/bin/:$PATH
+export mysql_config=/Applications/MAMP/Library/bin/mysql_config
 
 #git aliases
 alias gs='git status'
@@ -40,6 +41,8 @@ alias pbp='pbpaste'
 alias tol='todo ls'
 alias toa='todo a'
 alias tod='todo do'
+
+alias markdown='markdown_py'
 
 echo "-----------------------------------------------"
 uptime
