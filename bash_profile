@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:$HOME/.dotfiles/bin/:$PATH
-export mysql_config=/Applications/MAMP/Library/bin/mysql_config
+#export mysql_config=/Applications/MAMP/Library/bin/mysql_config
 
 #git aliases
 alias gs='git status'
@@ -51,7 +51,7 @@ df -hl
 echo "-----------------------------------------------"
 echo "Up coming events:"
 echo "-----------------"
-CommandLineAssistant
+tCal -d 7
 echo "-----------------------------------------------"
 echo "Todo Tasks:"
 echo "-----------"
