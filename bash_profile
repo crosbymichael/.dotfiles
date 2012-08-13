@@ -1,5 +1,5 @@
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin/:$PATH
-#export mysql_config=/Applications/MAMP/Library/bin/mysql_config
+export PATH=/usr/local/bin:$HOME/.dotfiles/bin:/usr/local/go/bin:$PATH
+export GOBIN=/usr/local/go/bin
 
 #git aliases
 alias gs='git status'
@@ -10,8 +10,8 @@ alias gb='git branch'
 alias gpo='git push origin'
 alias gaa='git add .'
 alias gco='git checkout'
-alias glg='git log --graph'
-alias gl='git log'
+alias glg='git log --graph --stat --oneline --decorate'
+alias gl='git log --graph --oneline --decorate'
 alias gm='git merge'
 alias gtk='gitk'
 alias gcl='git clone'
@@ -25,6 +25,7 @@ alias gpuo='git pull origin'
 #Tar aliases 
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
+alias 7za='7z a'
 
 #Cmd line aliases
 alias cd..='cd ..'
@@ -43,6 +44,8 @@ alias toa='todo a'
 alias tod='todo do'
 
 alias markdown='markdown_py'
+
+alias search='mdfind -onlyin /'
 
 echo "-----------------------------------------------"
 uptime

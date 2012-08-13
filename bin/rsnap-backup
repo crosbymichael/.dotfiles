@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -azq --delete --exclude-from '/Users/michael/.dotfiles/rsync/exclude.txt' $HOME/ /Volumes/Expansion/iMac-Backup/
