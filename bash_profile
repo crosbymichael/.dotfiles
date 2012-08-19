@@ -12,7 +12,7 @@ alias gaa='git add .'
 alias gco='git checkout'
 alias glg='git log --graph --stat --oneline --decorate'
 alias gl='git log --graph --oneline --decorate'
-alias gm='git merge'
+alias gm='git merge --no-ff'
 alias gtk='gitk'
 alias gcl='git clone'
 alias gp='git push'
@@ -42,6 +42,10 @@ alias pbp='pbpaste'
 alias tol='todo ls'
 alias toa='todo a'
 alias tod='todo do'
+
+#Openssl Encryption
+alias encrypt='openssl aes-256-cbc -a -salt '
+alias decrypt='openssl aes-256-cbc -d -a '
 
 alias markdown='markdown_py'
 
