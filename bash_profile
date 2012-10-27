@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local:$PATH
 export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
 
 #git aliases
@@ -19,9 +19,10 @@ alias gp='git push'
 alias gd='git diff'
 alias gsl='git stash list'
 alias gsa='git stash apply'
-alias gpu='git pull'
-alias gpuo='git pull origin'
+alias gpull='git pull'
+alias gpullo='git pull origin'
 alias grls='git remote -v'
+alias clone='git clone'
 
 #Tar aliases 
 alias ztar='tar -zcvf'
