@@ -1,3 +1,5 @@
 #!/bin/bash
 
-rdiff-backup --include /Users/michael/ThirdParty --include /Users/michael/Development --include /Users/michael/Projects --include /Users/michael/Resources --exclude /Users/Shared --exclude /Users/michael /Users michael@192.168.1.7::/home/michael/osx
+rdiff-backup --include /Users/michael/ThirdParty --include /Users/michael/Development --include /Users/michael/Projects --include /Users/michael/Resources --exclude /Users/Shared --exclude /Users/michael /Users michael@192.168.1.10::/home/michael/backup/osx
+
+say "Backup complete"

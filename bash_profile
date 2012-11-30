@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local:$PATH
+export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.pypy/bin:$PATH
 export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
 
 #git aliases

@@ -1,7 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/michael/Projects/crosbymichael/gripe/gripe/src'
-let g:netrw_dirhist_2='/Users/michael/Projects/django-test/backend/tokenauth'
-let g:netrw_dirhist_3='/Users/michael/Projects/django-test/backend'
-let g:netrw_dirhist_4='/Users/michael/Projects/opensource/setup-scripts/unix'
-let g:netrw_dirhist_5='/Users/michael/Projects/crosbymichael/gripe'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/michael/ThirdParty/pypy/ctypes_configure'
+let g:netrw_dirhist_2='/Users/michael/ThirdParty/typescript/src'
+let g:netrw_dirhist_3='/Users/michael/Projects/crosbymichael/codeassistant/reports'
