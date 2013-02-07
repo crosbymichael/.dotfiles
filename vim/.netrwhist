@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/michael/ThirdParty/pypy/ctypes_configure'
-let g:netrw_dirhist_2='/Users/michael/ThirdParty/typescript/src'
-let g:netrw_dirhist_3='/Users/michael/Projects/crosbymichael/codeassistant/reports'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/michael/Projects/opensource/django-guardian'
+let g:netrw_dirhist_2='/Users/michael/ThirdParty/django'
+let g:netrw_dirhist_3='/Users/michael/Projects/freelance/beerfridge/.env/lib/python2.7/site-packages'
+let g:netrw_dirhist_4='/Users/michael/Projects/freelance/beerfridge/.env/lib/python2.7/site-packages/django_guardian-1.0.5.dev-py2.7.egg/guardian'
+let g:netrw_dirhist_5='/Users/michael/Projects/opensource/django/django/utils'
+let g:netrw_dirhist_6='/Users/michael'
+let g:netrw_dirhist_7='/Users/michael/Projects/crosbymichael/cm.com/src'
