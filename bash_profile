@@ -56,6 +56,7 @@ alias decrypt='openssl aes-256-cbc -d -a '
 alias pychecker='pychecker -L 50 -R 4 -J 6 '
 alias markdown='markdown_py'
 alias createenv='virtualenv --no-site-packages '
+alias notebook='ipython notebook --pylab=inline'
 
 #Spotlight search
 alias search='mdfind -onlyin /'
