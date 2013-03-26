@@ -78,3 +78,5 @@ nnoremap <F7> :helptags ~/.vim/doc<CR>
 
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>
+
+

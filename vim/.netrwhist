@@ -1,2 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/michael/Projects/opensource/django-businessrules/businessrules'
+let g:netrw_dirhist_2='/Users/michael/Projects/random/django/django-backbone-example/backbone_example/tweets'
+let g:netrw_dirhist_3='/Users/michael/Projects/random/django/django-backbone-example/backbone_example'
