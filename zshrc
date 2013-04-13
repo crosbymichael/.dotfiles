@@ -37,9 +37,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.pypy/bin:$PATH
+export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.local/pypy/bin:$HOME/go/bin:$HOME/gocode/bin:$PATH
 export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
+export GOROOT=$HOME/go
+export GOPATH=$HOME/gocode
 
 #git aliases
 alias gs='git status'
@@ -100,10 +102,11 @@ alias createenv='virtualenv --no-site-packages '
 #Spotlight search
 alias search='mdfind -onlyin /'
 
+#Golang
+alias godebug='go build -gcflags "-N -l"'
+alias godocserver='godoc -http=:6000'
 
 ##Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig
