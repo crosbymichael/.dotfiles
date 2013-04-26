@@ -80,3 +80,8 @@ nnoremap <F7> :helptags ~/.vim/doc<CR>
 inoremap <Nul> <C-x><C-o>
 
 call pathogen#infect()
+
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+autocmd VimEnter * wincmd w
