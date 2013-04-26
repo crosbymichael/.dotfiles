@@ -5,7 +5,7 @@ colorscheme mac_classic
 set tabstop=4
 set shiftwidth=4
 set nocompatible
-set guifont=Source\ Code\ Pro\ 13
+set guifont=Source\ Code\ Pro\ 12
 
 "additoins
 set title
@@ -46,6 +46,8 @@ au BufNewFile, BufRead *.m, *.h set ft=objc
 " Set Arduino dictionary word list
 au FileType arduino set dictionary=~/.vim/dicts/arduinowords
 
+autocmd FileType go compiler golang
+let g:golang_goroot = "/Users/michael/go"
 
 "key mappings
 "----------------------------
