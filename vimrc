@@ -5,7 +5,7 @@ colorscheme mac_classic
 set tabstop=4
 set shiftwidth=4
 set nocompatible
-
+set guifont=Source\ Code\ Pro\ 13
 
 "additoins
 set title
@@ -79,4 +79,4 @@ nnoremap <F7> :helptags ~/.vim/doc<CR>
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>
 
-
+call pathogen#infect()
