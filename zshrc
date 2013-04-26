@@ -104,9 +104,13 @@ alias search='mdfind -onlyin /'
 
 #Golang
 alias godebug='go build -gcflags "-N -l"'
-alias godocserver='godoc -http=:6000'
+alias godocserver='godoc -http=:8111'
 
 ##Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig
+export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig:/Users/michael/.local/lib/pkgconfig:$PKG_CONFIG_PATH
+alias buildall='go build . ./...'
+alias installall='go install . ./...'
+
+export GOBIN=$HOME/go/bin

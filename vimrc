@@ -1,7 +1,7 @@
 "Michael Crosby crosbymichael.com
 syntax on
 set number
-colorscheme slate
+colorscheme mac_classic
 set tabstop=4
 set shiftwidth=4
 set nocompatible
@@ -10,7 +10,7 @@ set nocompatible
 "additoins
 set title
 set wildmenu
-set completeopt=menuone,preview
+set completeopt=menuone
 set ruler
 set cursorline
 
