@@ -1,7 +1,7 @@
 "Michael Crosby crosbymichael.com
 syntax on
 set number
-colorscheme mac_classic
+"colorscheme mac_classic
 set tabstop=4
 set shiftwidth=4
 set nocompatible
@@ -90,3 +90,15 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
 autocmd VimEnter * wincmd w
+
+" For local replace
+nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
+"
+" " For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+set background=dark
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme candycode
