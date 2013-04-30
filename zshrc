@@ -37,7 +37,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/michael/.local/depot_tools
 export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.local/pypy/bin:$HOME/go/bin:$HOME/gocode/bin:$PATH
 export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
 export GOROOT=$HOME/go
@@ -114,3 +114,6 @@ alias buildall='go build . ./...'
 alias installall='go install . ./...'
 
 export GOBIN=$HOME/go/bin
+
+
+cat /Users/michael/.dotfiles/shark.txt

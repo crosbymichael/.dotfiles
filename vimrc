@@ -1,11 +1,10 @@
 "Michael Crosby crosbymichael.com
 syntax on
 set number
-"colorscheme mac_classic
 set tabstop=4
 set shiftwidth=4
 set nocompatible
-set guifont=Source\ Code\ Pro\ 12
+set guifont=Ubuntu\ Mono:s14
 
 "additoins
 set title
@@ -46,8 +45,8 @@ au BufNewFile, BufRead *.m, *.h set ft=objc
 " Set Arduino dictionary word list
 au FileType arduino set dictionary=~/.vim/dicts/arduinowords
 
-autocmd FileType go compiler golang
-let g:golang_goroot = "/Users/michael/go"
+"autocmd FileType go compiler golang
+"let g:golang_goroot = "/Users/michael/go"
 
 "key mappings
 "----------------------------
@@ -83,13 +82,23 @@ inoremap <Nul> <C-x><C-o>
 
 "Shortcuts
 abbrev chrome :! open -a google\ chrome.app %:p<cr>
+abbrev spell setlocal spell spelllang=en_us<CR>
+
+" go fmt on save
+autocmd BufWritePre *.go Fmt
 
 call pathogen#infect()
 
+" Start NERDTree on startup
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
-
 autocmd VimEnter * wincmd w
+
+" Go Run
+map <buffer> <S-e> :w<CR>:!go run % <CR>
+map <buffer> <S-b> :w<CR>:!go build % <CR>
+"
+"let g:script_runner_go = 'go run %:p'
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
@@ -97,8 +106,12 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 " " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
+"For a better popup
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme candycode
+
