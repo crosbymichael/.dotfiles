@@ -1,0 +1,18 @@
+[submodule "vim/bundle/colorscheme"]
+	path = vim/bundle/colorscheme
+	url = git://github.com/flazz/vim-colorschemes.git
+[submodule "vim/bundle/puppet-syntax"]
+	path = vim/bundle/puppet-syntax
+	url = git://github.com/puppetlabs/puppet-syntax-vim.git
+[submodule "vim/bundle/coffee-script"]
+	path = vim/bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/gitgutter"]
+	path = vim/bundle/gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
