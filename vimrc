@@ -107,7 +107,14 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 "For a better popup
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 set background=dark
 let g:solarized_termcolors = 256

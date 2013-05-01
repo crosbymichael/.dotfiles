@@ -8,7 +8,7 @@ snippet import
 		"${1}"
 	)
 snippet func
-	func ${1:name}(${2}) ${3}{
+	func ${1:name}(${2}) ${3} {
 		${4}
 	}
 snippet for
@@ -32,10 +32,24 @@ snippet iferr
 		${1}
 	}
 snippet meth
-	func (${1:t} *${2}) ${3:name}(${4}) ${5}{
-			$0
+	func (${1:t} *${2}) ${3:name}(${4}) ${5} {
+		${6}
 	}
 snippet pack
 	package ${1:main}
 snippet app
 	${1} = append(${1:slice}, ${2})
+snippet elif
+	if ${1} {
+		${2}
+	} else {
+		${3}
+	}
+snippet else
+	 else {
+		 ${1}
+	 }
+snippet range
+	for _, ${1} := range ${2} {
+		${3}
+	}
