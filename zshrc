@@ -37,9 +37,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/michael/.local/depot_tools
+export PATH=/usr/local/heroku/bin:/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$HOME/.local/depot_tools
 export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.local/pypy/bin:$HOME/go/bin:$HOME/gocode/bin:$PATH
-export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
 
@@ -66,7 +65,7 @@ alias gpullo='git pull origin'
 alias grls='git remote -v'
 alias clone='git clone'
 
-#Tar aliases 
+#Tar aliases
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
 alias 7za='7z a'
@@ -78,12 +77,6 @@ alias cl='clear'
 alias md='mkdir'
 alias rd='rmdir'
 alias ls='ls -lhG'
-
-alias sublime='open -a "Sublime Text 2"'
-alias pbc='pbcopy'
-alias pbp='pbpaste'
-
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 #todotxt aliases
 alias tol='todo ls'
@@ -109,11 +102,22 @@ alias godocserver='godoc -http=:8111'
 ##Colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig:/Users/michael/.local/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
+
 alias buildall='go build . ./...'
 alias installall='go install . ./...'
 
 export GOBIN=$HOME/go/bin
 
+#OSX specific config
+case `uname` in
+    Darwin)
+    export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig:$PKG_CONFIG_PATH
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias sublime='open -a "Sublime Text 2"'
+    alias pbc='pbcopy'
+    alias pbp='pbpaste'
+    ;;
+esac
 
-cat /Users/michael/.dotfiles/shark.txt
+cat $HOME/.dotfiles/shark.txt
