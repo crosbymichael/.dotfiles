@@ -1,4 +1,6 @@
 "Michael Crosby crosbymichael.com
+set shell=/bin/bash
+
 syntax on
 set number
 set tabstop=4
