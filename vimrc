@@ -1,5 +1,4 @@
 "Michael Crosby crosbymichael.com
-set shell=/bin/bash
 
 syntax on
 set number
