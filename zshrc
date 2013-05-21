@@ -93,7 +93,7 @@ alias markdown='markdown_py'
 alias createenv='virtualenv --no-site-packages '
 
 #Spotlight search
-alias search='mdfind -onlyin /'
+alias search='mdfind -onlyin .'
 
 #Golang
 alias godebug='go build -gcflags "-N -l"'

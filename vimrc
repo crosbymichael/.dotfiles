@@ -36,6 +36,8 @@ set nofoldenable
 
 "For autocomplete
 autocmd BufEnter * :syntax sync fromstart
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 "Pugins
 filetype on
@@ -113,6 +115,8 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 "
 " " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 "For a better popup
 "
