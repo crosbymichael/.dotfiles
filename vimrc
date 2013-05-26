@@ -8,10 +8,10 @@ set nocompatible
 set guifont=Ubuntu\ Mono:s14
 
 if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Linux"
-        set backspace=2
-    endif
+  let s:uname = system("uname")
+  if s:uname == "Linux\n"
+    set backspace=2
+  endif
 endif
 
 "additoins
