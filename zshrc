@@ -30,14 +30,28 @@ source $ZSH/oh-my-zsh.sh
 # -------------------------------------- #
 # --------------Exports----------------- #
 
-export PATH=/usr/local/heroku/bin:/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$HOME/.local/depot_tools
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.local/pypy/bin:$HOME/go/bin:$HOME/gocode/bin:$PATH
+path=(
+    $path
+    ~/go/bin
+    ~/gocode/bin
+    /usr/local/heroku/bin
+    /usr/local/bin
+    ~/.dotfiles/bin
+    ~/.local/bin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+    /opt/X11/bin
+    ~/.local/depot_tools
+)
+
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
+export GOBIN=$HOME/go/bin
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
-export GOBIN=$HOME/go/bin
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
