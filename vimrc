@@ -1,16 +1,23 @@
 "Michael Crosby crosbymichael.com
+
 syntax on
 set number
-colorscheme slate
 set tabstop=4
 set shiftwidth=4
 set nocompatible
+set guifont=Ubuntu\ Mono:s14
 
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Linux"
+        set backspace=2
+    endif
+endif
 
 "additoins
 set title
 set wildmenu
-set completeopt=menuone,preview
+set completeopt=longest,menuone
 set ruler
 set cursorline
 
@@ -29,6 +36,8 @@ set nofoldenable
 
 "For autocomplete
 autocmd BufEnter * :syntax sync fromstart
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 "Pugins
 filetype on
@@ -46,6 +55,8 @@ au BufNewFile, BufRead *.m, *.h set ft=objc
 " Set Arduino dictionary word list
 au FileType arduino set dictionary=~/.vim/dicts/arduinowords
 
+"autocmd FileType go compiler golang
+"let g:golang_goroot = "/Users/michael/go"
 
 "key mappings
 "----------------------------
@@ -79,4 +90,47 @@ nnoremap <F7> :helptags ~/.vim/doc<CR>
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>
 
+"Shortcuts
+abbrev chrome :! open -a google\ chrome.app %:p<cr>
+abbrev spell setlocal spell spelllang=en_us<CR>
+
+" go fmt on save
+autocmd BufWritePre *.go Fmt
+
+call pathogen#infect()
+
+" Start NERDTree on startup
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
+
+" Go Run
+map <buffer> <S-e> :w<CR>:!go run % <CR>
+map <buffer> <S-b> :w<CR>:!go build % <CR>
+"
+"let g:script_runner_go = 'go run %:p'
+
+" For local replace
+nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
+"
+" " For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
+"For a better popup
+"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+set background=dark
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme candycode
 

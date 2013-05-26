@@ -1,6 +1,0 @@
-SHELL=/bin/bash
-HOME=/Users/michael
-PATH=/usr/bin:/Users/michael/.dotfiles/bin:/bin
-
-0,30 * * * * say "Time for a break."
-0 * * * * proremote

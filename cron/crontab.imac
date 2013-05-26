@@ -1,5 +1,0 @@
-SHELL=/bin/bash
-HOME=/Users/michael
-PATH=/usr/bin:/Users/michael/.dotfiles/bin:/bin
-
-0 * * * * proremote

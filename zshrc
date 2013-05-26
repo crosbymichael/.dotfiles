@@ -1,15 +1,6 @@
-# Path to your oh-my-zsh configuration.
+
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ZSH_THEME="random"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -32,18 +23,39 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git virtualenv python golang)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/Users/michael/.dotfiles/bin:/Users/michael/.local/bin:/Users/michael/.pypy/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
-export PATH=/usr/local/bin:$HOME/.dotfiles/bin:$HOME/.local/bin:$HOME/.local/pypy/bin:$HOME/go/bin:$HOME/gocode/bin:$PATH
-export BETTER_TODO_LIST=$HOME/Dropbox/better-todo.md
+# -------------------------------------- #
+# --------------Exports----------------- #
+
+path=(
+    $path
+    ~/go/bin
+    ~/gocode/bin
+    /usr/local/heroku/bin
+    /usr/local/bin
+    ~/.dotfiles/bin
+    ~/.local/bin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+    /opt/X11/bin
+    ~/.local/depot_tools
+)
+
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gocode
+export GOBIN=$HOME/go/bin
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 
-#git aliases
+# -------------------------------------- #
+# --------------Aliases----------------- #
+
 alias gs='git status'
 alias gmt='git mergetool'
 alias gc='git commit'
@@ -66,12 +78,9 @@ alias gpullo='git pull origin'
 alias grls='git remote -v'
 alias clone='git clone'
 
-#Tar aliases 
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
 alias 7za='7z a'
-
-#Cmd line aliases
 alias cd..='cd ..'
 alias lsa='ls -lahG'
 alias cl='clear'
@@ -79,34 +88,30 @@ alias md='mkdir'
 alias rd='rmdir'
 alias ls='ls -lhG'
 
-alias sublime='open -a "Sublime Text 2"'
-alias pbc='pbcopy'
-alias pbp='pbpaste'
-
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-#todotxt aliases
-alias tol='todo ls'
-alias toa='todo a'
-alias tod='todo do'
-
-#Openssl Encryption
 alias encrypt='openssl aes-256-cbc -a -salt '
 alias decrypt='openssl aes-256-cbc -d -a '
 
-#Python
 alias pychecker='pychecker -L 50 -R 4 -J 6 '
 alias markdown='markdown_py'
 alias createenv='virtualenv --no-site-packages '
 
-#Spotlight search
-alias search='mdfind -onlyin /'
-
-#Golang
 alias godebug='go build -gcflags "-N -l"'
-alias godocserver='godoc -http=:6000'
+alias godocserver='godoc -http=:8111'
+alias buildall='go build . ./...'
+alias installall='go install . ./...'
 
-##Colors
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig
+# ---------------OSX------------------- #
+
+case `uname` in
+    Darwin)
+    export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig:$PKG_CONFIG_PATH
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias sublime='open -a "Sublime Text 2"'
+    alias pbc='pbcopy'
+    alias pbp='pbpaste'
+    alias search='mdfind -onlyin .'
+    ;;
+esac
+
+cat $HOME/.dotfiles/shark.txt
+
