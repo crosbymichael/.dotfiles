@@ -1,0 +1,50 @@
+{
+  "dependencies": [
+    {
+      "version_requirement": ">= 0.1.6",
+      "name": "puppetlabs/stdlib"
+    }
+  ],
+  "checksums": {
+    "manifests/resource/upstream.pp": "21f63a855573e79b6384b637ab753b3c",
+    "manifests/params.pp": "41fab4b36733cf407259171496ea82d6",
+    "tests/vhost.pp": "e05700013a512897afa39fe1e6c19f52",
+    "templates/vhost/vhost_location_proxy.erb": "b9fec7740432a4c492954640586b51d0",
+    "templates/conf.d/upstream.erb": "65e541f63df1d566c2f3628282c7f29e",
+    "templates/conf.d/proxy.conf.erb": "812097fdc3792b68dfd5ffc8ae36b8a5",
+    "templates/conf.d/nginx.conf.erb": "db572b24f22aaeba3727f7cb5da88372",
+    "manifests/package.pp": "b177238abddbbaf344f77e193855f94a",
+    "manifests/resource/location.pp": "2b14238d36ebb544142c897b9e822380",
+    "LICENSE": "86a0725dcd00b87b9929258039db566c",
+    "tests/upstream.pp": "c64fcbcb7b449d412b49cfb10a1297b6",
+    "README": "d41d8cd98f00b204e9800998ecf8427e",
+    "manifests/package/redhat.pp": "14d930360807bf51033278c27b0042aa",
+    "manifests/config.pp": "e5e939a58d5a1fd8a3a40e6d6aa95ddc",
+    "tests/vhost_ssl.erb": "06d4999eec451008c0a956f41088e642",
+    "templates/vhost/vhost_header.erb": "7397adf5cef8c86dc39b6a4960cadb3d",
+    "manifests/service.pp": "194e04beb9d7392d877d8d21c7fdfa41",
+    "manifests/resource/vhost.pp": "10cd84125e0374e5d37626e5b2a1ab31",
+    "tests/init.pp": "abff9e39385032b546dfaf89c8492aa6",
+    "templates/vhost/vhost_location_directory.erb": "fcd97f3048b8a291d2afb609c2714687",
+    "templates/vhost/vhost_ssl_header.erb": "48a1826e37730ac49e50c7dfe15d17d9",
+    "README.markdown": "e5b0c5992cb7796ae07c9ec4ab7dc7b5",
+    "manifests/package/suse.pp": "79082f365f817b3e708ef058af360e32",
+    "metadata.json": "d34d0b70aba36510fbc2df4e667479ef",
+    "manifests/package/debian.pp": "e64807f6b6f28545bebec75d73e9714d",
+    "ChangeLog": "92cb1e2fac43c0e6f733ee8a8384bd2f",
+    "templates/vhost/vhost_footer.erb": "7d9d25f71cb8a5aba86202540a20d405",
+    "Modulefile": "1a420245ad02df902d2151f81e4473d8",
+    "manifests/init.pp": "0eade77e177aab264517f547f493efc1"
+  },
+  "project_page": "http://github.com/puppetlabs/puppetlabs-nginx",
+  "author": "puppetlabs",
+  "source": "http://github.com/puppetlabs/puppetlabs-nginx",
+  "types": [
+
+  ],
+  "summary": "Puppet NGINX management module",
+  "license": "Apache License Version 2.0",
+  "name": "puppetlabs-nginx",
+  "version": "0.0.1",
+  "description": "This module can be used for basic NGINX Management"
+}

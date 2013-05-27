@@ -1,0 +1,5 @@
+puppet-module-supervisor (1.0.0) stable; urgency=low
+
+  * Initial release.
+
+ -- Paul Lathrop <plathrop@digg.com>  Mon, 03 May 2010 17:33:15 -0700

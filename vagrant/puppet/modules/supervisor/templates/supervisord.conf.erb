@@ -1,0 +1,42 @@
+[unix_http_server]
+file=/var/run/supervisor.sock   ; (the path to the socket file)
+
+<% if enable_inet_server -%>
+[inet_http_server]
+port=<%= inet_server_port %>
+<% if @inet_server_user && @inet_server_pass -%>
+user=<%= inet_server_user %>
+pass=<%= inet_server_pass %>
+<% end -%>
+<% end -%>
+
+[supervisord]
+logfile=<%= logfile %>                      ; (main log file;default $CWD/supervisord.log)
+logfile_maxbytes=<%= logfile_maxbytes %>    ; (max main logfile bytes b4 rotation;default 50MB)
+logfile_backups=<%= logfile_backups %>      ; (num of main logfile rotation backups;default 10)
+loglevel=<%= log_level %>                    ; (log level;default info; others: debug,warn,trace)
+pidfile=/var/run/supervisord.pid            ; (supervisord pidfile;default supervisord.pid)
+nodaemon=false                              ; (start in foreground if true;default false)
+minfds=<%= minfds %>                        ; (min. avail startup file descriptors;default 1024)
+minprocs=<%= minprocs %>                    ; (min. avail process descriptors;default 200)
+childlogdir=<%= childlogdir %>              ; ('AUTO' child log dir, default $TEMP)
+nocleanup=<%= nocleanup %>
+umask=<%= umask %>
+<% if @user -%>
+user=<%= user %>
+<% end -%>
+<% if @supervisor_environment -%>
+environment=<%= supervisor_environment %>
+<% end -%>
+<% if @identifier -%>
+identifier=<%= identifier %>
+<% end -%>
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
+
+[include]
+files = <%= scope.lookupvar('supervisor::params::conf_dir') -%>/*.ini
