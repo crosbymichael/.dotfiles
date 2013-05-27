@@ -6,6 +6,9 @@ all:
 go:
 	go build -o bin/server bin/server.go
 
+python:
+	install/python.sh
+
 # Install the dot files via sys links
 install:
 	ln -s $HOME/.dotfiles/vim $HOME/.vim
