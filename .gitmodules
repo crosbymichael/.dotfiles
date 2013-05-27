@@ -19,3 +19,6 @@
 [submodule "vim/syntax/snipmate-snippets"]
 	path = vim/syntax/snipmate-snippets
 	url = git://github.com/scrooloose/snipmate-snippets.git
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = git://github.com/leafgarland/typescript-vim.git
