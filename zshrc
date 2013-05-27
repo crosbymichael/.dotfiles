@@ -111,5 +111,5 @@ case `uname` in
     ;;
 esac
 
-cat $HOME/.dotfiles/shark.txt
+cat $HOME/.dotfiles/southpark.txt
 

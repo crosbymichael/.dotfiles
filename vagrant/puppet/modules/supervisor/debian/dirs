@@ -1,0 +1,5 @@
+usr/share/puppet/modules
+usr/share/puppet/modules/supervisor
+usr/share/puppet/modules/supervisor/files
+usr/share/puppet/modules/supervisor/manifests
+usr/share/puppet/modules/supervisor/templates

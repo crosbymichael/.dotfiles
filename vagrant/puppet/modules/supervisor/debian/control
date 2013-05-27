@@ -1,0 +1,12 @@
+Source: puppet-module-supervisor
+Section: misc
+Priority: extra
+Maintainer: Paul Lathrop <plathrop@digg.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: puppet-module-supervisor
+Architecture: all
+Depends: puppet-common
+Description: Puppet module for configuring the supervisor daemon tool.
+ Puppet module for configuring the supervisor daemon tool.

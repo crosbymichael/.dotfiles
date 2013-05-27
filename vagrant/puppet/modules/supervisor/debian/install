@@ -1,0 +1,4 @@
+README.rst metadata.json usr/share/puppet/modules/supervisor
+files/logrotate files/supervisord.conf usr/share/puppet/modules/supervisor/files
+manifests/init.pp manifests/service.pp usr/share/puppet/modules/supervisor/manifests
+templates/service.ini.erb usr/share/puppet/modules/supervisor/templates

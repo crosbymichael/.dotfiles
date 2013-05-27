@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+    config.vm.box = "precise64"
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+    #Nginx
+    config.vm.forward_port 80, 8000
+
+    #RethinkDB
+    #config.vm.forward_port 28015, 28015
+
+    #Rethinkdb UI
+    #config.vm.forward_port 8080, 8080
+
+    #config.vm.share_folder "projects", "/home/vagrant/dockerci", "app"
+
+    config.vm.provision :shell, :inline => "apt-get update; apt-get install -y puppet"
+
+    config.vm.provision :puppet do |puppet|
+        puppet.manifests_path = "manifests"
+        puppet.manifest_file  = "provision.pp"
+        puppet.module_path = "puppet/modules"
+    end
+end
