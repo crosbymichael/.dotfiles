@@ -28,3 +28,9 @@
 [submodule "vim/bundle/html5.vim"]
 	path = vim/bundle/html5.vim
 	url = git://github.com/othree/html5.vim.git
+[submodule "vim/bundle/autocomplpop"]
+	path = vim/bundle/autocomplpop
+	url = git://github.com/dirkwallenstein/vim-autocomplpop.git
+[submodule "vim/bundle/colorschemes"]
+	path = vim/bundle/colorschemes
+	url = git://github.com/flazz/vim-colorschemes.git
