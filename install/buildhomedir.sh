@@ -6,6 +6,7 @@ mkdir -p ~/temp
 mkdir -p ~/development/gocode
 mkdir -p ~/development/opensource
 mkdir -p ~/development/projects/archive
+mkdir -p ~/development/projects/support
 mkdir -p ~/development/projects/current
 mkdir -p ~/development/vm
 mkdir -p ~/development/playground/code/go

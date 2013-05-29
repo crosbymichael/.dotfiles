@@ -1,13 +1,11 @@
 #!/bin/bash
 
 rdiff-backup \
---include /Users/michael/gocode \
 --include /Users/michael/Movies \
 --include /Users/michael/Documents \
 --include /Users/michael/Desktop \
 --include /Users/michael/Boxes \
 --include /Users/michael/Pictures \
---include /Users/michael/Projects \
 --include /Users/michael/Resources \
 --include /Users/michael/development \
 --exclude /Users/Shared \
