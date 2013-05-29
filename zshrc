@@ -32,6 +32,7 @@ path=(
     ~/development/gocode/bin
     /usr/local/heroku/bin
     /usr/local/bin
+    /usr/local/go/bin
     ~/.dotfiles/bin
     ~/.local/bin
     /usr/bin

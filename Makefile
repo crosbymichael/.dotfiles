@@ -9,6 +9,9 @@ go:
 python:
 	install/python.sh
 
+init:
+	git submodule update --init --recursive
+
 # Install the dot files via sys links
 install:
 	ln -s $HOME/.dotfiles/vim $HOME/.vim
