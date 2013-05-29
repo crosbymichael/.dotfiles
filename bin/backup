@@ -9,6 +9,7 @@ rdiff-backup \
 --include /Users/michael/Pictures \
 --include /Users/michael/Projects \
 --include /Users/michael/Resources \
+--include /Users/michael/development \
 --exclude /Users/Shared \
 --exclude /Users/michael \
 /Users \
