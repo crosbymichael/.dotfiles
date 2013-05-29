@@ -20,7 +20,7 @@ ZSH_THEME="sporty_256"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(git virtualenv python golang vagrant)
+plugins=(git virtualenv python golang vagrant brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,8 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 path=(
     $path
-    ~/go/bin
-    ~/gocode/bin
+    ~/development/gocode/bin
     /usr/local/heroku/bin
     /usr/local/bin
     ~/.dotfiles/bin
@@ -43,9 +42,9 @@ path=(
     ~/.local/depot_tools
 )
 
-export GOROOT=$HOME/go
-export GOPATH=$HOME/gocode
-export GOBIN=$HOME/go/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/development/gocode
+export GOBIN=/usr/local/go/bin
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
@@ -85,6 +84,7 @@ alias cl='clear'
 alias md='mkdir'
 alias rd='rmdir'
 alias ls='ls -lhG'
+alias back='popd'
 
 alias encrypt='openssl aes-256-cbc -a -salt '
 alias decrypt='openssl aes-256-cbc -d -a '
@@ -111,5 +111,5 @@ case `uname` in
     ;;
 esac
 
-cat $HOME/.dotfiles/southpark.txt
+cat $HOME/.dotfiles/minotuar.txt
 

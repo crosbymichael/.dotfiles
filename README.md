@@ -1,76 +1,45 @@
-##Changes
-Added my cron tab for osx to the cron folder
+Common dotfiles for your ~nix environment.  This project includes everything that I need to setup a machine with my development environment and tools.  This assumes you use zsh for your shell.
 
 Added setup scripts to system link the dotfiles configs to your home dir.  Make sure you backup and remove the files in the setup scripts before running them or it will not work.  
 
-##Automation
-Rsync to USB drive
-Rsync to server for projects
-Gmail backups
+##Zsh and scripts:
+* Ubuntu Mono font
+* Git aliases
+* Global git ignore
+* Bootstrap scripts
+* Backup scripts
+* SSH scripts
+* File server
+* Url shortener
+* ssh tunnel
+* tCal
+* zsh aliases
 
-Prereq
----
-port install ctags
+##Vim Plugins:
+* Pathogen
+* Golang
+* taglist
+* snipmate
+* tasklist
+* nerd tree
+* fugitive
+* pydoc
+* Lots of themes
+* Coffeescript
+* Typescript
+* less
+* puppet
+* markdown
+* gitgutter
+* html5
 
-Compile vim for python
+##Dev ops:
+* Vagrant base file
+* Puppet modules and common manifests
 
-For web.py
-easy_install web
-
-Add .dotfiles/bin to your PATH
-
-Commandline Apps
----
-Commandline Assistant
-* Quickly see today and tomorrows events from your ical
-
-Boom
-
-irssi
-
-todotxt
-
-vim 
-
-quicktest
-* Quickly test GET and POST request with a fast python webserver that echos back data passed
-
-VIM Plugins
----
-ctags
-
-pyflakes
-
-NERDTree
-
-Python Omnicomplete
-
-GoCode
-
-Go Syntax
-
-Tasklist
-
-SnipMate
-
-Cocoa docs and codecompletion
-
-fugitive Git Plugin
-
-vim auto complete popup
-
-HowTo
----
-:TlistToggle
-:NERDTreeToggle
-:helptags ~/.vim/doc/
-
-System links
----
-ln -s ~/.dotfiles/git/gitconfig .gitconfig
-
-ln -s ~/.dotfiles/vimrc .vimrc
-
-ln -s ~/.dotfiles/vim .vim
-
-ln -s ~/.dofiles/todotxt/todo.cfg todo.cfg
+##Dev:
+* Gocode
+* gdb
+* zeroMQ
+* pip
+* virtualenv
