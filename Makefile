@@ -12,6 +12,11 @@ python:
 init:
 	git submodule update --init --recursive
 
+update:
+	git pull origin master
+	init
+	go
+
 # Install the dot files via sys links
 install:
 	ln -s $HOME/.dotfiles/vim $HOME/.vim
@@ -20,4 +25,4 @@ install:
 	ln -s $HOME/.dotfiles/git/gitignore_global $HOME/.gitignore_global
 	ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 
-.PHONY: all go install
+.PHONY: all go install init update python

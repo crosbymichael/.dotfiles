@@ -99,6 +99,8 @@ alias godocserver='godoc -http=:8111'
 alias buildall='go build . ./...'
 alias installall='go install . ./...'
 
+alias dock='docker -H="192.168.1.9:4243"'
+
 # ---------------OSX------------------- #
 
 case `uname` in

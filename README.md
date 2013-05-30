@@ -43,3 +43,6 @@ Added setup scripts to system link the dotfiles configs to your home dir.  Make 
 * zeroMQ
 * pip
 * virtualenv
+
+##Docker Container images:
+* Cloud9
