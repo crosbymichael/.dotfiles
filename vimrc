@@ -128,6 +128,9 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Powerline
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"

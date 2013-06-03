@@ -24,5 +24,6 @@ install:
 	ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
 	ln -s $HOME/.dotfiles/git/gitignore_global $HOME/.gitignore_global
 	ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+	ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 
 .PHONY: all go install init update python
