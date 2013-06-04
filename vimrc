@@ -137,3 +137,9 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme 256-jungle
 
+" Go linter
+function! s:GoLint()
+    cexpr system("golint " . shellescape(expand('%')))
+    copen
+endfunction
+command! GoLint :call s:GoLint()

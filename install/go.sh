@@ -13,3 +13,6 @@ fi
 tar -zxvf go.tar.gz -C /usr/local
 
 rm go.tar.gz
+
+go get github.com/golang/lint/golint
+go get github.com/nsf/gocode
