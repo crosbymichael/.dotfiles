@@ -17,6 +17,12 @@ update:
 	init
 	go
 
+font:
+	mkdir /usr/local/share/fonts/crosbymichael
+	cp $HOME/.dotfiles/fonts/*.ttf /usr/local/share/fonts/crosbymichael/
+	sudo chown -r root /usr/local/share/fonts/
+	fc-cache
+
 # Install the dot files via sys links
 install:
 	ln -s $HOME/.dotfiles/vim $HOME/.vim
@@ -26,4 +32,4 @@ install:
 	ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 	ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 
-.PHONY: all go install init update python
+.PHONY: all go install init update python font
