@@ -101,6 +101,10 @@ alias installall='go install . ./...'
 
 alias dock='docker -H="192.168.1.9:4243"'
 
+alias up='vagrant up'
+alias noup='vagrant up --no-provision'
+alias down='vagrant halt'
+
 # ---------------OSX------------------- #
 
 case `uname` in

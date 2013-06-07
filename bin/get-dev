@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Getting playground..."
+
+rsync -azv --delete -e ssh michael@code-assistant.com:/home/michael/development/playground/ $HOME/development/playground/
+
+echo "Getting projects..."
+
+rsync -azv --delete -e ssh michael@code-assistant.com:/home/michael/development/projects/ $HOME/development/projects/
+
+echo "Getting vm..."
+
+rsync -azv --delete -e ssh michael@code-assistant.com:/home/michael/development/vm/ $HOME/development/vm/
+
+echo "Getting opensource..."
+
+rsync -azv --delete -e ssh michael@code-assistant.com:/home/michael/development/opensource/ $HOME/development/opensource/
+
