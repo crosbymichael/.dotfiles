@@ -105,6 +105,8 @@ alias up='vagrant up'
 alias noup='vagrant up --no-provision'
 alias down='vagrant halt'
 
+alias attach='tmux attach-session -t 0'
+
 # ---------------OSX------------------- #
 
 case `uname` in
