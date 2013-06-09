@@ -75,25 +75,18 @@ nnoremap m1<cr> :m+
 nnoremap m-2<cr> :m-2
 
 "NerdTree Toggle
-nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
 
 "Ctags toggle
-nnoremap <F4> :Tlist<CR>
+nnoremap <F3> :Tlist<CR>
+
+"Run scripts
+nmap <F5> :call Run(&ft)<CR>
+
+map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 "Generate ctags
 nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
-
-"Run scripts
-nmap <F8> :call Run(&ft)<CR>
-
-"Task List toggle
-nmap <F6> :TaskList<CR>
-
-"Objective syntax
-nnoremap <F7> :helptags ~/.vim/doc<CR>
-
-" Tagbar toggle
-nmap <F5> :TagbarToggle<CR>
 
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>
@@ -123,8 +116,6 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 "
 " " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
-
-map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 "For a better popup
 "
