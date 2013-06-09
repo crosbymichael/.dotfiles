@@ -40,3 +40,15 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/javascript"]
+	path = vim/bundle/javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/javascript-syntax"]
+	path = vim/bundle/javascript-syntax
+	url = git://github.com/jelera/vim-javascript-syntax.git
+[submodule "vim/bundle/jshint"]
+	path = vim/bundle/jshint
+	url = git://github.com/walm/jshint.vim.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
