@@ -76,16 +76,24 @@ nnoremap m-2<cr> :m-2
 
 "NerdTree Toggle
 nnoremap <F3> :NERDTreeToggle<CR>
+
 "Ctags toggle
 nnoremap <F4> :Tlist<CR>
+
 "Generate ctags
 nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
+
 "Run scripts
-nmap <F5> :call Run(&ft)<CR>
+nmap <F8> :call Run(&ft)<CR>
+
 "Task List toggle
 nmap <F6> :TaskList<CR>
+
 "Objective syntax
 nnoremap <F7> :helptags ~/.vim/doc<CR>
+
+" Tagbar toggle
+nmap <F5> :TagbarToggle<CR>
 
 "OmniComplete 
 inoremap <Nul> <C-x><C-o>

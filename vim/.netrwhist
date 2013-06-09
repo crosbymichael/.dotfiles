@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/michael/Projects/opensource/dockerbuild/puppet/modules'
-let g:netrw_dirhist_2='/Users/michael/Projects/opensource/dockerbuild/puppet/modules/rethinkdb'
-let g:netrw_dirhist_3='/Users/michael/.dotfiles/install'
-let g:netrw_dirhist_4='/Users/michael/development/vm/cloud9/puppet/modules/cloud9'
-let g:netrw_dirhist_5='/Users/michael/development/vm/cloud9/puppet/modules/cloud9/manifests'
-let g:netrw_dirhist_6='/Users/michael/development/projects/current/docker-ui/app'
-let g:netrw_dirhist_7='/Users/michael/development/projects/current/docker-ui/app/js'
-let g:netrw_dirhist_8='/Users/michael/.dotfiles/install'
-let g:netrw_dirhist_9='/Users/michael/development/vm/partkeepr/puppet'
+let g:netrw_dirhist_cnt =0
