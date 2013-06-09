@@ -19,6 +19,13 @@ update:
 
 # Install the dot files via sys links
 install:
+	rm -rf $HOME/.vim
+	rm $HOME/.vimrc
+	rm $HOME/.gitconfig
+	rm $HOME/.gitignore_global
+	rm $HOME/.zshrc
+	rm $HOME/.tmux.conf
+
 	ln -s $HOME/.dotfiles/vim $HOME/.vim
 	ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 	ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
