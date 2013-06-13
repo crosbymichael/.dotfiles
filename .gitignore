@@ -2,3 +2,4 @@
 *.class
 bin/server
 vim/.netrwhist
+local/*
