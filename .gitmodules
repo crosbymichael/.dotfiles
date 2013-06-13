@@ -52,3 +52,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/js-libs"]
+	path = vim/bundle/js-libs
+	url = git://github.com/othree/javascript-libraries-syntax.vim.git
