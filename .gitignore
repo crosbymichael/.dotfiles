@@ -3,3 +3,4 @@
 bin/server
 vim/.netrwhist
 local/*
+build/*

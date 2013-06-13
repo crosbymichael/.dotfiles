@@ -23,6 +23,9 @@ font:
 	sudo chown -r root /usr/local/share/fonts/
 	fc-cache
 
+compile:
+		
+
 # Install the dot files via sys links
 install:
 	rm -rf $HOME/.vim
@@ -39,4 +42,4 @@ install:
 	ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 	ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 
-.PHONY: all go install init update python font
+.PHONY: all go install init update python font compile
