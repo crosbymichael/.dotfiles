@@ -1,5 +1,9 @@
 "Michael Crosby crosbymichael.com
 
+" Highlight whitespace
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
 syntax on
 set number
 set tabstop=4
@@ -13,6 +17,15 @@ if has("unix")
     set backspace=2
   endif
 endif
+
+autocmd! bufwritepost .vimrc source %
+set pastetoggle=<F2>
+set clipboard=unnamed
+set nobackup
+set nowritebackup
+set noswapfile
+let mapleader = ","
+au InsertLeave * set nopaste
 
 "additoins
 set title
@@ -128,7 +141,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Powerline
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 set background=dark
 let g:solarized_termcolors = 256
@@ -147,3 +160,12 @@ command! GoLint :call s:GoLint()
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+function! SuperTab()
+    if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+        return "\<Tab>"
+    else
+        return "\<C-n>"
+    endif
+endfunction
+imap <Tab> <C-R>=SuperTab()<CR>
