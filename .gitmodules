@@ -58,3 +58,12 @@
 [submodule "vim/bundle/covim"]
 	path = vim/bundle/covim
 	url = git://github.com/FredKSchott/CoVim.git
+[submodule "vim/bundle/neocomplcache"]
+	path = vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "vim/bundle/neocomplete"]
+	path = vim/bundle/neocomplete
+	url = git://github.com/Shougo/neocomplete.vim.git
