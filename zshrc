@@ -1,6 +1,6 @@
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="random"
+ZSH_THEME="cm"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

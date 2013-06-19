@@ -24,7 +24,9 @@ font:
 	fc-cache
 
 compile:
-		
+
+zsh:
+	cp ~/.dotfiles/themes/* ~/.oh-my-zsh/themes
 
 # Install the dot files via sys links
 install:

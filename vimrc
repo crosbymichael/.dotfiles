@@ -12,8 +12,6 @@ set tabstop=4
 set shiftwidth=4
 set nocompatible
 set guifont=Ubuntu\ Mono:s14
-set winheight=30
-set winminheight=5
 
 if has("unix")
   let s:uname = system("uname")
