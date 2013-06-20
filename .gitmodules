@@ -55,9 +55,6 @@
 [submodule "vim/bundle/js-libs"]
 	path = vim/bundle/js-libs
 	url = git://github.com/othree/javascript-libraries-syntax.vim.git
-[submodule "vim/bundle/covim"]
-	path = vim/bundle/covim
-	url = git://github.com/FredKSchott/CoVim.git
 [submodule "vim/bundle/neocomplcache"]
 	path = vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.vim.git
