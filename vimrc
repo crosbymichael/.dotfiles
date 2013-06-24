@@ -2,10 +2,6 @@
 
 call pathogen#infect()
 
-" Highlight whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
-
 syntax on
 set number
 set tabstop=4
@@ -27,7 +23,6 @@ set clipboard=unnamed
 set nobackup
 set nowritebackup
 set noswapfile
-let mapleader = ","
 au InsertLeave * set nopaste
 
 "additoins
