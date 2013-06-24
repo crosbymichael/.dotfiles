@@ -16,6 +16,7 @@ set guifont=Ubuntu\ Mono:s14
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
+    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
     set backspace=2
   endif
 endif
@@ -138,9 +139,6 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 set background=dark
 let g:solarized_termcolors = 256
