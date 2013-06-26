@@ -54,7 +54,7 @@ export LD_LIBRARY_PATH=$HOME/.local/lib
 # -------------------------------------- #
 # --------------Aliases----------------- #
 
-alias gs='git status'
+alias gs='git status -u'
 alias gmt='git mergetool'
 alias gc='git commit'
 alias gca='git commit -a'
