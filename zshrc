@@ -96,8 +96,9 @@ alias createenv='virtualenv --no-site-packages '
 
 alias godebug='go build -gcflags "-N -l"'
 alias godocserver='godoc -http=:8111'
-alias buildall='go build . ./...'
+alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
+alias gobi='buildall && installall'
 
 alias dock='docker -H="192.168.1.9:4243"'
 
