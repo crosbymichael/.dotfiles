@@ -1,0 +1,25 @@
+#!/home/michael/.env/bin/python
+
+import site, os, sys
+site.addsitedir('/home/michael/.env/site-packages')
+
+import boto
+
+def upload(name):
+    conn = boto.connect_s3()
+    bucket = conn.lookup('repo-backups')
+
+    k = boto.s3.key.Key(bucket)
+    k.key = name
+
+    with open(name, 'rb') as f:
+        k.set_contents_from_file(f)
+    conn.close()
+
+def main():
+    name = sys.argv[len(sys.argv) - 1]
+    print 'Uploading %s...' % name
+    upload(name)
+    print 'Finished...'
+
+if __name__=='__main__':main()
