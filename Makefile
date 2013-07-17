@@ -19,7 +19,7 @@ update:
 
 font:
 	mkdir /usr/local/share/fonts/crosbymichael
-	cp $HOME/.dotfiles/fonts/*.ttf /usr/local/share/fonts/crosbymichael/
+	cp ~/.dotfiles/fonts/*.ttf /usr/local/share/fonts/crosbymichael/
 	sudo chown -r root /usr/local/share/fonts/
 	fc-cache
 
@@ -30,18 +30,11 @@ zsh:
 
 # Install the dot files via sys links
 install:
-	rm -rf $HOME/.vim
-	rm $HOME/.vimrc
-	rm $HOME/.gitconfig
-	rm $HOME/.gitignore_global
-	rm $HOME/.zshrc
-	rm $HOME/.tmux.conf
-
-	ln -s $HOME/.dotfiles/vim $HOME/.vim
-	ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
-	ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
-	ln -s $HOME/.dotfiles/git/gitignore_global $HOME/.gitignore_global
-	ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
-	ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+	ln -s ~/.dotfiles/vim ~/.vim
+	ln -s ~/.dotfiles/vimrc ~/.vimrc
+	ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+	ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+	ln -s ~/.dotfiles/zshrc ~/.zshrc
+	ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 .PHONY: all go install init update python font compile
