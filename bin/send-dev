@@ -2,16 +2,13 @@
 
 echo "Sending playground..."
 
-rsync -azv --delete -e ssh $HOME/development/playground/ michael@code-assistant.com:/home/michael/development/playground
+rsync -azv --delete -e ssh $HOME/development/playground/ michael@tyland.us:/home/michael/development/playground
 
 echo "Sending projects..."
 
-rsync -azv --delete -e ssh $HOME/development/projects/ michael@code-assistant.com:/home/michael/development/projects
+rsync -azv --delete -e ssh $HOME/development/projects/ michael@tyland.us:/home/michael/development/projects
 
 echo "Sending vm..."
 
-rsync -azv --delete -e ssh $HOME/development/vm/ michael@code-assistant.com:/home/michael/development/vm
+rsync -azv --delete -e ssh $HOME/development/vm/ michael@tyland.us:/home/michael/development/vm
 
-echo "Sending opensource..."
-
-rsync -azv --delete -e ssh $HOME/development/opensource/ michael@code-assistant.com:/home/michael/development/opensource
