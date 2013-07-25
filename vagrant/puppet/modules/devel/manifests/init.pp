@@ -1,11 +1,11 @@
 
-class cmcommon {
-
+class devel {
     Package { ensure => "installed" }
 
     include wget
+    include buildtools
 
-    package { ["curl", "git", "htop", "screen", "vim",]: }
+    package { ["curl", "git-core", "htop", "tmux", "vim", "ctags",]: }
 
     $vagrant_user = "vagrant"
     $vagrant_home = "/home/vagrant"
@@ -14,6 +14,6 @@ class cmcommon {
         mode => 644,
         owner => $vagrant_user,
         group => $vagrant_user,
-        content => template("cmcommon/profile"),
+        content => template("devel/profile"),
     }
 }

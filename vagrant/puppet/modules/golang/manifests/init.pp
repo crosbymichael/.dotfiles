@@ -1,6 +1,6 @@
 
 class golang {
-    $go_url = "https://go.googlecode.com/files/go1.1.linux-amd64.tar.gz"
+    $go_url = "https://go.googlecode.com/files/go1.1.1.linux-amd64.tar.gz"
     $vagrant_user = "vagrant"
     $vagrant_home = "/home/vagrant"
 
@@ -10,7 +10,7 @@ class golang {
         creates => "/usr/local/go/bin/go",
     }
 
-  file { "/opt/go":
+  file { "/usr/local/go":
         owner => $vagrant_user,
         group => $vagrant_user,
         recurse => true,
@@ -18,6 +18,9 @@ class golang {
 
     file { "${vagrant_home}/gocode":
         ensure => "directory",
+        owner => $vagrant_user,
+        group => $vagrant_user,
+
     }
 }
 
