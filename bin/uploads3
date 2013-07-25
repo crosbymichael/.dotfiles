@@ -17,9 +17,10 @@ def upload(name):
     conn.close()
 
 def main():
-    name = sys.argv[len(sys.argv) - 1]
-    print 'Uploading %s...' % name
-    upload(name)
-    print 'Finished...'
+    for name in sys.argv[1:]:
+        if name != __name__:
+            print 'Uploading %s...' % name
+            upload(name)
+            print 'Finished...'
 
 if __name__=='__main__':main()
