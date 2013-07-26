@@ -1,8 +1,5 @@
 #!/bin/bash
 
-mkdir -p ~/build
-mkdir -p ~/.local
-mkdir -p ~/temp
 mkdir -p ~/development/gocode
 mkdir -p ~/development/opensource
 mkdir -p ~/development/projects/archive

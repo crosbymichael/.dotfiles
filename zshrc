@@ -34,6 +34,7 @@ path=(
     /usr/local/bin
     /usr/local/go/bin
     ~/.dotfiles/bin
+    ~/.dotfiles/local/bin
     ~/.local/bin
     /usr/bin
     /bin
