@@ -1,6 +1,0 @@
-check process mongodb_<%= instance_name %>
-  with pidfile <%= scope.lookupvar('mongodb::params::dbdir') %>/mongod_<%= instance_name %>/mongod.pid
-  start program = "/etc/init.d/mongod_<%= instance_name %> start"
-  stop program = "/etc/init.d/mongod_<%= instance_name %> stop"
-  if failed host 127.0.0.1 port <%= instance_port %> then restart
-  if 5 restarts within 5 cycles then timeout
