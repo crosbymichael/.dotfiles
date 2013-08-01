@@ -12,6 +12,6 @@ Vagrant::Config.run do |config|
     config.vm.provision :puppet do |puppet|
         puppet.manifests_path = "manifests"
         puppet.manifest_file  = "provision.pp"
-        puppet.module_path = "puppet/modules"
+        puppet.module_path = "~/.dotfiles/env/docker/puppet/modules"
     end
 end
