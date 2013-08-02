@@ -12,7 +12,6 @@ set guifont=Ubuntu\ Mono:s14
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
-    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
     set backspace=2
   endif
 endif
