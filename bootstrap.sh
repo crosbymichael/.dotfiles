@@ -2,32 +2,20 @@
 
 # Setup script for my complete development environment
 
-# Compiled apps: git tig watchman python go
+# Compiled apps: git tig watchman go
 
 # apt-get update
-# apt-get upgrade -y
 
-apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial
+apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools
 
 apt-get build-dep -y python git-core
 
 cd /home/vagrant
 
-if [ -f "/usr/local/bin/python" ]
+if [ -f "/usr/local/bin/pip" ]
 then
-    echo "Python 2.7.5 already installed..."
+    echo "Pip already installed..."
 else
-    wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
-
-    tar -zxvf Python-2.7.5.tgz
-    rm Python-2.7.5.tgz
-    cd Python-2.7.5/
-
-    ./configure --prefix=/usr/local
-    make && make install
-    
-    cd /home/vagrant
-
     wget http://python-distribute.org/distribute_setup.py 
     wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 
@@ -36,10 +24,7 @@ else
 
     pip install virtualenv
 fi
-
 cd /home/vagrant
-
-# Compiles
 
 if [ -f "/usr/local/bin/git" ]
 then
@@ -53,7 +38,6 @@ else
     ./configure --prefix=/usr/local
     make && make install
 fi
-
 cd /home/vagrant
 
 if [ -d "/usr/local/go" ]
@@ -65,13 +49,7 @@ else
 
     rm go.tar.gz
 fi
-
 cd /home/vagrant
-#go get github.com/golang/lint/golint
-#go get github.com/nsf/gocode
-#go get github.com/nsf/gocode
-
-apt-get install -y lxc aufs-tools
 
 if [ -f "/home/vagrant/.zshrc" ]
 then
@@ -87,8 +65,32 @@ else
     ln -s /home/vagrant/.dotfiles/git/gitignore_global /home/vagrant/.gitignore_global
     ln -s /home/vagrant/.dotfiles/zshrc /home/vagrant/.zshrc
     ln -s /home/vagrant/.dotfiles/tmux.conf /home/vagrant/.tmux.conf
-
-    chsh -s /bin/zsh vagrant
+    chsh -s /usr/bin/zsh vagrant
 fi
+cd /home/vagrant
+
+if [ -f "/usr/local/bin/tig" ]
+then
+    echo "Tig already installed..."
+else
+    git clone git://github.com/jonas/tig.git
+    cd tig
+    ./autogen.sh
+    ./configure --prefix=$HOME/.dotfiles/local
+    make && make install
+fi
+cd /home/vagrant
+
+if [ -f "/usr/local/bin/watchman" ]
+then 
+    echo "Watchman already installed..."
+else
+    git clone https://github.com/facebook/watchman.git
+    cd watchman
+    ./autogen.sh
+    ./configure --prefix=/usr/local
+    automake
+fi
+cd /home/vagrant
 
 echo "Completed install..."
