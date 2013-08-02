@@ -6,7 +6,7 @@
 
 # apt-get update
 
-apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools
+apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor
 
 apt-get build-dep -y python git-core
 
@@ -23,6 +23,8 @@ else
     python get-pip.py
 
     pip install virtualenv
+    rm distribute_setup.py
+    rm get-pip.py
 fi
 cd /home/vagrant
 
@@ -37,6 +39,7 @@ else
     cd git-1.8.3.4/
     ./configure --prefix=/usr/local
     make && make install
+    rm -rf git-1.8.3.4/
 fi
 cd /home/vagrant
 
@@ -48,6 +51,7 @@ else
     tar -zxvf go.tar.gz -C /usr/local
 
     rm go.tar.gz
+    chown -R vagrant:vagrant /usr/local/go
 fi
 cd /home/vagrant
 

@@ -10,7 +10,8 @@ Vagrant::Config.run do |config|
 
     config.vm.share_folder "dotfiles", "/home/vagrant/.dotfiles", "."
    
-    bootstrap = "apt-get update"
+    bootstrap = "apt-get update;"
+    bootstrap << "cd /home/vagrant/.dotfiles; ./bootstrap.sh"
 
     config.vm.provision :shell, :inline => bootstrap
 end
