@@ -163,3 +163,4 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType go set omnifunc=gocomplete#Complete
 
+let g:godef_split = 0

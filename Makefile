@@ -18,7 +18,4 @@ font:
 	sudo chown -r root /usr/local/share/fonts/
 	fc-cache
 
-zsh:
-	cp ~/.dotfiles/themes/* ~/.oh-my-zsh/themes
-
 .PHONY: all go init font
