@@ -59,6 +59,7 @@ else
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     cd /home/vagrant
 
+    rm /home/vagrant/.zshrc
     ln -s /home/vagrant/.dotfiles/vim /home/vagrant/.vim
     ln -s /home/vagrant/.dotfiles/vimrc /home/vagrant/.vimrc
     ln -s /home/vagrant/.dotfiles/git/gitconfig /home/vagrant/.gitconfig
@@ -76,7 +77,7 @@ else
     git clone git://github.com/jonas/tig.git
     cd tig
     ./autogen.sh
-    ./configure --prefix=$HOME/.dotfiles/local
+    ./configure --prefix=/usr/local
     make && make install
 fi
 cd /home/vagrant
