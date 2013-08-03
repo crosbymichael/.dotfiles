@@ -45,8 +45,6 @@ path=(
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/development/gocode
 export GOBIN=/usr/local/go/bin
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib
 
@@ -121,6 +119,4 @@ case `uname` in
     alias search='mdfind -onlyin .'
     ;;
 esac
-
-cat $HOME/.dotfiles/minotuar.txt
 

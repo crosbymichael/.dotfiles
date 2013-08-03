@@ -70,8 +70,6 @@ au FileType arduino set dictionary=~/.vim/dicts/arduinowords
 au BufRead Dockerfile set ft=Dockerfile
 au FileType Dockerfile set syntax=sh
 
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 "key mappings
 "----------------------------
 "Pane movement
@@ -144,13 +142,6 @@ let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme 256-jungle-mac
-
-" Go linter
-function! s:GoLint()
-    cexpr system("golint " . shellescape(expand('%')))
-    copen
-endfunction
-command! GoLint :call s:GoLint()
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
