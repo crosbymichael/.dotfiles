@@ -66,9 +66,6 @@ au BufNewFile, BufRead *.m, *.h set ft=objc
 
 " Set Arduino dictionary word list
 au FileType arduino set dictionary=~/.vim/dicts/arduinowords
-" Dockerfile
-au BufRead Dockerfile set ft=Dockerfile
-au FileType Dockerfile set syntax=sh
 
 "key mappings
 "----------------------------

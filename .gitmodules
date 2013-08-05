@@ -61,3 +61,6 @@
 [submodule "vim/bundle/tabman"]
 	path = vim/bundle/tabman
 	url = git://github.com/kien/tabman.vim.git
+[submodule "vim/bundle/dockerfile"]
+	path = vim/bundle/dockerfile
+	url = https://github.com/honza/dockerfile.vim.git

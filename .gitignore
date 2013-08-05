@@ -5,3 +5,4 @@ vim/.netrwhist
 local/*
 build/*
 *.orig
+.vagrant*
