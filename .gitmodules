@@ -64,3 +64,6 @@
 [submodule "vim/bundle/dockerfile"]
 	path = vim/bundle/dockerfile
 	url = https://github.com/honza/dockerfile.vim.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git@github.com:crosbymichael/oh-my-zsh.git
