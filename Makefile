@@ -5,6 +5,7 @@ all:
 # and the repository stays small
 go:
 	go get github.com/golang/lint/golint
+	go get github.com/jingweno/gh
 	go get github.com/nsf/gocode
 	go get github.com/dotcloud/docker
 	go build -o bin/server bin/server.go

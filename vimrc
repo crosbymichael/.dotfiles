@@ -89,8 +89,8 @@ nnoremap <F2> :NERDTreeToggle<CR>
 "Ctags toggle
 nnoremap <F3> :Tlist<CR>
 
-"Run scripts
-nmap <F5> :call Run(&ft)<CR>
+"Tabman
+nmap <F4> :TMToggle<CR>
 
 map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
