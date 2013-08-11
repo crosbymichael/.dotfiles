@@ -47,9 +47,6 @@ export GOPATH=$HOME/development/gocode
 export GOBIN=/usr/local/go/bin
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib
-export LC_ALL="UTF8",
-export LC_CTYPE="en_US.UTF-8",
-export LANG="en_US.UTF-8"
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
@@ -120,6 +117,11 @@ case `uname` in
     alias pbc='pbcopy'
     alias pbp='pbpaste'
     alias search='mdfind -onlyin .'
+    ;;
+    Linux)
+    export LC_ALL="UTF8",
+    export LC_CTYPE="en_US.UTF-8",
+    export LANG="en_US.UTF-8"
     ;;
 esac
 
