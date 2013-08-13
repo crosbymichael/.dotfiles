@@ -138,7 +138,7 @@ set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme 256-jungle-mac
+colorscheme solarized
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
