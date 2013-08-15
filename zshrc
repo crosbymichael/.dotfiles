@@ -99,8 +99,6 @@ alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
 alias gobi='buildall && installall'
 
-alias dock='docker -H="192.168.1.9:4243"'
-
 alias up='vagrant up'
 alias noup='vagrant up --no-provision'
 alias down='vagrant halt'
