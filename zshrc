@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 path=(
     $path
     ~/development/gocode/bin
+    ~/development/gocode/src/github.com/dotcloud/docker/docker
     /usr/local/heroku/bin
     /usr/local/bin
     /usr/local/go/bin
@@ -122,4 +123,21 @@ case `uname` in
     export LANG="en_US.UTF-8"
     ;;
 esac
+
+
+# ----------------Scripts-------------------#
+# Marks http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
 
