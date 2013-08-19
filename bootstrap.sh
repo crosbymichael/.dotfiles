@@ -3,7 +3,7 @@
 # Setup script for my complete development environment
 
 # Compiled apps: git tig watchman go
-
+export USER_NAME="vagrant"
 export LC_ALL="UTF8"
 apt-get update
 
@@ -11,7 +11,7 @@ apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake
 
 apt-get build-dep -y python git-core
 
-cd /home/vagrant
+cd /home/$USER_NAME
 
 if [ -f "/usr/local/bin/pip" ]
 then
@@ -27,7 +27,7 @@ else
     rm distribute_setup.py
     rm get-pip.py
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
 if [ -f "/usr/local/bin/git" ]
 then
@@ -42,7 +42,7 @@ else
     make && make install
     rm -rf git-1.8.3.4/
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
 if [ -d "/usr/local/go" ]
 then
@@ -52,28 +52,28 @@ else
     tar -zxvf go.tar.gz -C /usr/local
 
     rm go.tar.gz
-    chown -R vagrant:vagrant /usr/local/go
+    chown -R $USER_NAME:$USER_NAME /usr/local/go
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
-if [ -f "/home/vagrant/.zshrc" ]
+if [ -f "/home/$USER_NAME/.zshrc" ]
 then
     echo "Dotfiles already installed..."
 else
-    cd /home/vagrant
+    cd /home/$USER_NAME
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-    cd /home/vagrant
+    cd /home/$USER_NAME
 
-    rm /home/vagrant/.zshrc
-    ln -s /home/vagrant/.dotfiles/vim /home/vagrant/.vim
-    ln -s /home/vagrant/.dotfiles/vimrc /home/vagrant/.vimrc
-    ln -s /home/vagrant/.dotfiles/git/gitconfig /home/vagrant/.gitconfig
-    ln -s /home/vagrant/.dotfiles/git/gitignore_global /home/vagrant/.gitignore_global
-    ln -s /home/vagrant/.dotfiles/zshrc /home/vagrant/.zshrc
-    ln -s /home/vagrant/.dotfiles/tmux.conf /home/vagrant/.tmux.conf
-    chsh -s /usr/bin/zsh vagrant
+    rm /home/$USER_NAME/.zshrc
+    ln -s /home/$USER_NAME/.dotfiles/vim /home/$USER_NAME/.vim
+    ln -s /home/$USER_NAME/.dotfiles/vimrc /home/$USER_NAME/.vimrc
+    ln -s /home/$USER_NAME/.dotfiles/git/gitconfig /home/$USER_NAME/.gitconfig
+    ln -s /home/$USER_NAME/.dotfiles/git/gitignore_global /home/$USER_NAME/.gitignore_global
+    ln -s /home/$USER_NAME/.dotfiles/zshrc /home/$USER_NAME/.zshrc
+    ln -s /home/$USER_NAME/.dotfiles/tmux.conf /home/$USER_NAME/.tmux.conf
+    chsh -s /usr/bin/zsh $USER_NAME
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
 if [ -f "/usr/local/bin/tig" ]
 then
@@ -85,7 +85,7 @@ else
     ./configure --prefix=/usr/local
     make && make install
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
 if [ -f "/usr/local/bin/watchman" ]
 then 
@@ -97,6 +97,6 @@ else
     ./configure --prefix=/usr/local
     automake
 fi
-cd /home/vagrant
+cd /home/$USER_NAME
 
 echo "Completed install..."
