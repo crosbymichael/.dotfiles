@@ -115,17 +115,17 @@ autocmd VimEnter * wincmd w
 " Go Run
 map <buffer> <S-e> :w<CR>:!go run % <CR>
 map <buffer> <S-b> :w<CR>:!go build % <CR>
-"
+abbrev gobi :!go build -v . ./... && go install . ./...<CR>
+
 "let g:script_runner_go = 'go run %:p'
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
-"
+
 " " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 "For a better popup
-"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
@@ -134,7 +134,7 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-set background=light
+set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
@@ -152,3 +152,19 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType go set omnifunc=gocomplete#Complete
 
 let g:godef_split = 0
+
+" highlight chars past 80 cols
+match ErrorMsg '\%>80v.\+'
+
+" Vim Ctrl - P 
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX

@@ -106,6 +106,9 @@ alias down='vagrant halt'
 
 alias attach='tmux attach-session -t 0'
 
+# Iptables
+alias iptbleshow='iptables -L -n -t nat'
+
 # ---------------OSX------------------- #
 
 case `uname` in
