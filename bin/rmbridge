@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+ip link set $1 down
+brctl delbr $1

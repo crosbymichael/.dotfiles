@@ -78,6 +78,7 @@ alias gcount='git fetch --all'
 
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
+alias lstar='tar -ztvf'
 alias 7za='7z a'
 alias cd..='cd ..'
 alias lsa='ls -lah'

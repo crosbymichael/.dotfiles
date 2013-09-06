@@ -6,3 +6,4 @@ local/*
 build/*
 *.orig
 .vagrant*
+temp/*
