@@ -3,14 +3,13 @@
 # Setup script for my complete development environment
 
 # Compiled apps: git tig watchman go
-export USER_NAME="michael"
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop
 
 apt-get build-dep -y python git-core
 
-cd /home/$USER_NAME
+cd /home/$USER
 
 if [ -f "/usr/local/bin/pip" ]
 then
@@ -26,7 +25,7 @@ else
     rm distribute_setup.py
     rm get-pip.py
 fi
-cd /home/$USER_NAME
+cd /home/$USER
 
 if [ -f "/usr/local/bin/git" ]
 then
@@ -41,7 +40,7 @@ else
     make && make install
     rm -rf git-1.8.3.4/
 fi
-cd /home/$USER_NAME
+cd /home/$USER
 
 if [ -d "/usr/local/go" ]
 then
@@ -51,28 +50,28 @@ else
     tar -zxvf go.tar.gz -C /usr/local
 
     rm go.tar.gz
-    chown -R $USER_NAME:$USER_NAME /usr/local/go
+    chown -R $USER:$USER /usr/local/go
 fi
-cd /home/$USER_NAME
+cd /home/$USER
 
-if [ -f "/home/$USER_NAME/.zshrc" ]
+if [ -f "/home/$USER/.zshrc" ]
 then
     echo "Dotfiles already installed..."
 else
-    cd /home/$USER_NAME
+    cd /home/$USER
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-    cd /home/$USER_NAME
+    cd /home/$USER
 
-    rm /home/$USER_NAME/.zshrc
-    ln -s /home/$USER_NAME/.dotfiles/vim /home/$USER_NAME/.vim
-    ln -s /home/$USER_NAME/.dotfiles/vimrc /home/$USER_NAME/.vimrc
-    ln -s /home/$USER_NAME/.dotfiles/git/gitconfig /home/$USER_NAME/.gitconfig
-    ln -s /home/$USER_NAME/.dotfiles/git/gitignore_global /home/$USER_NAME/.gitignore_global
-    ln -s /home/$USER_NAME/.dotfiles/zshrc /home/$USER_NAME/.zshrc
-    ln -s /home/$USER_NAME/.dotfiles/tmux.conf /home/$USER_NAME/.tmux.conf
-    chsh -s /usr/bin/zsh $USER_NAME
+    rm /home/$USER/.zshrc
+    ln -s /home/$USER/.dotfiles/vim /home/$USER/.vim
+    ln -s /home/$USER/.dotfiles/vimrc /home/$USER/.vimrc
+    ln -s /home/$USER/.dotfiles/git/gitconfig /home/$USER/.gitconfig
+    ln -s /home/$USER/.dotfiles/git/gitignore_global /home/$USER/.gitignore_global
+    ln -s /home/$USER/.dotfiles/zshrc /home/$USER/.zshrc
+    ln -s /home/$USER/.dotfiles/tmux.conf /home/$USER/.tmux.conf
+    chsh -s /usr/bin/zsh $USER
 fi
-cd /home/$USER_NAME
+cd /home/$USER
 
 if [ -f "/usr/local/bin/tig" ]
 then
@@ -84,6 +83,6 @@ else
     ./configure --prefix=/usr/local
     make && make install
 fi
-cd /home/$USER_NAME
+cd /home/$USER
 
 echo "Completed install...  Be sure to reboot just for kicks"
