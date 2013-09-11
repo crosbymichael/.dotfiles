@@ -1,6 +1,6 @@
 DISABLE_AUTO_TITLE=true
 ZSH=$HOME/.dotfiles/oh-my-zsh
-ZSH_THEME="cm"
+ZSH_THEME="darkblood"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -122,6 +122,9 @@ case `uname` in
     alias search='mdfind -onlyin .'
     ;;
     Linux)
+    export LC_ALL="UTF8",
+    export LC_CTYPE="en_US.UTF-8",
+    export LANG="en_US.UTF-8"
     ;;
 esac
 
