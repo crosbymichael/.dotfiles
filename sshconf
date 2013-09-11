@@ -1,0 +1,9 @@
+Host prod
+    HostName dev.crosbymichael.com
+    Port 22
+    User michael
+
+Host dev
+    HostName 192.168.56.100
+    Port 22
+    User michael

@@ -108,7 +108,7 @@ abbrev spell setlocal spell spelllang=en_us<CR>
 autocmd BufWritePre *.go Fmt
 
 " Start NERDTree on startup
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 

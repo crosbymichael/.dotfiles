@@ -5,7 +5,10 @@
 # Compiled apps: git tig watchman go
 apt-get update
 
-apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop
+apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
+ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 \ 
+libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop \
+nmap socat
 
 apt-get build-dep -y python git-core
 
@@ -69,6 +72,7 @@ else
     ln -s /home/$USER/.dotfiles/git/gitignore_global /home/$USER/.gitignore_global
     ln -s /home/$USER/.dotfiles/zshrc /home/$USER/.zshrc
     ln -s /home/$USER/.dotfiles/tmux.conf /home/$USER/.tmux.conf
+    ln -s /home/$USER/.dotfiles/sshconf /home/$USER/.ssh/config
     chsh -s /usr/bin/zsh $USER
 fi
 cd /home/$USER
