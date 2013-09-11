@@ -8,25 +8,28 @@ import (
 	"os"
 )
 
-//Type to wrap the default file handler to log requests
-type logFileServer struct {
+type verboseHandler struct {
 	fileHandler http.Handler
+	verbose     bool
 }
 
-func (h *logFileServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%s: %s\n", r.Method, r.URL.String())
-
+func (h *verboseHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if h.verbose {
+		log.Printf("%s: %s\n", r.Method, r.URL.String())
+	}
 	h.fileHandler.ServeHTTP(w, r)
 }
 
-func getServer(cwd string) http.Handler {
+func getServer(cwd string, verbose bool) http.Handler {
 	fileHandler := http.FileServer(http.Dir(cwd))
-
-	return &logFileServer{fileHandler}
+	return &verboseHandler{fileHandler, verbose}
 }
 
 func main() {
-	port := flag.String("p", "8080", "Port to serve from.")
+	ip := flag.String("h", "localhost", "Ip to bind to")
+	port := flag.String("p", "8080", "Port to serve from")
+	verbose := flag.Bool("v", false, "Verbose output")
+
 	flag.Parse()
 
 	cwd, err := os.Getwd()
@@ -34,10 +37,12 @@ func main() {
 		panic(err)
 	}
 
-	location := fmt.Sprintf(":%s", *port)
-	fmt.Printf("Serving files from %s on port %s\n", cwd, location)
+	location := fmt.Sprintf("%s:%s", *ip, *port)
+	if *verbose {
+		log.Printf("Serving files from %s on port %s\n", cwd, location)
+	}
 
-	server := getServer(cwd)
+	server := getServer(cwd, *verbose)
 	if err = http.ListenAndServe(location, server); err != nil {
 		panic(err)
 	}

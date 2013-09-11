@@ -3,8 +3,7 @@
 # Setup script for my complete development environment
 
 # Compiled apps: git tig watchman go
-export USER_NAME="vagrant"
-export LC_ALL="UTF8"
+export USER_NAME="michael"
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake ctags vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop
@@ -87,16 +86,4 @@ else
 fi
 cd /home/$USER_NAME
 
-if [ -f "/usr/local/bin/watchman" ]
-then 
-    echo "Watchman already installed..."
-else
-    git clone https://github.com/facebook/watchman.git
-    cd watchman
-    ./autogen.sh
-    ./configure --prefix=/usr/local
-    automake
-fi
-cd /home/$USER_NAME
-
-echo "Completed install..."
+echo "Completed install...  Be sure to reboot just for kicks"

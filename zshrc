@@ -122,9 +122,6 @@ case `uname` in
     alias search='mdfind -onlyin .'
     ;;
     Linux)
-    export LC_ALL="UTF8",
-    export LC_CTYPE="en_US.UTF-8",
-    export LANG="en_US.UTF-8"
     ;;
 esac
 
