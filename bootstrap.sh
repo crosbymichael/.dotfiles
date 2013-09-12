@@ -53,6 +53,7 @@ else
     cd /home/$USER_NAME
 
     rm /home/$USER_NAME/.zshrc
+    rm -rf /home/$USER_NAME/.vim
     ln -s /home/$USER_NAME/.dotfiles/vim /home/$USER_NAME/.vim
     ln -s /home/$USER_NAME/.dotfiles/vimrc /home/$USER_NAME/.vimrc
     ln -s /home/$USER_NAME/.dotfiles/git/gitconfig /home/$USER_NAME/.gitconfig
