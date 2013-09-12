@@ -9,7 +9,7 @@ apt-get update
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
 vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 \ 
 libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop \
-nmap socat zsh ctags
+nmap socat
 
 apt-get build-dep -y python git-core
 
@@ -49,6 +49,7 @@ if [ -f "/home/$USER_NAME/.zshrc" ]
 then
     echo "Dotfiles already installed..."
 else
+    apt-get install -y ctags zsh
     git submodule update --init
     cd /home/$USER_NAME
 
@@ -62,18 +63,6 @@ else
     ln -s /home/$USER_NAME/.dotfiles/tmux.conf /home/$USER_NAME/.tmux.conf
     ln -s /home/$USER_NAME/.dotfiles/sshconf /home/$USER_NAME/.ssh/config
     chsh -s /usr/bin/zsh $USER_NAME
-fi
-cd /home/$USER_NAME
-
-if [ -f "/usr/local/bin/tig" ]
-then
-    echo "Tig already installed..."
-else
-    git clone git://github.com/jonas/tig.git
-    cd tig
-    ./autogen.sh
-    ./configure --prefix=/usr/local
-    make && make install
 fi
 cd /home/$USER_NAME
 
