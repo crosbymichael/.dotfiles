@@ -66,7 +66,7 @@
 	url = https://github.com/honza/dockerfile.vim.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git@github.com:crosbymichael/oh-my-zsh.git
+	url = https://github.com/crosbymichael/oh-my-zsh.git
 [submodule "vim/bundle/bracketed-paste"]
 	path = vim/bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
