@@ -81,11 +81,9 @@ alias uztar='tar -zxvf'
 alias lstar='tar -ztvf'
 alias 7za='7z a'
 alias cd..='cd ..'
-alias lsa='ls -lah'
 alias cl='clear'
 alias md='mkdir'
 alias rd='rmdir'
-alias ls='ls -lh'
 alias back='popd'
 
 alias encrypt='openssl aes-256-cbc -a -salt '
@@ -120,11 +118,15 @@ case `uname` in
     alias pbc='pbcopy'
     alias pbp='pbpaste'
     alias search='mdfind -onlyin .'
+    alias lsa='ls -lah'
+    alias ls='ls -lh'
     ;;
     Linux)
     export LC_ALL="UTF8",
     export LC_CTYPE="en_US.UTF-8",
     export LANG="en_US.UTF-8"
+    alias lsa='ls -lah --color=auto'
+    alias ls='ls -lh --color=auto'
     ;;
 esac
 
