@@ -9,20 +9,24 @@ import (
 )
 
 type verboseHandler struct {
-	fileHandler http.Handler
-	verbose     bool
+	h http.Handler
+}
+
+func NewVerboseHandler(h http.Handler) http.Handler {
+	return &verboseHandler{h}
 }
 
 func (h *verboseHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if h.verbose {
-		log.Printf("%s: %s\n", r.Method, r.URL.String())
-	}
-	h.fileHandler.ServeHTTP(w, r)
+	log.Printf("%s: %s\n", r.Method, r.URL.String())
+	h.h.ServeHTTP(w, r)
 }
 
 func getServer(cwd string, verbose bool) http.Handler {
-	fileHandler := http.FileServer(http.Dir(cwd))
-	return &verboseHandler{fileHandler, verbose}
+	h := http.FileServer(http.Dir(cwd))
+	if verbose {
+		h = NewVerboseHandler(h)
+	}
+	return h
 }
 
 func main() {
@@ -38,9 +42,7 @@ func main() {
 	}
 
 	location := fmt.Sprintf("%s:%s", *ip, *port)
-	if *verbose {
-		log.Printf("Serving files from %s on port %s\n", cwd, location)
-	}
+	log.Printf("Serving files from %s at %s\n", cwd, location)
 
 	server := getServer(cwd, *verbose)
 	if err = http.ListenAndServe(location, server); err != nil {

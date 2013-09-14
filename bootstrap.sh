@@ -3,13 +3,12 @@
 # Setup script for my complete development environment
 
 # Compiled apps: git tig watchman go
-export USER_NAME=michael
+export USER_NAME=vagrant
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
-vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 \ 
-libsqlite3-dev ncurses-dev mercurial lxc aufs-tools supervisor iotop \
-nmap socat
+vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 \
+ncurses-dev mercurial lxc aufs-tools supervisor iotop nmap socat 
 
 apt-get build-dep -y python git-core
 
@@ -67,5 +66,7 @@ fi
 cd /home/$USER_NAME
 
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
+groupadd docker
+usermod -G docker $USER_NAME
 
 echo "Completed install...  Be sure to reboot just for kicks"
