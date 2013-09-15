@@ -30,21 +30,22 @@ func getServer(cwd string, verbose bool) http.Handler {
 }
 
 func main() {
-	ip := flag.String("h", "localhost", "Ip to bind to")
-	port := flag.String("p", "8080", "Port to serve from")
-	verbose := flag.Bool("v", false, "Verbose output")
-
-	flag.Parse()
-
 	cwd, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
 
-	location := fmt.Sprintf("%s:%s", *ip, *port)
-	log.Printf("Serving files from %s at %s\n", cwd, location)
+	ip := flag.String("h", "localhost", "Ip to bind to")
+	port := flag.String("p", "8080", "Port to serve from")
+	verbose := flag.Bool("v", false, "Verbose output")
+	dir := flag.String("dir", cwd, "Folder to serve static files from")
 
-	server := getServer(cwd, *verbose)
+	flag.Parse()
+
+	location := fmt.Sprintf("%s:%s", *ip, *port)
+	log.Printf("Serving files from %s at %s\n", *dir, location)
+
+	server := getServer(*dir, *verbose)
 	if err = http.ListenAndServe(location, server); err != nil {
 		panic(err)
 	}

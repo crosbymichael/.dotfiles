@@ -39,6 +39,7 @@ set showmatch
 set smartindent
 set autoindent
 set expandtab
+filetype plugin indent on
 
 "Code folding fold with za
 set foldmethod=indent
