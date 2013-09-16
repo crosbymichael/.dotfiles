@@ -1,6 +1,6 @@
 DISABLE_AUTO_TITLE=true
 ZSH=$HOME/.dotfiles/oh-my-zsh
-ZSH_THEME="darkblood"
+ZSH_THEME="cm"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
