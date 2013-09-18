@@ -4,6 +4,6 @@ Host prod
     User michael
 
 Host dev
-    HostName 192.168.56.100
+    HostName 192.168.56.101
     Port 22
-    User vagrant
+    User michael
