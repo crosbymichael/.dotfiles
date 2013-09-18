@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.synced_folder "~/development/gocode/src", "/home/vagrant/development/gocode/src"
     config.vm.synced_folder "~/development/projects", "/home/vagrant/development/projects"
     config.vm.synced_folder "~/development/playground", "/home/vagrant/development/playground"
+    config.vm.synced_folder "~/development/opensource", "/home/vagrant/development/opensource"
 
     bootstrap = "cd /home/vagrant/.dotfiles; ./bootstrap.sh"
     config.vm.provision :shell, :inline => bootstrap

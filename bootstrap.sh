@@ -2,7 +2,7 @@
 
 # Setup script for my complete development environment
 
-# Compiled apps: git tig watchman go
+# Compiled apps: git go
 export USER_NAME=vagrant
 apt-get update
 
@@ -12,23 +12,6 @@ ncurses-dev mercurial lxc aufs-tools supervisor iotop nmap socat
 
 apt-get build-dep -y python git-core
 
-cd /home/$USER_NAME
-
-if [ -f "/usr/local/bin/pip" ]
-then
-    echo "Pip already installed..."
-else
-    # Want to install custom python version in to home dir
-    wget http://python-distribute.org/distribute_setup.py 
-    wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-
-    python distribute_setup.py
-    python get-pip.py
-
-    pip install virtualenv
-    rm distribute_setup.py
-    rm get-pip.py
-fi
 cd /home/$USER_NAME
 
 if [ -d "/usr/local/go" ]
@@ -48,6 +31,7 @@ if [ -f "/home/$USER_NAME/.zshrc" ]
 then
     echo "Dotfiles already installed..."
 else
+    cd /home/$USER_NAME/.dotfiles
     apt-get install -y ctags zsh
     git submodule update --init
     cd /home/$USER_NAME
@@ -67,6 +51,6 @@ cd /home/$USER_NAME
 
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 groupadd docker
-usermod -G docker $USER_NAME
+# usermod -G docker $USER_NAME
 
 echo "Completed install...  Be sure to reboot just for kicks"
