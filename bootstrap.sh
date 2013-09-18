@@ -34,6 +34,7 @@ else
     apt-get install -y ctags zsh
     git submodule update --init
     cd /home/$USER_NAME
+    mkdir -p .ssh
 
     rm /home/$USER_NAME/.zshrc
     rm -rf /home/$USER_NAME/.vim
