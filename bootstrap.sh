@@ -3,7 +3,6 @@
 # Setup script for my complete development environment
 
 # Compiled apps: git go
-export USER_NAME=vagrant
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
