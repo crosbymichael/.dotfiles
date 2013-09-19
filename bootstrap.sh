@@ -13,16 +13,21 @@ apt-get build-dep -y python git-core
 
 cd /home/$USER_NAME
 
-if [ -d "/usr/local/go" ]
+if [ -d "$HOME/go/bin/go" ]
 then
     echo "Go already installed..."
 else 
-    # Go cross compile
-    wget -O go.tar.gz https://go.googlecode.com/files/go1.1.2.linux-amd64.tar.gz 
-    tar -zxvf go.tar.gz -C /usr/local
-
-    rm go.tar.gz
-    chown -R $USER_NAME:$USER_NAME /usr/local/go
+    export GOROOT=$HOME/go
+    export GOBIN=$GOROOT/bin
+    export GOPATH=$HOME/development/gocode
+    hg clone https://code.google.com/p/go
+    cd go/
+    # Update to current go release
+    hg update go1.1.2
+    cd src/
+    ./all.bash
+    source ~/.dotfiles/bin/crosscompile.bash
+    go-crosscompile-build-all
 fi
 cd /home/$USER_NAME
 

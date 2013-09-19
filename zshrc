@@ -2,24 +2,6 @@ DISABLE_AUTO_TITLE=true
 ZSH=$HOME/.dotfiles/oh-my-zsh
 ZSH_THEME="cm"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 plugins=(git virtualenv python golang vagrant brew tmux docker)
 
 source $ZSH/oh-my-zsh.sh
@@ -33,7 +15,6 @@ path=(
     ~/development/gocode/src/github.com/dotcloud/docker/docker
     /usr/local/heroku/bin
     /usr/local/bin
-    /usr/local/go/bin
     ~/.dotfiles/bin
     /usr/bin
     /bin
@@ -41,11 +22,12 @@ path=(
     /sbin
     /opt/X11/bin
     ~/.local/depot_tools
+    ~/go/bin
 )
 
-export GOROOT=/usr/local/go
+export GOROOT=$HOME/go
+export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
-export GOBIN=/usr/local/go/bin
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib
 
@@ -145,3 +127,5 @@ function marks {
     ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+# Source go cross compile
+source ~/.dotfiles/bin/crosscompile.bash
