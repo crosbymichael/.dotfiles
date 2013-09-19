@@ -14,6 +14,7 @@
 	ui = true
 [core]
 	excludesfile = /Users/michael/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

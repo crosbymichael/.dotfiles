@@ -122,9 +122,6 @@ case `uname` in
     alias ls='ls -lh'
     ;;
     Linux)
-    export LC_ALL="UTF8",
-    export LC_CTYPE="en_US.UTF-8",
-    export LANG="en_US.UTF-8"
     alias lsa='ls -lah --color=auto'
     alias ls='ls -lh --color=auto'
     ;;
