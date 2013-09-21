@@ -2,7 +2,7 @@ DISABLE_AUTO_TITLE=true
 ZSH=$HOME/.dotfiles/oh-my-zsh
 ZSH_THEME="cm"
 
-plugins=(git virtualenv python golang vagrant brew tmux docker)
+plugins=(git virtualenv python golang tmux docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,10 +80,6 @@ alias godocserver='godoc -http=:8111'
 alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
 alias gobi='buildall && installall'
-
-alias up='vagrant up'
-alias noup='vagrant up --no-provision'
-alias down='vagrant halt'
 
 alias attach='tmux attach-session -t 0'
 

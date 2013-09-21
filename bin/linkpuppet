@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ln -s $HOME/.dotfiles/vagrant/puppet puppet
