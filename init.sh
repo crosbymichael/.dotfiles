@@ -5,6 +5,8 @@
 apt-get update
 apt-get install -y git-core
 
+export USER_NAME=$1
+
 git clone https://github.com/crosbymichael/.dotfiles
 cd .dotfiles/
 git submodule update --init

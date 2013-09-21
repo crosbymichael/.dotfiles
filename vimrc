@@ -88,7 +88,7 @@ nnoremap m-2<cr> :m-2
 nnoremap <F2> :NERDTreeToggle<CR>
 
 "Ctags toggle
-nnoremap <F3> :Tlist<CR>
+nnoremap <F3> :TagbarToggle<CR>
 
 "Tabman
 nmap <F4> :TMToggle<CR>
@@ -169,3 +169,33 @@ let g:ctrlp_custom_ignore = {
     \ }
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
+
+" Tagbar with go tags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
