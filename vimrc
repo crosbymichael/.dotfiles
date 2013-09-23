@@ -90,6 +90,9 @@ nnoremap <F2> :NERDTreeToggle<CR>
 "Ctags toggle
 nnoremap <F3> :TagbarToggle<CR>
 
+" Go dock
+nmap <K> :Godoc<CR>
+
 "Tabman
 nmap <F4> :TMToggle<CR>
 
