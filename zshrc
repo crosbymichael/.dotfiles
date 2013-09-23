@@ -83,6 +83,7 @@ alias installall='go install . ./...'
 alias gobi='buildall && installall'
 
 alias attach='tmux attach-session -t 0'
+alias listinstalled='dpkg --get-selections'
 
 # Iptables
 alias iptbleshow='iptables -L -n -t nat'
