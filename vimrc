@@ -1,8 +1,9 @@
-"Michael Crosby crosbymichael.com
+" crosbymichael.com
 
 call pathogen#infect()
 
 syntax on
+set mouse=a
 set number
 set tabstop=4
 set shiftwidth=4
@@ -24,8 +25,6 @@ set nowritebackup
 set noswapfile
 au InsertLeave * set nopaste
 
-"additoins
-"set title
 set wildmenu
 set completeopt=longest,menuone
 set ruler
@@ -35,76 +34,47 @@ set hlsearch
 set incsearch
 set showmatch
 
-"for indentions
 set smartindent
 set autoindent
 set expandtab
 filetype plugin indent on
 
-"Code folding fold with za
 set foldmethod=indent
 set nofoldenable
 
-"For autocomplete
 autocmd BufEnter * :syntax sync fromstart
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-"Pugins
+" Filetype
 filetype on
 filetype plugin on
 
-" Python
-" ----------------------------------
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
-au BufRead *.go set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
-" Objective C 
+au BufRead *.go, *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au BufRead *.go, *.py match ErrorMsg '\%>80v.\+'
 au BufNewFile, BufRead *.m, *.h set ft=objc
 
-" Set Arduino dictionary word list
-au FileType arduino set dictionary=~/.vim/dicts/arduinowords
-
-"key mappings
+"Key Binding
 "----------------------------
-"Pane movement
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-"Resize panes with the mouse and select text
-set mouse=a
-
-"Move lines up and down
 nnoremap m2<cr> :m+2
 nnoremap m1<cr> :m+
 nnoremap m-2<cr> :m-2
-
-"NerdTree Toggle
 nnoremap <F2> :NERDTreeToggle<CR>
-
-"Ctags toggle
 nnoremap <F3> :TagbarToggle<CR>
-
-" Go dock
 nmap <K> :Godoc<CR>
-
-"Tabman
 nmap <F4> :TMToggle<CR>
-
 map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
-"Generate ctags
 nnoremap <F8> :!/opt/local/bin/ctags -R --python-kinds=-i *.py<CR>
-
-"OmniComplete
 inoremap <Nul> <C-x><C-o>
 
 "Shortcuts
+"---------------------------------
 abbrev chrome :! open -a google\ chrome.app %:p<cr>
 abbrev spell setlocal spell spelllang=en_us<CR>
 
@@ -113,6 +83,7 @@ autocmd BufWritePre *.go Fmt
 
 " Start NERDTree on startup
 " autocmd VimEnter * NERDTree
+"
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 
@@ -121,12 +92,10 @@ map <buffer> <S-e> :w<CR>:!go run % <CR>
 map <buffer> <S-b> :w<CR>:!go build % <CR>
 abbrev gobi :!go build -v . ./... && go install . ./...<CR>
 
-"let g:script_runner_go = 'go run %:p'
-
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 
-" " For global replace
+" For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 "For a better popup
@@ -142,7 +111,7 @@ set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme solarized
+colorscheme anotherdark
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -157,14 +126,11 @@ autocmd FileType go set omnifunc=gocomplete#Complete
 
 let g:godef_split = 0
 
-" highlight chars past 80 cols
-match ErrorMsg '\%>80v.\+'
-
 " Vim Ctrl - P 
+" -------------------------------
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll)$',
