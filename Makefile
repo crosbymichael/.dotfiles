@@ -5,7 +5,6 @@ all:
 # and the repository stays small
 go:
 	go get -u github.com/golang/lint/golint
-	go get -u github.com/jingweno/gh
 	go get -u github.com/nsf/gocode
 	go get -u github.com/jstemmer/gotags
 	go get -u github.com/axw/gocov/gocov

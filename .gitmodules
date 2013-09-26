@@ -82,3 +82,9 @@
 [submodule "vim/bundle/vim-toml"]
 	path = vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule "vim/bundle/vim-gist"]
+	path = vim/bundle/vim-gist
+	url = https://github.com/mattn/gist-vim.git
+[submodule "vim/bundle/webapi-vim"]
+	path = vim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim.git
