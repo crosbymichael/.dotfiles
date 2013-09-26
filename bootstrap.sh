@@ -6,7 +6,7 @@
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
-vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext sqlite3 \
+vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext \
 ncurses-dev mercurial lxc aufs-tools supervisor iotop nmap socat libbz2-dev \
 libreadline-dev tcpflow
 
