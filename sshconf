@@ -7,3 +7,8 @@ Host dev
     HostName 192.168.56.101
     Port 22
     User michael
+
+Host pi
+    HostName pi.crosbymichael.com
+    Port 22
+    User pi
