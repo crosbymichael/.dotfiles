@@ -22,10 +22,7 @@ else
     export GOBIN=$GOROOT/bin
     export GOPATH=$HOME/development/gocode
     hg clone https://code.google.com/p/go
-    cd go/
-    # Update to current go release
-    hg update go1.1.2
-    cd src/
+    cd go/src/
     ./all.bash
     source ~/.dotfiles/bin/crosscompile.bash
     go-crosscompile-build-all
