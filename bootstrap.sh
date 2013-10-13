@@ -1,16 +1,15 @@
 #!/bin/bash
 
 # Setup script for my complete development environment
+# Need ruby for a few vim plugins
 
-# Compiled apps: git go
+# Compiled apps: git go vim tig
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
-vim irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext \
+irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext \
 ncurses-dev mercurial lxc aufs-tools supervisor iotop nmap socat libbz2-dev \
-libreadline-dev tcpflow
-
-apt-get build-dep -y python git-core
+libreadline-dev tcpflow ruby rubygems ranger
 
 cd /home/$USER_NAME
 
@@ -54,6 +53,5 @@ cd /home/$USER_NAME
 
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 groupadd docker
-# usermod -G docker $USER_NAME
 
 echo "Completed install...  Be sure to reboot just for kicks"
