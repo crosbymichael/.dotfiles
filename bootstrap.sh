@@ -6,10 +6,14 @@
 # Compiled apps: git go vim tig
 apt-get update
 
-apt-get install -y htop wget curl tmux zsh gcc g++ build-essential make automake \
-irssi python-dev libc6-dev autoconf bison cpp gawk gdb gettext \
-ncurses-dev mercurial lxc aufs-tools supervisor iotop nmap socat libbz2-dev \
-libreadline-dev tcpflow ruby rubygems ranger
+apt-get install -y htop wget curl tmux zsh \
+    gcc g++ build-essential make automake \
+    irssi python python-dev libc6-dev autoconf \
+    bison cpp gawk gdb gettext \
+    ncurses-dev mercurial lxc aufs-tools  \
+    supervisor iotop nmap socat libbz2-dev \
+    libreadline-dev tcpflow ruby rubygems \
+    ranger sysstat
 
 cd /home/$USER_NAME
 
