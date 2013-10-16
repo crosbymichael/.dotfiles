@@ -59,6 +59,7 @@ alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
 alias resetmaster='git fetch && git reset --hard origin/master'
+alias gls='git stash list'
 
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
