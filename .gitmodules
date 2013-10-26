@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-github"]
 	path = vim/bundle/vim-github
 	url = https://github.com/junegunn/vim-github-dashboard.git
+[submodule "vim/bundle/multipe-cursors"]
+	path = vim/bundle/multipe-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
