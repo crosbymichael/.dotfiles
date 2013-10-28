@@ -13,7 +13,6 @@ path=(
     $path
     ~/development/gocode/bin
     ~/development/gocode/src/github.com/dotcloud/docker/docker
-    /usr/local/heroku/bin
     /usr/local/bin
     ~/.dotfiles/bin
     ~/.dotfiles/local/bin

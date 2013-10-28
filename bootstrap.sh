@@ -3,7 +3,7 @@
 # Setup script for my complete development environment
 # Need ruby for a few vim plugins
 
-# Compiled apps: git go vim tig
+# Compiled apps: go vim
 apt-get update
 
 apt-get install -y htop wget curl tmux zsh \
@@ -16,6 +16,17 @@ apt-get install -y htop wget curl tmux zsh \
     ranger sysstat
 
 cd /home/$USER_NAME
+
+if [ -d "/usr/local/bin/vim" ]
+then
+    echo "Vim already installed..."
+else
+    hg clone https://vim.googlecode.com/hg/ vim
+    cd vim/src
+    ./configure --prefix=/usr/local --enable-gui=no --without-x --disable-nls --enable-multibyte --with-tlib=ncurses --enable-pythoninterp --with-features=huge
+    make
+    make install
+fi
 
 if [ -d "$HOME/go/bin/go" ]
 then
