@@ -57,7 +57,7 @@
 	url = git://github.com/othree/javascript-libraries-syntax.vim.git
 [submodule "vim/bundle/neocomplcache"]
 	path = vim/bundle/neocomplcache
-	url = git://github.com/Shougo/neocomplcache.vim.git
+	url = https://github.com/Shougo/neocomplcache.vim.git
 [submodule "vim/bundle/tabman"]
 	path = vim/bundle/tabman
 	url = git://github.com/kien/tabman.vim.git
@@ -91,3 +91,9 @@
 [submodule "vim/bundle/vim-github"]
 	path = vim/bundle/vim-github
 	url = https://github.com/junegunn/vim-github-dashboard.git
+[submodule "vim/bundle/multipe-cursors"]
+	path = vim/bundle/multipe-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim/bundle/delimitmate"]
+	path = vim/bundle/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
