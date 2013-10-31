@@ -1,4 +1,0 @@
-#!/bin/bash
-
-/etc/init.d/apparmor stop
-/etc/init.d/apparmor teardown

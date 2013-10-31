@@ -30,19 +30,6 @@ fi
 
 cd /home/$USER_NAME
 
-if [ -d "/usr/local/bin/ag" ]
-then
-    echo "Ag already installed..."
-else
-    git clone https://github.com/ggreer/the_silver_searcher.git
-    cd the_silver_searcher
-    ./build.sh --prefix=/usr/local
-    cd ..
-    rm -rf the_silver_searcher
-fi
-
-cd /home/$USER_NAME
-
 if [ -d "$HOME/go/bin/go" ]
 then
     echo "Go already installed..."
