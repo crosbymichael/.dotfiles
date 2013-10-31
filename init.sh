@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ssh michael@xxx wget https://raw.github.com/crosbymichael/.dotfiles/master/init.sh && chmod +x init.sh && sudo ./init.sh
+# ssh michael@xxx "wget https://raw.github.com/crosbymichael/.dotfiles/master/init.sh && chmod +x init.sh && sudo ./init.sh michael"
 
 apt-get update
 apt-get install -y git-core
