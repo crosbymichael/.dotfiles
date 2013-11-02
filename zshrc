@@ -89,25 +89,6 @@ alias listinstalled='dpkg --get-selections'
 # Iptables
 alias iptbleshow='iptables -L -n -t nat'
 
-# ---------------OSX------------------- #
-
-case `uname` in
-    Darwin)
-    export PKG_CONFIG_PATH=/usr/local/Cellar/sqlite/3.7.16.1/lib/pkgconfig:$PKG_CONFIG_PATH
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-    alias sublime='open -a "Sublime Text 2"'
-    alias pbc='pbcopy'
-    alias pbp='pbpaste'
-    alias search='mdfind -onlyin .'
-    alias lsa='ls -lah'
-    alias ls='ls -lh'
-    ;;
-    Linux)
-    alias lsa='ls -lah --color=auto'
-    alias ls='ls -lh --color=auto'
-    ;;
-esac
-
 setopt no_share_history
 
 # ----------------Scripts-------------------#
