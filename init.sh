@@ -42,7 +42,5 @@ apt-get install -y  \
     gdb \
     tcpflow \
     ranger \
-    lynx \
-    mutt \
     sysstat 
 
