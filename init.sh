@@ -21,11 +21,10 @@ apt-get install -y \
     cpp \
     gawk \
     gettext \
-    ncurses-dev \
+    libncurses5-dev \
     mercurial \
     lxc \
     aufs-tools  \
-    #    supervisor 
     libbz2-dev \
     libreadline-dev \
     ruby \
@@ -38,13 +37,12 @@ apt-get install -y  \
     nmap \
     curl \
     socat \
-#   tmux \
-#   htop \
-#   irssi \
-#   gdb \
-#   tcpflow \
-#   ranger \
-#   lynx
-#   mutt
+    tmux \
+    htop \
+    gdb \
+    tcpflow \
+    ranger \
+    lynx \
+    mutt \
     sysstat 
 
