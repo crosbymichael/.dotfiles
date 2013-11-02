@@ -3,21 +3,15 @@
 # Setup script for my complete development environment
 # Need ruby for a few vim plugins
 
-# Compiled apps: go vim
 apt-get update
 
-apt-get install -y 
-    htop \
-    wget \
-    curl \
-    tmux \
-    zsh \
+# infrastructure
+apt-get install -y \
     gcc \
     g++ \
     build-essential \
     make \
     automake \
-    irssi \
     python \
     python-dev \
     libc6-dev \
@@ -25,23 +19,33 @@ apt-get install -y
     bison \
     cpp \
     gawk \
-    gdb \
     gettext \
     ncurses-dev \
     mercurial \
-    lxc \
-    aufs-tools  \
-    supervisor 
+    #    lxc \
+    #    aufs-tools  \
+    #    supervisor 
+    libbz2-dev \
+    libreadline-dev \
+    ruby \
+    rubygems
+
+# applications
+apt-get install -y  \
+#    htop \
+    wget \
+    curl \
+#   tmux \
+    irssi \
+#    gdb \
     iotop \
     nmap \
     socat \
-    libbz2-dev \
-    libreadline-dev \
     tcpflow \
-    ruby \
-    rubygems \
-    ranger \
-    sysstat \
+#    ranger \
+#   lynx
+#   mutt
+    sysstat 
 
 cd /home/$USER_NAME
 
