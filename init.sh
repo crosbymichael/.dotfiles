@@ -23,6 +23,7 @@ apt-get install -y \
     gettext \
     libncurses5-dev \
     mercurial \
+    git-core \
     lxc \
     aufs-tools  \
     libbz2-dev \
