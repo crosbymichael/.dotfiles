@@ -1,5 +1,7 @@
 " crosbymichael.com
 
+set shell=/bin/bash
+
 call pathogen#infect()
 
 syntax on

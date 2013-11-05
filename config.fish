@@ -1,35 +1,11 @@
-DISABLE_AUTO_TITLE=true
-ZSH=$HOME/.dotfiles/oh-my-zsh
-ZSH_THEME="cm"
+# crosbymichael.com
 
-plugins=(git virtualenv python golang tmux docker)
+set PATH $HOME/.dotfiles/bin $PATH;
+set PATH $HOME/go/bin $PATH;
 
-source $ZSH/oh-my-zsh.sh
-
-# -------------------------------------- #
-# --------------Exports----------------- #
-
-path=(
-    $path
-    ~/development/gocode/bin
-    ~/development/gocode/src/github.com/dotcloud/docker/docker
-    /usr/local/bin
-    ~/.dotfiles/bin
-    ~/.dotfiles/local/bin
-    /usr/bin
-    /bin
-    /usr/sbin
-    /sbin
-    /opt/X11/bin
-    ~/.local/depot_tools
-    ~/go/bin
-)
-
-export GOROOT=$HOME/go
-export GOBIN=$GOROOT/bin
-export GOPATH=$HOME/development/gocode
-export PKG_CONFIG_PATH=$HOME/.dotfiles/local/lib/pkgconfig:$PKG_CONFIG_PATH
-export LD_LIBRARY_PATH=$HOME/.dotfiles/local/lib
+set GOROOT $HOME/go
+set GOBIN $GOROOT/bin
+set GOPATH $HOME/development/gocode
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
@@ -57,7 +33,7 @@ alias gremotes='git remote -v'
 alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
-alias resetmaster='git fetch && git reset --hard origin/master'
+#alias resetmaster='git fetch && git reset --hard origin/master'
 alias gls='git stash list'
 
 alias ztar='tar -zcvf'
@@ -81,7 +57,7 @@ alias godebug='go build -gcflags "-N -l"'
 alias godocserver='godoc -http=:8111'
 alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
-alias gobi='buildall && installall'
+#alias gobi='buildall && installall'
 
 alias attach='tmux attach-session -t 0'
 alias listinstalled='dpkg --get-selections'
@@ -91,23 +67,3 @@ alias iptbleshow='iptables -L -n -t nat'
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
 
-setopt no_share_history
-
-# ----------------Scripts-------------------#
-# Marks http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-export MARKPATH=$HOME/.marks
-function jump { 
-    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-function mark { 
-    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
-}
-function unmark { 
-    rm -i $MARKPATH/$1 
-}
-function marks {
-    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
-}
-
-# Source go cross compile
-source ~/.dotfiles/bin/crosscompile.bash
