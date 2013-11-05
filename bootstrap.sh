@@ -11,7 +11,7 @@ else
 	tar -zxf fish-2.1.0.tar.gz && cd fish-2.1.0.tar.gz
 	./configure --prefix=/usr/local
 	make && make install
-	echo "/usr/local/bin/fish" >> /etc/shells
+    echo '/usr/local/bin/fish' | tee -a /etc/shells
 	chsh -s /usr/local/bin/fish
 fi 
 

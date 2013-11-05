@@ -33,7 +33,7 @@ alias gremotes='git remote -v'
 alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
-#alias resetmaster='git fetch && git reset --hard origin/master'
+alias resetmaster='git fetch and git reset --hard origin/master'
 alias gls='git stash list'
 
 alias ztar='tar -zcvf'
@@ -57,7 +57,7 @@ alias godebug='go build -gcflags "-N -l"'
 alias godocserver='godoc -http=:8111'
 alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
-#alias gobi='buildall && installall'
+alias gobi='buildall and installall'
 
 alias attach='tmux attach-session -t 0'
 alias listinstalled='dpkg --get-selections'
@@ -67,3 +67,28 @@ alias iptbleshow='iptables -L -n -t nat'
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
 
+# Fish git prompt
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+set __fish_git_prompt_color_branch yellow
+
+# Status Chars
+set __fish_git_prompt_char_dirtystate '☁'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '↑'
+set __fish_git_prompt_char_upstream_behind '↓'
+
+
+function fish_prompt
+  set last_status $status
+
+  set_color $fish_color_cwd
+  printf '%s' (prompt_pwd)
+  set_color normal
+
+  printf '%s ' (__fish_git_prompt)
+
+  set_color normal
+end
