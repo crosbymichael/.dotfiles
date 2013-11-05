@@ -28,8 +28,6 @@ apt-get install -y \
     aufs-tools  \
     libbz2-dev \
     libreadline-dev \
-    ruby \
-    rubygems
 
 # applications
 apt-get install -y  \
