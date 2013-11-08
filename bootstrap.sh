@@ -1,19 +1,19 @@
 #!/bin/bash
 
-# Setup script for my complete development environment
-# Need ruby for a few vim plugins
 
-# Compiled apps: go vim
-apt-get update
+cd /home/$USER_NAME
 
-apt-get install -y htop wget curl tmux zsh \
-    gcc g++ build-essential make automake \
-    irssi python python-dev libc6-dev autoconf \
-    bison cpp gawk gdb gettext \
-    ncurses-dev mercurial lxc aufs-tools  \
-    supervisor iotop nmap socat libbz2-dev \
-    libreadline-dev tcpflow ruby rubygems \
-    ranger sysstat
+if [ -d "/usr/local/bin/fish" ]
+then
+    echo "Fish already installed..."
+else
+	wget http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz
+	tar -zxf fish-2.1.0.tar.gz && cd fish-2.1.0
+	./configure --prefix=/usr/local
+	make && make install
+    echo '/usr/local/bin/fish' | tee -a /etc/shells
+	chsh -s /usr/local/bin/fish
+fi 
 
 cd /home/$USER_NAME
 
@@ -40,35 +40,31 @@ else
     hg clone https://code.google.com/p/go
     cd go/src/
     ./all.bash
-    source ~/.dotfiles/bin/crosscompile.bash
-    go-crosscompile-build-all
 fi
 cd /home/$USER_NAME
 
-if [ -f "/home/$USER_NAME/.zshrc" ]
+# setup users home environment
+export USER_NAME=michael
+
+if [ -f "/home/$USER_NAME/.config/fish/config.fish" ]
 then
     echo "Dotfiles already installed..."
 else
-    cd /home/$USER_NAME/.dotfiles
-    apt-get install -y ctags zsh
-    git submodule update --init
     cd /home/$USER_NAME
     mkdir -p .ssh
+    mkdir -p .config/fish
 
-    rm /home/$USER_NAME/.zshrc
     rm -rf /home/$USER_NAME/.vim
     ln -s /home/$USER_NAME/.dotfiles/vim /home/$USER_NAME/.vim
     ln -s /home/$USER_NAME/.dotfiles/vimrc /home/$USER_NAME/.vimrc
     ln -s /home/$USER_NAME/.dotfiles/git/gitconfig /home/$USER_NAME/.gitconfig
     ln -s /home/$USER_NAME/.dotfiles/git/gitignore_global /home/$USER_NAME/.gitignore_global
-    ln -s /home/$USER_NAME/.dotfiles/zshrc /home/$USER_NAME/.zshrc
+    ln -s /home/$USER_NAME/.dotfiles/config.fish /home/$USER_NAME/.config/fish/config.fish
     ln -s /home/$USER_NAME/.dotfiles/tmux.conf /home/$USER_NAME/.tmux.conf
     ln -s /home/$USER_NAME/.dotfiles/sshconf /home/$USER_NAME/.ssh/config
-    chsh -s /usr/bin/zsh $USER_NAME
 fi
 cd /home/$USER_NAME
 
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 groupadd docker
 
-echo "Completed install...  Be sure to reboot just for kicks"
