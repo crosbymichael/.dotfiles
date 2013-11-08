@@ -3,6 +3,7 @@
 # ssh michael@xxx "wget https://raw.github.com/crosbymichael/.dotfiles/master/init.sh && chmod +x init.sh && sudo ./init.sh michael"
 
 apt-get update
+apt-get upgrade -y
 
 export USER_NAME=$1
 
@@ -43,3 +44,8 @@ apt-get install -y  \
     ranger \
     sysstat 
 
+git clone https://github.com/crosbymichael/.dotfiles.git
+cd .dotfiles
+git submodule update --init
+
+./bootstrap.sh
