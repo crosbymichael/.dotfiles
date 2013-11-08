@@ -42,6 +42,7 @@ apt-get install -y  \
     gdb \
     tcpflow \
     ranger \
+    ctags \
     sysstat 
 
 git clone https://github.com/crosbymichael/.dotfiles.git

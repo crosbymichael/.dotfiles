@@ -3,9 +3,9 @@
 set PATH $HOME/.dotfiles/bin $PATH;
 set PATH $HOME/go/bin $PATH;
 
-set GOROOT $HOME/go
-set GOBIN $GOROOT/bin
-set GOPATH $HOME/development/gocode
+set -x GOROOT $HOME/go
+set -x GOBIN $GOROOT/bin
+set -x GOPATH $HOME/development/gocode
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
@@ -33,7 +33,7 @@ alias gremotes='git remote -v'
 alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
-alias resetmaster='git fetch and git reset --hard origin/master'
+alias resetmaster='git fetch --all; and git reset --hard upstream/master'
 alias gls='git stash list'
 
 alias ztar='tar -zcvf'
@@ -57,7 +57,7 @@ alias godebug='go build -gcflags "-N -l"'
 alias godocserver='godoc -http=:8111'
 alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
-alias gobi='buildall and installall'
+alias gobi='go build -v . ./...; and go install . ./...'
 
 alias attach='tmux attach-session -t 0'
 alias listinstalled='dpkg --get-selections'
