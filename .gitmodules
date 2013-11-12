@@ -85,3 +85,6 @@
 [submodule "vim/bundle/delimitmate"]
 	path = vim/bundle/delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/vim-godef"]
+	path = vim/bundle/vim-godef
+	url = https://github.com/dgryski/vim-godef
