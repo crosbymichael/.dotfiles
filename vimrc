@@ -198,3 +198,4 @@ let g:multi_cursor_quit_key='<Esc>'
 
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:godef_split=2
