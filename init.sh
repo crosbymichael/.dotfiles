@@ -43,6 +43,7 @@ apt-get install -y  \
     tcpflow \
     ranger \
     ctags \
+    tree \
     sysstat 
 
 git clone https://github.com/crosbymichael/.dotfiles.git
