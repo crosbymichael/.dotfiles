@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# to be installed with ubuntu 13.10
 # ssh michael@xxx "wget https://raw.github.com/crosbymichael/.dotfiles/master/init.sh && chmod +x init.sh && sudo ./init.sh michael"
 
 apt-get update
@@ -44,6 +45,7 @@ apt-get install -y  \
     ranger \
     ctags \
     tree \
+    mosh \
     sysstat 
 
 git clone https://github.com/crosbymichael/.dotfiles.git
