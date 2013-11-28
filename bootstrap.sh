@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cd /home/$USER_NAME
 
 if [ -d "/usr/local/bin/fish" ]
@@ -67,4 +66,3 @@ cd /home/$USER_NAME
 
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 groupadd docker
-
