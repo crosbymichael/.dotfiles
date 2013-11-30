@@ -38,7 +38,7 @@ else
     export GOPATH=$HOME/development/gocode
     hg clone https://code.google.com/p/go
     cd go/src/
-    ./all.bash
+    ./make.bash
 fi
 cd /home/$USER_NAME
 

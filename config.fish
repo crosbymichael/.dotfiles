@@ -33,7 +33,7 @@ alias gremotes='git remote -v'
 alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
-alias resetmaster='git fetch --all; and git reset --hard upstream/master'
+alias resetmaster='git fetch --all; and git reset --hard origin/master'
 alias gls='git stash list'
 
 alias ztar='tar -zcvf'
