@@ -35,7 +35,7 @@ then
 else 
     export GOROOT=$HOME/go
     export GOBIN=$GOROOT/bin
-    export GOPATH=$HOME/development/gocode
+    export GOPATH=$HOME/gocode
     hg clone https://code.google.com/p/go
     cd go/src/
     ./make.bash
