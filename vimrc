@@ -55,6 +55,7 @@ filetype plugin on
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au BufRead *.rst setlocal expandtab shiftwidth=4 tabstop=8 smartindent
 "Ignore the 80 char line limit
 "au BufRead *.go match ErrorMsg '\%>80v.\+'
 au BufNewFile, BufRead *.m, *.h set ft=objc
@@ -110,8 +111,7 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-set background=dark
-colorscheme BlackSea
+colorscheme 256-grayvim
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"

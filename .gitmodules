@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-godef"]
 	path = vim/bundle/vim-godef
 	url = https://github.com/dgryski/vim-godef
+[submodule "vim/bundle/riv"]
+	path = vim/bundle/riv
+	url = https://github.com/Rykka/riv.vim.git
