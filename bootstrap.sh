@@ -29,16 +29,11 @@ fi
 
 cd /home/$USER_NAME
 
-if [ -d "$HOME/go/bin/go" ]
+if [ -d "/usr/local/go/bin/go" ]
 then
     echo "Go already installed..."
 else 
-    export GOROOT=$HOME/go
-    export GOBIN=$GOROOT/bin
-    export GOPATH=$HOME/gocode
-    hg clone https://code.google.com/p/go
-    cd go/src/
-    ./make.bash
+    curl -s http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz | tar -v -C /usr/local -xz
 fi
 cd /home/$USER_NAME
 
