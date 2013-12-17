@@ -44,6 +44,7 @@ RUN mkdir -p /home/michael
 # Cloning the repo to take advantage of the cache
 RUN cd /home/michael && git clone https://github.com/crosbymichael/.dotfiles.git
 RUN cd /home/michael/.dotfiles && git submodule update --init
+ENV UPDATED 12_05_2013
 RUN ./home/michael/.dotfiles/bootstrap.sh
 
 RUN apt-get install -y openssh-server
