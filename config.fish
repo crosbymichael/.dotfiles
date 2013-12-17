@@ -5,7 +5,7 @@ set PATH $HOME/go/bin $PATH;
 
 set -x GOROOT $HOME/go
 set -x GOBIN $GOROOT/bin
-set -x GOPATH $HOME/gocode
+set -x GOPATH $HOME/development/gocode
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
