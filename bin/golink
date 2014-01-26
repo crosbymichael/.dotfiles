@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-export P="$GOPATH/src/$1"
-mkdir -p $P
-ln -s `pwd` $P
