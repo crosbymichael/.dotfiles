@@ -24,6 +24,7 @@ apt-get install -y --force-yes \
 	lxc \
 	mosh \
 	socat \
+    supervisor \
 	tmux
     
 curl -s http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz | tar -v -C /usr/local -xz
@@ -36,11 +37,12 @@ wget http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz && tar -zxf fish-2.1.0.t
 wget -O /usr/local/bin/docker https://get.docker.io/builds/Linux/x86_64/docker-latest && \
 	chmod +x /usr/local/bin/docker
 
-mkdir /var/log/docker
-ln -s /root/home/docker.conf /etc/supervisor/conf.d/docker.conf
+mkdir -p /var/log/docker
+ln -s /root/.dotfiles/docker.conf /etc/supervisor/conf.d/docker.conf
 
-ln -s /root/home/vim /root/.vim && ln -s /root/home/vimrc /root/.vimrc
-mkdir -p /root/.config/fish && ln -s /root/home/config.fish /root/.config/fish/config.fish
-ln -s /root/home/tmux.conf /root/.tmux.conf
-ln -s /root/home/git/gitconfig /root/.gitconfig
-ln -s /root/home/git/gitignore_global /root/.gitignore_global
+ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.vimrc
+mkdir -p /root/.config/fish && ln -s /root/.dotfiles/config.fish /root/.config/fish/config.fish
+ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf
+ln -s /root/.dotfiles/git/gitconfig /root/.gitconfig
+ln -s /root/.dotfiles/git/gitignore_global /root/.gitignore_global
+ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks
