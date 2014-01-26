@@ -1,0 +1,21 @@
+#!/usr/bin/python
+
+import urllib2
+import json
+import sys
+import os
+
+url = sys.argv[len(sys.argv) - 1]
+data = json.dumps({'longUrl': url})
+
+request = urllib2.Request('https://www.googleapis.com/urlshortener/v1/url')
+request.add_header('Content-Type', 'application/json')
+
+opener = urllib2.build_opener()
+output = opener.open(request, data).read()
+
+doc = json.loads(output)
+short = doc['id']
+
+os.system('echo %s | pbcopy' % short)
+print 'The short link %s was copied to your clipboard.' % short

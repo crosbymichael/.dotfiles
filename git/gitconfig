@@ -1,0 +1,18 @@
+[user]
+	name = Michael Crosby
+	email = michael@crosbymichael.com
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ca = commit -a
+	ga = add .
+	lg = log --graph
+	undo = reset --hard
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/michael/.gitignore_global
+	editor = vim
+[github]
+	user = crosbymichael

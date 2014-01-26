@@ -1,0 +1,9 @@
+Host prod
+    HostName 162.243.208.135
+    Port 22
+    User michael
+
+Host pi
+    HostName pi.crosbymichael.com
+    Port 22
+    User michael
