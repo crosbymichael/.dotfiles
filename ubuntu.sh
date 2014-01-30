@@ -24,7 +24,7 @@ apt-get install -y --force-yes \
 	lxc \
 	mosh \
 	socat \
-    supervisor \
+	supervisor \
 	tmux
     
 curl -s http://go.googlecode.com/files/go1.2.linux-amd64.tar.gz | tar -v -C /usr/local -xz
