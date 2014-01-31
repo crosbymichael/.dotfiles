@@ -2,6 +2,7 @@
 
 yum install \
 	tmux \
+	vim \
 	gcc \
 	wget \
 	cpp \

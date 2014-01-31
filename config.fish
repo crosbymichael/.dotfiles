@@ -1,9 +1,9 @@
 # crosbymichael.com
 
-set PATH $HOME/home/bin $PATH;
-set PATH /usr/local/go/bin $PATH;
+set PATH $HOME/.dotfiles/bin $PATH;
+set PATH /root/go/bin $PATH;
 
-set -x GOROOT /usr/local/go
+set -x GOROOT /root/go
 set -x GOBIN $GOROOT/bin
 set -x GOPATH $HOME/development/gocode
 
