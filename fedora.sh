@@ -15,6 +15,7 @@ yum install \
 	socat \
 	gcc-c++ \
 	ncurses-devel \
+    ctags
 
 
 wget https://go.googlecode.com/files/go1.2.src.tar.gz && tar zxvf go1.2.src.tar.gz && \
@@ -32,3 +33,6 @@ ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf
 ln -s /root/.dotfiles/git/gitconfig /root/.gitconfig
 ln -s /root/.dotfiles/git/gitignore_global /root/.gitignore_global
 ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks
+
+systemctl disable firewalld
+systemctl stop firewalld
