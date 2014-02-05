@@ -1,9 +1,17 @@
-HISTSIZE=10000
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+# -------------------------------------- #
+# --------------Functions----------------- #
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+HISTSIZE=10000
+PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${PWD/#$HOME/~}"'
+PS1="\\w\$(parse_git_branch '(%s)') \$ "
 
 # setup path and env vars
 export PATH=$PATH:$HOME/.dotfiles/bin:/root/go/bin
@@ -71,3 +79,4 @@ alias iptbleshow='iptables -L -n -t nat'
 
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
+
