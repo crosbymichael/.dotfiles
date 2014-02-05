@@ -33,6 +33,7 @@ ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf
 ln -s /root/.dotfiles/git/gitconfig /root/.gitconfig
 ln -s /root/.dotfiles/git/gitignore_global /root/.gitignore_global
 ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks
+ln -s /root/.dotfiles/sshconf  /root/.ssh/config
 
 systemctl disable firewalld
 systemctl stop firewalld
