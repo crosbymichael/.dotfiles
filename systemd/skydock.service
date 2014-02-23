@@ -1,0 +1,11 @@
+[Unit]
+Description=skydock
+After=skydns.service
+
+[Service]
+ExecStart=/usr/local/bin/docker start -a skydock
+ExecStop=/usr/local/bin/docker stop skydock
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

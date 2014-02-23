@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# make sure this runs on debian jessie
+# install systemd
+# add this line to grub
+#       GRUB_CMDLINE_LINUX_DEFAULT="quiet init=/lib/systemd/systemd"
+# run:
+#       update-grub
+
 apt-get update && apt-get install -y \
     curl \
     vim \
@@ -41,3 +48,5 @@ ln -s /root/.dotfiles/git/gitignore_global /root/.gitignore_global
 ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks
 mkdir -p /root/.ssh
 ln -s /root/.dotfiles/sshconf  /root/.ssh/config
+
+cp /root/.dotfiles/systemd/* /lib/systemd/system/
