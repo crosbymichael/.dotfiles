@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.io
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/docker -d -D -r=false -s btrfs -dns 172.17.42.1 -H unix:// -H tcp://0.0.0.0:4243
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
