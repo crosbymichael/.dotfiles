@@ -4,7 +4,7 @@ After=docker.service
 
 [Service]
 ExecStart=/usr/local/bin/docker start -a skydns
-ExecStop=/usr/local/bin/docker stop skydns
+ExecStop=/usr/local/bin/docker stop -t 2 skydns
 Restart=on-failure
 
 [Install]
