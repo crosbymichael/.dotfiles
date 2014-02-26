@@ -3,7 +3,7 @@
 # make sure this runs on debian jessie
 # install systemd
 # add this line to grub
-#       GRUB_CMDLINE_LINUX_DEFAULT="quiet init=/lib/systemd/systemd"
+#       GRUB_CMDLINE_LINUX_DEFAULT="quiet swapaccount=1 cgroup_enable=memory init=/lib/systemd/systemd"
 # run:
 #       update-grub
 

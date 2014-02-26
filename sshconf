@@ -1,7 +1,7 @@
 Host prod
     HostName 162.243.208.135
     Port 22
-    User michael
+    User root
 
 Host pi
     HostName pi.crosbymichael.com

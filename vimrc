@@ -194,3 +194,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:godef_split=2
+
+autocmd FileType go compiler golang
+let g:golang_goroot = "/root/go"
+let g:golang_cwindow = 1
