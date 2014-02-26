@@ -1,0 +1,1 @@
+*/5 * * * * rsync --delete -az /root/development/ pi:/home/michael/backups/development/ && echo "Updated backup" >> /root/backup.log
