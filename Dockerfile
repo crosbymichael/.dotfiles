@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
     socat \
     tmux
 
-RUN cd /root && wget https://go.googlecode.com/files/go1.2.src.tar.gz && tar zxvf go1.2.src.tar.gz && \
-	cd go/src && ./all.bash && cd /root && rm go1.2.src.tar.gz
+RUN cd /root && wget https://go.googlecode.com/files/go1.2.1.src.tar.gz && tar zxvf go1.2.1.src.tar.gz && \
+	cd go/src && ./all.bash && cd /root && rm go1.2.1.src.tar.gz
 
 ENV HOME /root
 RUN apt-get install -y locales && dpkg-reconfigure locales && locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8
