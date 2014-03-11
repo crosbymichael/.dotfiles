@@ -14,5 +14,6 @@
 [core]
 	excludesfile = /Users/michael/.gitignore_global
 	editor = vim
+    mergetool = vimdiff
 [github]
 	user = crosbymichael
