@@ -36,7 +36,7 @@ alias gremotes='git remote -v'
 alias gcount='git count-objects -H'
 alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
-alias resetmaster='git fetch --all; and git reset --hard origin/master'
+alias resetmaster='git fetch origin; and git reset --hard origin/master'
 alias gls='git stash list'
 
 alias ztar='tar -zcvf'
@@ -51,10 +51,6 @@ alias back='popd'
 
 alias encrypt='openssl aes-256-cbc -a -salt '
 alias decrypt='openssl aes-256-cbc -d -a '
-
-alias pychecker='pychecker -L 50 -R 4 -J 6 '
-alias markdown='markdown_py'
-alias createenv='virtualenv --no-site-packages '
 
 alias godebug='go build -gcflags "-N -l"'
 alias godocserver='godoc -http=:8111'
@@ -101,4 +97,8 @@ function fish_prompt
   end
 
   echo -n -s $cwd $red '|' $git_info $normal ⇒ ' ' $normal
+end
+
+function run_docker
+   docker build -t docker .; and docker run -ti --privileged docker bash 
 end

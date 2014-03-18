@@ -7,3 +7,8 @@ Host pi
     HostName pi.crosbymichael.com
     Port 22
     User michael
+
+Host dockerpi
+    HostName 10.180.0.213
+    Port 22
+    User michael
