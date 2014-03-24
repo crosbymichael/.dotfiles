@@ -102,3 +102,7 @@ end
 function run_docker
    docker build -t docker .; and docker run -ti --privileged docker bash 
 end
+
+function remove_images_none 
+    docker rmi (docker images | grep "<none>" | awk '{print $3}')
+end
