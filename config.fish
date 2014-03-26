@@ -106,3 +106,7 @@ end
 function remove_images_none 
     docker rmi (docker images | grep "<none>" | awk '{print $3}')
 end
+
+function clean_merged_branches
+    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+end
