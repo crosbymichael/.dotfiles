@@ -1,6 +1,6 @@
-FROM debian:jessie
+FROM crosbymichael/golang
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     curl \
     vim \
     git \
@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     dpkg-reconfigure locales && locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8 && \
     chsh -s /usr/bin/fish
 
-RUN curl -s https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -v -C /root -xz
 ENV HOME /root
 ENV LC_ALL C.UTF-8
 ENV TERM xterm-256color
