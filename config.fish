@@ -3,12 +3,12 @@
 set PATH $HOME/.dotfiles/bin $PATH;
 set PATH $HOME/go/bin $PATH;
 
-set -x GOROOT $HOME/go
-set -x GOBIN $GOROOT/bin
+# set -x GOROOT $HOME/go
+# set -x GOBIN $GOROOT/bin
 set -x GOPATH $HOME/development/gocode
-set -x DOCKER_HOST tcp://192.168.56.102:4243
-set -x CLICOLOR 1
-set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
+set -x DOCKER_HOST unix:///var/run/docker.sock
+# set -x CLICOLOR 1
+# set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
 
 # -------------------------------------- #
 # --------------Aliases----------------- #
@@ -64,9 +64,8 @@ alias listinstalled='dpkg --get-selections'
 # Iptables
 alias iptbleshow='iptables -L -n -t nat'
 
-alias lsa='ls -lah'
-alias ls='ls -lh'
-
+alias lsa='ls -lah --color=auto'
+alias ls='ls -lh --color=auto'
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
