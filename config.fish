@@ -1,7 +1,9 @@
 # crosbymichael.com
 
+set GOBIN $HOME/development/gocode/bin
 set PATH $HOME/.dotfiles/bin $PATH;
 set PATH $HOME/go/bin $PATH;
+set PATH $GOBIN $PATH
 
 # set -x GOROOT $HOME/go
 # set -x GOBIN $GOROOT/bin
