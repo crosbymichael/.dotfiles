@@ -15,7 +15,13 @@ yum update -y && yum install -y \
     ncurses-devel \
     curl \
     golang \
+    fish \
+    mercurial \
+    strace \
+    htop \
     ctags 
+
+chsh -s /usr/bin/fish
 
 ln -s /root/.dotfiles/vim /root/.vim && \
     ln -s /root/.dotfiles/vimrc /root/.vimrc && \
