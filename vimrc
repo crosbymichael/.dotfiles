@@ -101,7 +101,9 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-colorscheme 256-jungle-mac
+set background=light
+set t_Co=256
+colorscheme mac_classic
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"

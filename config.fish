@@ -69,6 +69,7 @@ alias iptbleshow='iptables -L -n -t nat'
 # linux
 alias lsa='ls -lah --color=auto'
 alias ls='ls -lh --color=auto'
+alias tree='tree -F'
 
 # osx
 # alias lsa='ls -lah'
