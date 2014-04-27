@@ -7,7 +7,7 @@ switch (uname)
        alias ls='ls -lh --color=auto'
        alias iptbleshow='iptables -L -n -t nat'
     case Darwin
-        set -x DOCKER_HOST tcp://docker.local:4243
+        set -x DOCKER_HOST tcp://docker:4243
         set -x CLICOLOR 1
         set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
         alias lsa='ls -lah'
