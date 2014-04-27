@@ -1,21 +1,27 @@
 # @crosbymichael
 
-set GOBIN $HOME/development/gocode/bin
-set -x GOPATH $HOME/development/gocode
-set -x DOCKER_HOST unix:///var/run/docker.sock
+switch (uname)
+    case Linux
+       set -x DOCKER_HOST unix:///var/run/docker.sock
+       alias lsa='ls -lah --color=auto'
+       alias ls='ls -lh --color=auto'
+       alias iptbleshow='iptables -L -n -t nat'
+    case Darwin
+        set -x DOCKER_HOST tcp://docker.local:4243
+        set -x CLICOLOR 1
+        set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
+        alias lsa='ls -lah'
+        alias ls='ls -lh'
+end
 
+set -x GOROOT $HOME/go
+set -x GOBIN $GOROOT/bin
+set -x GOPATH $HOME/development/gocode
+
+set PATH $HOME/go/bin $PATH;
 set PATH $HOME/.dotfiles/bin $PATH;
 set PATH $GOBIN $PATH
 set PATH /usr/sbin $PATH;
-
-
-# --------------OSX----------------- #
-# set -x GOROOT $HOME/go
-# set PATH $HOME/go/bin $PATH;
-# set -x GOBIN $GOROOT/bin
-# set -x CLICOLOR 1
-# set -x LSCOLORS gxBxhxDxfxhxhxhxhxcxcx
-
 
 # --------------Aliases----------------- #
 alias gs='git status -u'
@@ -63,18 +69,7 @@ alias buildall='go build -v . ./...'
 alias installall='go install . ./...'
 alias gobi='go build -v . ./...; and go install . ./...'
 alias attach='tmux attach-session -t 0'
-alias listinstalled='dpkg --get-selections'
-alias iptbleshow='iptables -L -n -t nat'
-
-# linux
-alias lsa='ls -lah --color=auto'
-alias ls='ls -lh --color=auto'
 alias tree='tree -F'
-
-# osx
-# alias lsa='ls -lah'
-# alias ls='ls -lh'
-
 
 # --------------Functions----------------- #
 function _git_branch_name
