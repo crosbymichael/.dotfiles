@@ -17,7 +17,7 @@ command! -buffer Fmt call s:GoFormat()
 
 function! s:GoFormat()
     let view = winsaveview()
-    %!gofmt -s
+    %!goimports && gofmt -s
     if v:shell_error
         %| " output errors returned by gofmt
            " TODO(dchest): perhaps, errors should go to quickfix
