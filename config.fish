@@ -14,6 +14,8 @@ switch (uname)
         alias ls='ls -lh'
 end
 
+set -x EDITOR vim
+
 set -x GOROOT $HOME/go
 set -x GOBIN $GOROOT/bin
 set -x GOPATH $HOME/development/gocode

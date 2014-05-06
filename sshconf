@@ -12,3 +12,7 @@ Host dockerpi
     HostName 10.180.0.213
     Port 22
     User michael
+
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
