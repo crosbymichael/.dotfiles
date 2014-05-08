@@ -34,3 +34,4 @@ RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.v
 
 WORKDIR /root
 ENTRYPOINT ["tmux"]
+CMD []
