@@ -33,5 +33,4 @@ RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.v
     ln -s /.dockerinit /usr/local/bin/docker
 
 WORKDIR /root
-ENTRYPOINT ["tmux"]
-CMD []
+CMD ["tmux"]
