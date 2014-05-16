@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     procps \
     locales \
     tree \
+    openssh-client \
+    htop \
     tmux && \
     dpkg-reconfigure locales && locale-gen C.UTF-8 && /usr/sbin/update-locale LANG=C.UTF-8 && \
     chsh -s /usr/bin/fish
