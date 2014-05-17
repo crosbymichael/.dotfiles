@@ -106,7 +106,7 @@ function fish_prompt
 end
 
 function run_docker
-   docker build -t docker .; and docker run -ti --privileged docker bash 
+    docker run -ti --rm --privileged -v $HOME/docker:/go/src/github.com/dotcloud/docker docker bash 
 end
 
 function remove_images_none 

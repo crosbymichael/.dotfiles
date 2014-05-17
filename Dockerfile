@@ -35,5 +35,7 @@ RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.v
     ln -s /.dockerinit /usr/local/bin/docker && \
     ln -s /usr/local/go /root/go
 
+RUN /./root/.dotfiles/go-install.sh
+
 WORKDIR /root
 CMD ["tmux"]
