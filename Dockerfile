@@ -32,7 +32,8 @@ RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.v
     ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks && \
     mkdir -p /root/.ssh && \
     ln -s /root/.dotfiles/sshconf  /root/.ssh/config && \
-    ln -s /.dockerinit /usr/local/bin/docker
+    ln -s /.dockerinit /usr/local/bin/docker && \
+    ln -s /usr/local/go /root/go
 
 WORKDIR /root
 CMD ["tmux"]
