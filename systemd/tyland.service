@@ -1,0 +1,12 @@
+[Unit]
+Description=tyland minecraft server
+After=docker.service
+
+[Service]
+ExecStart=/usr/local/bin/docker start -a tyland
+ExecStop=/usr/local/bin/docker stop -t 10 tyland
+Restart=on-failure
+RestartSec=12
+
+[Install]
+WantedBy=multi-user.target
