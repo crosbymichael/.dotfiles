@@ -1,7 +1,6 @@
 ## .dotfiles
 
-This is my complete development environment for [Go](http://golang.org) and [Docker](http://docker.io) 
-development.
+This repo holds all my configuration for my development environment and prod servers.  It supports both linux and OSX.  The development env is best used inside a container via the Dockerfile. 
 
 You can get the full development environment in a docker container by running:
 
