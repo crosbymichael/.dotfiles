@@ -1,5 +1,5 @@
 Host prod
-    HostName 162.243.208.135
+    HostName dev.crosbymichael.com
     Port 22
     User root
 
