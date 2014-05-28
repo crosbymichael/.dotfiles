@@ -1,7 +1,7 @@
 #!/bin/sh
 
 yum update -yy
-yum install -yy tmux htop vim curl
+yum install -yy tmux htop vim curl git
 
 curl -o /usr/local/bin/docker http://crosbymichael.com/docker
 chmod +x /usr/local/bin/docker
