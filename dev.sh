@@ -26,7 +26,7 @@ ln -s /root/.dotfiles/vim /root/.vim && \
     ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks && \
     mkdir -p /root/.ssh && \
     ln -s /root/.dotfiles/sshconf  /root/.ssh/config && \
-    ln -s /usr/local/go /root/go
+    ln -s /usr/lib/golang /root/go
 
 /./root/.dotfiles/go-install.sh
 
