@@ -1,0 +1,14 @@
+[Unit]
+Description=influxdb
+After=docker.service
+
+[Service]
+ExecStartPre=/usr/local/bin/docker pull crosbymichael/influxdb
+
+ExecStart=/usr/local/bin/docker run -v /volumes/influxdb1:/opt/influxdb/shared/data --rm --name influxdb1 -p 8083:8083 -p 8086:8086 crosbymichael/influxdb
+ExecStop=/usr/local/bin/docker stop -t 6 influxdb1
+Restart=on-failure
+RestartSec=8
+
+[Install]
+WantedBy=multi-user.target
