@@ -1,6 +1,6 @@
 [user]
 	name = Michael Crosby
-	email = michael@crosbymichael.com
+	email = michael@docker.com
 [alias]
 	st = status
 	co = checkout

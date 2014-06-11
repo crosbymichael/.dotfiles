@@ -13,6 +13,7 @@ yum install -yy \
     strace \
     mercurial \
     tree \
+    libsqlite3x-devel \
     ctags
 
 chsh -s /usr/bin/fish
