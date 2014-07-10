@@ -9,3 +9,7 @@ curl -o /usr/local/bin/docker http://crosbymichael.com/docker
 chmod +x /usr/local/bin/docker
 
 mkdir -p /var/log/docker
+
+curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
+
+supervisorctl reload
