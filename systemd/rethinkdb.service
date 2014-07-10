@@ -3,10 +3,11 @@ Description=rethinkdb master
 After=docker.service
 
 [Service]
-ExecStart=/usr/local/bin/docker start -a rethinkdb-master
-ExecStop=/usr/local/bin/docker stop -t 6 rethinkdb-master
+ExecStart=/usr/local/bin/docker run --rm -p 8080:8080 -p 28015:28015 -p 29015:29015 --name rethinkdb \
+--memory 768m -v /volumes/rethinkdb:/rethinkdb crosbymichael/rethinkdb --bind all
+ExecStop=/usr/local/bin/docker stop -t 6 rethinkdb
 Restart=on-failure
-RestartSec=2
+RestartSec=8
 
 [Install]
 WantedBy=multi-user.target

@@ -3,7 +3,7 @@ Description=starbound server
 After=docker.service
 
 [Service]
-ExecStart=/usr/local/bin/docker start -a starbound
+ExecStart=/usr/local/bin/docker run -p 21025:21025 -p 21025:21025/udp --rm -v /volumes/starbound:/data --name starbound --memory 1024m crosbymichael/starbound
 ExecStop=/usr/local/bin/docker stop -t 10 starbound
 Restart=on-failure
 RestartSec=12

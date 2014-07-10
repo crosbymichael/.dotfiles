@@ -3,6 +3,11 @@ Host prod
     Port 22
     User root
 
+Host services
+    HostName services.crosbymichael.com
+    Port 22
+    User root
+
 Host pi
     HostName pi.crosbymichael.com
     Port 22
