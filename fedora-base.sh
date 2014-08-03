@@ -10,6 +10,8 @@ curl -o /lib/systemd/system/docker.service https://raw.githubusercontent.com/cro
 
 systemctl enable docker
 systemctl start docker
+systemctl stop firewalld
+systemctl disable firewalld
 
 # test that the install worked
 docker run busybox true
