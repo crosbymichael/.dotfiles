@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -rm -i -t -privileged -e TESTFLAGS -v `pwd`:/go/src/github.com/dotcloud/docker docker bash
