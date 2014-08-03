@@ -8,7 +8,6 @@ yum install -yy \
     automake \
     autoconf \
     gcc-c++ \
-    golang \
     fish \
     strace \
     mercurial \
@@ -17,6 +16,12 @@ yum install -yy \
     ctags
 
 chsh -s /usr/bin/fish
+
+hg clone -u release https://code.google.com/p/go
+(
+    cd go/src
+    ./make.bash
+)
 
 ln -s /root/.dotfiles/vim /root/.vim && \
     ln -s /root/.dotfiles/vimrc /root/.vimrc && \
