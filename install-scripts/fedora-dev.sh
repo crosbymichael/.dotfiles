@@ -11,6 +11,7 @@ yum install -yy \
     fish \
     strace \
     mercurial \
+    indent \
     tree \
     libsqlite3x-devel \
     ctags

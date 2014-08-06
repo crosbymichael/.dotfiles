@@ -117,3 +117,8 @@ end
 function clean_merged_branches
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 end
+
+function go_linux
+    set -x GOOS linux
+    set -x GOARCH amd64
+end
