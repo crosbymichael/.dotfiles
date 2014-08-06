@@ -7,16 +7,14 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     ctags \
     libc6-dev \
     make \
-    man-db \
     procps \
-    locales \
+    indent \
     tree \
     openssh-client \
     htop \
     tmux
 
 ENV HOME /root
-ENV LC_ALL C.UTF-8
 ENV TERM xterm-256color
 
 ADD . /root/.dotfiles
@@ -29,7 +27,9 @@ RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.v
     mkdir -p /root/.ssh && \
     ln -s /root/.dotfiles/sshconf  /root/.ssh/config && \
     ln -s /.dockerinit /usr/local/bin/docker && \
-    ln -s /usr/local/go /root/go
+    ln -s /usr/local/go /root/go && \
+    rm /root/.bashrc && ln -s /root/.dotfiles/bashrc /root/.bashrc
+
 
 RUN /./root/.dotfiles/go-install.sh
 
