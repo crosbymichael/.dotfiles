@@ -92,3 +92,7 @@ function go_linux() {
     export GOOS=linux
     export GOARCH=amd64
 }
+
+function compile() {
+    gcc -Wall -g --std gnu99 -O3 $@
+}

@@ -13,6 +13,7 @@ if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
     set backspace=2
+    autocmd BufWritePre *.c FmtC
   endif
 endif
 
@@ -74,7 +75,6 @@ abbrev spell setlocal spell spelllang=en_us<CR>
 
 " go fmt on save
 autocmd BufWritePre *.go Fmt
-autocmd BufWritePre *.c FmtC
 
 " Start NERDTree on startup
 " autocmd VimEnter * NERDTree
