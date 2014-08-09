@@ -74,6 +74,7 @@ abbrev spell setlocal spell spelllang=en_us<CR>
 
 " go fmt on save
 autocmd BufWritePre *.go Fmt
+autocmd BufWritePre *.c FmtC
 
 " Start NERDTree on startup
 " autocmd VimEnter * NERDTree
@@ -103,7 +104,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 set background=light
 set t_Co=256
-colorscheme mac_classic
+colorscheme LaravelDarker
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -168,3 +169,18 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:godef_split=2
+
+command! -buffer FmtC call s:CFormat()
+
+function! s:CFormat()
+    let view = winsaveview()
+    %!indent -linux
+    if v:shell_error
+        %| " output errors returned by indent
+        undo
+	echohl Error | echomsg "indent returned error" | echohl None
+    endif
+    call winrestview(view)
+endfunction
+
+
