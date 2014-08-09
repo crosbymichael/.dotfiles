@@ -5,6 +5,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+
+PS1='\[\033[0;32m\]\u\[\033[0;31m\]|\[\033[1;37m\]\w\[\033[0m\]> '
+
 case $(uname) in
     Linux)
         alias lsa='ls -lah --color=auto'
