@@ -5,8 +5,27 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+function parse_git_dirty() {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+  
+function parse_git_branch() {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
 
-PS1='\[\033[0;32m\]\u\[\033[0;31m\]|\[\033[1;37m\]\w\[\033[0m\]> '
+# color codes 
+
+C_NONE='\[\033[0m\]'
+C_RED='\[\033[0;31m\]'
+C_GREEN='\[\033[0;32m\]'
+C_BLUE='\[\033[0;34m\]'
+C_YELLOW='\[\033[1;33m\]'
+C_WHITE='\[\033[1;37m\]'
+C_BOLD='\[\e[1;91m\]'
+
+# pretty bash prompt
+
+PS1="$C_GREEN\u$C_RED|$C_WHITE\w$C_BLUE >$C_NONE "
 
 case $(uname) in
     Linux)
@@ -30,7 +49,7 @@ export GOPATH=$HOME/development/gocode
 
 export PATH=$PATH:$HOME/.dotfiles/bin:$GOBIN
 
-# --------------Aliases----------------- #
+# --------------GIT Aliases----------------- #
 alias gs='git status -u'
 alias gmt='git mergetool'
 alias gc='git commit'
@@ -57,6 +76,7 @@ alias addlast='git commit --amend –C HEAD'
 alias gcount='git fetch --all'
 alias resetmaster='git fetch origin && git reset --hard origin/master'
 alias gls='git stash list'
+# --------------END GIT Aliases----------------- #
 
 alias ztar='tar -zcvf'
 alias uztar='tar -zxvf'
