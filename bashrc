@@ -111,9 +111,11 @@ function clean_merged_branches() {
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 }
 
-function go_linux() {
+function build_linux() {
     export GOOS=linux
     export GOARCH=amd64
+
+    go build -v .
 }
 
 function compile() {
