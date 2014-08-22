@@ -1,10 +1,15 @@
-Host prod
-    HostName dev.crosbymichael.com
+Host node1
+    HostName 192.241.196.88
     Port 22
     User root
 
-Host services
-    HostName services.crosbymichael.com
+Host node2
+    HostName 107.170.234.111
+    Port 22
+    User root
+
+Host home
+    HostName home.crosbymichael.com
     Port 22
     User root
 

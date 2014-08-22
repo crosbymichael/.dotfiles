@@ -104,7 +104,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 set background=light
 set t_Co=256
-colorscheme LaravelDarker
+colorscheme mac_classic
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
