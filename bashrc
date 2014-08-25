@@ -34,7 +34,7 @@ case $(uname) in
         alias iptbleshow='iptables -L -n -t nat'
         ;;
     Darwin)
-        export DOCKER_HOST=tcp://docker:2376
+        export DOCKER_HOST=tcp://docker:2375
         export CLICOLOR=1
         export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
         alias lsa='ls -lah'
