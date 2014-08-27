@@ -121,3 +121,7 @@ function build_linux() {
 function compile() {
     gcc -Wall -g --std gnu99 -O3 $@
 }
+
+function hash_dir() {
+    find . -type f -o -type d  | cpio -o  | sha1sum
+}

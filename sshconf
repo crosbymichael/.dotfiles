@@ -3,7 +3,7 @@ Host node1
     Port 22
     User root
 
-Host node2
+Host mesos1
     HostName 107.170.234.111
     Port 22
     User root
