@@ -2,7 +2,7 @@ FROM golang:1.3
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     curl \
-    vim \
+    vim-nox \
     git \
     ctags \
     libc6-dev \
@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     tree \
     openssh-client \
     htop \
+    clang \
+    libclang-dev \
     tmux
 
 ENV HOME /root
