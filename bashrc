@@ -112,10 +112,7 @@ function clean_merged_branches() {
 }
 
 function build_linux() {
-    export GOOS=linux
-    export GOARCH=amd64
-
-    go build -v .
+    GOOS=linux GOARCH=amd64 go build -v .
 }
 
 function compile() {

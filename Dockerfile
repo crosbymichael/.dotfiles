@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     htop \
     clang \
     libclang-dev \
+    manpages-dev \
     tmux
 
 ENV HOME /root
