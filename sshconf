@@ -1,10 +1,15 @@
-Host node1
-    HostName 192.241.196.88
+Host lb
+    HostName 107.170.234.111
     Port 22
     User root
 
-Host mesos1
-    HostName 107.170.234.111
+Host services1
+    HostName 104.131.131.110
+    Port 22
+    User root
+
+Host mesos
+    HostName 192.241.196.88
     Port 22
     User root
 
