@@ -42,6 +42,7 @@ nosetests.xml
 *.dll
 *.exe
 *.o
+a.out
 
 # OS generated files #
 ######################
