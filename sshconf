@@ -8,6 +8,11 @@ Host services1
     Port 22
     User root
 
+Host mesos
+    HostName 192.241.196.88
+    Port 22
+    User root
+
 Host home
     HostName home.crosbymichael.com
     Port 22
