@@ -45,8 +45,8 @@ COPY . /root/.dotfiles
 
 RUN ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.vimrc && \
     ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf && \
-    ln -s /root/.dotfiles/git/gitconfig /root/.gitconfig && \
-    ln -s /root/.dotfiles/git/gitignore_global /root/.gitignore_global && \
+    ln -s /root/.dotfiles/gitconfig /root/.gitconfig && \
+    ln -s /root/.dotfiles/gitignore_global /root/.gitignore_global && \
     ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks && \
     mkdir -p /root/.ssh && \
     ln -s /root/.dotfiles/sshconf  /root/.ssh/config && \
