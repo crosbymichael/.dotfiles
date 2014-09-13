@@ -99,10 +99,6 @@ alias gobi='go build -v . ./... && go install . ./...'
 alias attach='tmux attach-session -t 0'
 alias tree='tree -F'
 
-function run_docker() {
-    docker run -ti --rm --privileged -v $HOME/docker:/go/src/github.com/dotcloud/docker docker bash 
-}
-
 function remove_images_none() {
     docker rmi $(docker images | grep "<none>" | awk '{print $3}')
 }
@@ -121,4 +117,26 @@ function compile() {
 
 function hash_dir() {
     find . -type f -o -type d  | cpio -o  | sha1sum
+}
+
+function ppjson() {
+    cat $1 | python -mjson.tool
+}
+
+function linecount() {
+    find . -name "*.$1" | xargs wc -l
+}
+
+function rm_bridge() {
+    ip link set $1 down
+    brctl delbr $1
+}
+
+function replace() {
+    pt -l $1 | xargs perl -pi -E 's/$1/$2/g'
+}
+
+function git_winner() {
+    git ls-tree --name-only -z -r HEAD|egrep -z -Z -E '\.(go)$' \
+       |xargs -0 -n1 git blame --line-porcelain|grep "^author "|sort|uniq -c|sort -nr
 }
