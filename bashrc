@@ -47,7 +47,7 @@ export GOROOT=$HOME/go
 export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
 
-export PATH=$PATH:$HOME/.dotfiles/bin:$GOBIN
+export PATH=$PATH:$GOBIN
 
 # --------------GIT Aliases----------------- #
 alias gs='git status -u'
