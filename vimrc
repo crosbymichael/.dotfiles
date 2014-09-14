@@ -92,9 +92,19 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-set background=light
 set t_Co=256
-colorscheme mac_classic
+
+set background=dark
+colorscheme LaravelDarker
+
+let s:now = strftime("%H")
+
+if s:now > 6
+    if s:now < 8
+        set background=light
+        colorscheme mac_classic
+    endif
+endif
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
