@@ -1,15 +1,15 @@
-Host lb
-    HostName 107.170.234.111
+Host gateway
+    HostName 107.170.218.100
     Port 22
     User root
 
-Host services1
+Host service
+    HostName 198.199.103.188
+    Port 22
+    User root
+
+Host generic1
     HostName 104.131.131.110
-    Port 22
-    User root
-
-Host mesos
-    HostName 192.241.196.88
     Port 22
     User root
 
@@ -19,9 +19,9 @@ Host home
     User root
 
 Host pi
-    HostName pi.crosbymichael.com
+    HostName 192.168.1.6
     Port 22
-    User michael
+    User root
 
 Host dockerpi
     HostName 10.180.0.213
