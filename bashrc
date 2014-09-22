@@ -140,3 +140,7 @@ function git_winner() {
     git ls-tree --name-only -z -r HEAD|egrep -z -Z -E '\.(go)$' \
        |xargs -0 -n1 git blame --line-porcelain|grep "^author "|sort|uniq -c|sort -nr
 }
+
+function docker_bash() {
+    docker run -ti --rm --privileged -e DOCKER_GRAPHDRIVER=vfs docker bash
+}
