@@ -1,3 +1,5 @@
+all:
+	docker build -t crosbymichael/dotfiles .
 
 host:
 	apt-get update && apt-get upgrade -y && apt-get install -y \
@@ -13,9 +15,6 @@ host:
 	curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
 
 	supervisorctl reload
-
-docker:
-	docker build -t crosbymichael/dotfiles .
 
 golang:
 	curl -sSL http://golang.org/dl/go1.3.1.src.tar.gz \
@@ -40,5 +39,14 @@ dev:
     ln -s /root/.dotfiles/NERDTreeBookmarks /root/.NERDTreeBookmarks && \
     mkdir -p /root/.ssh && ln -s /root/.dotfiles/sshconf  /root/.ssh/config && \
     rm /root/.bashrc && ln -s /root/.dotfiles/bashrc /root/.bashrc
+	ln -s /root/development/gocode/src/github.com/docker/docker /root/docker
+	ln -s /root/development/gocode/src/github.com/docker/libcontainer /root/libcontainer
 
-
+run:
+	docker run -ti --rm --name dev \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		-v /usr/local/bin/docker:/usr/local/bin/docker \
+		-v /root/.dotfiles:/root/.dotfiles \
+		-v /root/development:/root/development \
+		-v /root/.ssh:/root/.ssh \
+		crosbymichael/dotfiles
