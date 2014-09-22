@@ -1,4 +1,4 @@
-HISTSIZE=10000
+HISTSIZE=500000
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
