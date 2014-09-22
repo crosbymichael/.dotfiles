@@ -185,6 +185,14 @@
         ],
         "mounts": [
             {
+                "destination": "/tmp",
+                "type": "tmpfs"
+            },
+            {
+                "destination": "/run",
+                "type": "tmpfs"
+            },
+            {
                 "destination": "/etc/resolv.conf",
                 "private": true,
                 "source": "/etc/resolv.conf",
@@ -232,14 +240,6 @@
                 "source": "/root/.dotfiles",
                 "type": "bind",
                 "writable": true
-            },
-            {
-                "destination": "/tmp",
-                "type": "tmpfs"
-            },
-            {
-                "destination": "/run",
-                "type": "tmpfs"
             }
         ]
     },
