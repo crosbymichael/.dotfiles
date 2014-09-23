@@ -240,6 +240,13 @@
                 "source": "/root/.dotfiles",
                 "type": "bind",
                 "writable": true
+            },
+            {
+                "destination": "/root/.ssh",
+                "private": true,
+                "source": "/root/.ssh",
+                "type": "bind",
+                "writable": true
             }
         ]
     },
