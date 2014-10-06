@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     manpages-dev \
     build-essential \
     mercurial \
+    valgrind \
     tmux
 
 COPY . /root/.dotfiles
