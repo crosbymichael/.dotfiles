@@ -95,7 +95,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 set t_Co=256
 
 set background=dark
-colorscheme LaravelDarker
+colorscheme mac_classic
 
 let s:now = strftime("%H")
 
