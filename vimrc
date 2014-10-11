@@ -71,8 +71,11 @@ inoremap <Nul> <C-x><C-o>
 
 abbrev spell setlocal spell spelllang=en_us<CR>
 
-" go fmt on save
+" auto format commands on save
 autocmd BufWritePre *.go Fmt
+autocmd BufWritePre *.html Autoformat html
+autocmd BufWritePre *.js Autoformat js
+autocmd BufWritePre *.css Autoformat css
 
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
@@ -172,6 +175,7 @@ let g:godef_split=2
 
 command! -buffer FmtC call s:CFormat()
 
+" C/C++ code formating via the indent binary
 function! s:CFormat()
     let view = winsaveview()
     %!indent -linux
