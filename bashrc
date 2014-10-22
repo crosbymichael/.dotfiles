@@ -144,3 +144,14 @@ function git_winner() {
 function docker_bash() {
     docker run -ti --rm --privileged -e DOCKER_GRAPHDRIVER=vfs docker bash
 }
+
+# bind mount over docker's libcontainer vendored copy with the libcontainer version
+# in my local tree so that I can do a docker build to test docker with the master
+# version of libcontainer
+function mount_libcontainer() {
+    mount -o bind $(readlink /root/libcontainer) $(readlink /root/docker)/vendor/src/github.com/docker/libcontainer
+}
+
+function gocover() {
+    go test -cover -coverprofile /dev/stderr 2>&1 >/dev/null | go tool cover -func /dev/stdin
+}
