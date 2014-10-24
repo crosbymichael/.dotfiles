@@ -97,17 +97,8 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 set t_Co=256
 
-set background=dark
-colorscheme mac_classic
-
-let s:now = strftime("%H")
-
-if s:now > 6
-    if s:now < 8
-        set background=light
-        colorscheme mac_classic
-    endif
-endif
+"set background=light
+colorscheme github
 
 " javascript indent
 let g:html_indent_inctags = "html,body,head,tbody"
