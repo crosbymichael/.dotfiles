@@ -1,6 +1,5 @@
 FROM debian:jessie
 
-ENV HOME /root
 WORKDIR /root
 ENV TERM xterm-256color
 
@@ -28,7 +27,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 COPY . /root/.dotfiles
 
-RUN cd .dotfiles && make golang
-RUN cd .dotfiles && make dev
+RUN cd .dotfiles && make golang dev
 
 CMD ["tmux"]

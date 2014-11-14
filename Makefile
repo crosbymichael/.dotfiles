@@ -11,9 +11,7 @@ host:
 
 	curl -o /usr/local/bin/docker http://crosbymichael.com.s3.amazonaws.com/docker
 	chmod +x /usr/local/bin/docker
-
 	curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
-
 	supervisorctl reload
 
 golang:
@@ -21,7 +19,7 @@ golang:
     | tar -v -C /root -xz
 	cd /root/go/src && ./make.bash --no-clean 2>&1
 
-go-dep:
+tools:
 	go get github.com/nsf/gocode
 	go get github.com/rakyll/boom
 	go get github.com/jstemmer/gotags
@@ -46,7 +44,6 @@ run:
 	docker run -ti --rm --name dev \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v /usr/local/bin/docker:/usr/local/bin/docker \
-		-v /root/.dotfiles:/root/.dotfiles \
 		-v /root/development:/root/development \
 		-v /root/.ssh:/root/.ssh \
 		crosbymichael/dotfiles
