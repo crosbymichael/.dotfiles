@@ -16,6 +16,9 @@ if has("unix")
     autocmd BufWritePre *.c FmtC
     let g:clang_library_path='/usr/lib/llvm-3.4/lib'
   endif
+  if s:uname == "Darwin\n"
+    let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+  endif
 endif
 
 autocmd! bufwritepost .vimrc source %
