@@ -94,7 +94,7 @@ sys.exit(ret)
 
 # vim: set ts=2 sts=2 sw=2 expandtab :
 doc/clang_complete.txt	[[[1
-368
+369
 *clang_complete.txt*	For Vim version 7.3.  Last change: 2014 Apr 13
 
 
@@ -315,8 +315,9 @@ Default: 1
 
        				       	*clang_complete-library_path*
        				       	*g:clang_library_path*
-If libclang.[dll/so/dylib] is not in your library search path, set this to the
-absolute path where libclang is available.
+If libclang is not in your library search path, set this to the absolute path
+where libclang is available. This should either be a directory containing a
+file named libclang.[dll/so/dylib] or the clang shared library file itself.
 Default: ""
 
 					*clang_complete-sort_algo*
@@ -4309,7 +4310,7 @@ endfunction
 
 " vim: set ts=2 sts=2 sw=2 expandtab :
 plugin/libclang.py	[[[1
-769
+775
 from clang.cindex import *
 import vim
 import time
@@ -4338,6 +4339,9 @@ def canFindBuiltinHeaders(index, args = []):
 # for all manual installations (the ones where the builtin header path problem
 # is very common) as well as a set of very common distributions.
 def getBuiltinHeaderPath(library_path):
+  if os.path.isfile(library_path):
+    library_path = os.path.dirname(library_path)
+
   knownPaths = [
           library_path + "/../lib/clang",  # default value
           library_path + "/../clang",      # gentoo
@@ -4371,7 +4375,10 @@ def initClangComplete(clang_complete_flags, clang_compilation_database, \
   debug = int(vim.eval("g:clang_debug")) == 1
 
   if library_path:
-    Config.set_library_path(library_path)
+    if os.path.isdir(library_path):
+      Config.set_library_path(library_path)
+    else:
+      Config.set_library_file(library_path)
 
   Config.set_compatibility_check(False)
 
@@ -5187,6 +5194,6 @@ def snippetsTrigger():
 
 def snippetsReset():
   if "clang_complete" in UltiSnips_Manager._added_snippets_source._snippets:
-    UltiSnips_Manager._added_snippets_source._snippets["clang_complete"].clear_snippets([])
+    UltiSnips_Manager._added_snippets_source._snippets["clang_complete"].clear_snippets(None, [])
 
 # vim: set ts=2 sts=2 sw=2 expandtab :

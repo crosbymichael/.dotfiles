@@ -26,6 +26,9 @@ def canFindBuiltinHeaders(index, args = []):
 # for all manual installations (the ones where the builtin header path problem
 # is very common) as well as a set of very common distributions.
 def getBuiltinHeaderPath(library_path):
+  if os.path.isfile(library_path):
+    library_path = os.path.dirname(library_path)
+
   knownPaths = [
           library_path + "/../lib/clang",  # default value
           library_path + "/../clang",      # gentoo
@@ -59,7 +62,10 @@ def initClangComplete(clang_complete_flags, clang_compilation_database, \
   debug = int(vim.eval("g:clang_debug")) == 1
 
   if library_path:
-    Config.set_library_path(library_path)
+    if os.path.isdir(library_path):
+      Config.set_library_path(library_path)
+    else:
+      Config.set_library_file(library_path)
 
   Config.set_compatibility_check(False)
 
