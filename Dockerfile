@@ -27,6 +27,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 COPY . /root/.dotfiles
 
-RUN cd .dotfiles && make golang dev
+RUN cd .dotfiles && make golang dev tools
 
 CMD ["tmux"]

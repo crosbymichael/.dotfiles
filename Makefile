@@ -40,8 +40,8 @@ dev:
 	ln -s /root/development/gocode/src/github.com/docker/docker /root/docker
 	ln -s /root/development/gocode/src/github.com/docker/libcontainer /root/libcontainer
 
-run:
-	docker run -ti --rm --name dev \
+container:
+	docker run -ti --privileged --name dev \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v /usr/local/bin/docker:/usr/local/bin/docker \
 		-v /root/development:/root/development \

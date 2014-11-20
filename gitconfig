@@ -17,3 +17,5 @@
     mergetool = vimdiff
 [github]
 	user = crosbymichael
+[merge]
+	tool = vimdiff
