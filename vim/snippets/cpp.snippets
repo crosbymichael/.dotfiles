@@ -28,3 +28,14 @@ snippet cl
 	private:
 		${3:/* data */}
 	};
+# new file template 
+snippet new
+	#ifndef __${1:ns}__${2:class}__
+	#define __$1__$2__
+
+	class $2 {
+		public:
+			$2(${3:arguments});
+	};
+
+	#endif /* defined(__$1__$2__) */
