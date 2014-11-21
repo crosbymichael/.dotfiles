@@ -1,6 +1,4 @@
 all:
-	echo "starting install of development system, ok?"
-	read
 	apt-get update && apt-get install --no-install-recommends -y \
 		ca-certificates \
 		curl \
@@ -23,9 +21,6 @@ all:
 		valgrind \
 		tmux
 
-	golang
-	home
-
 golang:
 	curl -sSL http://golang.org/dl/go1.3.2.src.tar.gz \
     | tar -v -C /root -xz
@@ -43,7 +38,6 @@ tools:
 
 home:
 	rm -rf /root/.vim
-	rm -rf /root/.ssh
 
 	ln -s /root/.dotfiles/vim /root/.vim && ln -s /root/.dotfiles/vimrc /root/.vimrc && \
     ln -s /root/.dotfiles/tmux.conf /root/.tmux.conf && \
