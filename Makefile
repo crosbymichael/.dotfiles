@@ -1,16 +1,4 @@
-base:
-	apt-get update && apt-get upgrade -y && apt-get install -y \
-		htop \
-		curl \
-		supervisor \
-		cgroup-lite \
-		aufs-tools
-
-	curl -o /usr/local/bin/docker http://crosbymichael.com.s3.amazonaws.com/docker
-	chmod +x /usr/local/bin/docker
-	curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
-
-all: base
+all:
 	echo "starting install of development system, ok?"
 	read
 	apt-get update && apt-get install --no-install-recommends -y \
