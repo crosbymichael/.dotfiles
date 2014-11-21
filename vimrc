@@ -14,7 +14,7 @@ if has("unix")
   if s:uname == "Linux\n"
     set backspace=2
     autocmd BufWritePre *.c FmtC
-    let g:clang_library_path='/usr/lib/llvm-3.4/lib'
+    let g:clang_library_path='/usr/lib/llvm-3.5/lib'
   endif
   if s:uname == "Darwin\n"
     let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
@@ -167,7 +167,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:godef_split=2
 
-command! -buffer FmtC call s:CFormat()
+command! FmtC call s:CFormat()
 
 " C/C++ code formating via the indent binary
 function! s:CFormat()
