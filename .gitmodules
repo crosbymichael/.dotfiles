@@ -13,3 +13,6 @@
 [submodule "vim/bundle/vim-toml"]
 	path = vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
+[submodule "vim/bundle/vim-tagbar"]
+	path = vim/bundle/vim-tagbar
+	url = https://github.com/majutsushi/tagbar.git
