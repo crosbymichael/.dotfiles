@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-github"]
 	path = vim/bundle/vim-github
 	url = https://github.com/endel/vim-github-colorscheme.git
+[submodule "vim/bundle/vim-toml"]
+	path = vim/bundle/vim-toml
+	url = https://github.com/cespare/vim-toml.git
