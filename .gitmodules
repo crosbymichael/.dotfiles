@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-tagbar"]
 	path = vim/bundle/vim-tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/vim-clang-complete"]
+	path = vim/bundle/vim-clang-complete
+	url = https://github.com/Rip-Rip/clang_complete.git
