@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-nginx"]
 	path = vim/bundle/vim-nginx
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "vim/bundle/vim-godef"]
+	path = vim/bundle/vim-godef
+	url = https://github.com/dgryski/vim-godef.git
