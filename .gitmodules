@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-vinegar"]
 	path = vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/bundle/vim-cfmt"]
+	path = vim/bundle/vim-cfmt
+	url = https://github.com/crosbymichael/vim-cfmt.git

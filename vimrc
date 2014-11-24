@@ -12,7 +12,7 @@ if has("unix")
   let s:uname = system("uname")
   if s:uname == "Linux\n"
     set backspace=2
-    autocmd BufWritePre *.c,*.h FmtC
+    autocmd BufWritePre *.c,*.h Cfmt
     let g:clang_library_path='/usr/lib/llvm-3.5/lib'
   endif
   if s:uname == "Darwin\n"
@@ -83,6 +83,7 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 " ---------------- PLUGIN SETTINGS ----------------
 let g:godef_split = 1
+let g:cfmt_style = '-linux'
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -123,15 +124,4 @@ let g:tagbar_type_go = {
 
 
 " ---------------- EXTRA FUNCTIONS ----------------
-command! FmtC call s:IndentC()
 
-function! s:IndentC()
-    let view = winsaveview()
-    %!indent -linux
-    if v:shell_error
-        %| " output errors returned by indent
-        undo
-	echohl Error | echomsg "indent returned error" | echohl None
-    endif
-    call winrestview(view)
-endfunction
