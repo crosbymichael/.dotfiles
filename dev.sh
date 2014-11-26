@@ -22,6 +22,7 @@ apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     mercurial \
     valgrind \
+    gdb \
     tmux
 
 curl -sSL https://storage.googleapis.com/golang/go1.3.3.src.tar.gz | tar -v -C $HOME -xz
