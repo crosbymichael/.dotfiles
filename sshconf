@@ -1,10 +1,5 @@
-Host gateway
-    HostName 107.170.218.100
-    Port 22
-    User root
-
-Host service
-    HostName 198.199.103.188
+Host development
+    HostName development.crosbymichael.com
     Port 22
     User root
 
@@ -13,20 +8,10 @@ Host generic1
     Port 22
     User root
 
-Host home
-    HostName home.crosbymichael.com
-    Port 22
-    User root
-
 Host pi
     HostName 192.168.1.6
     Port 22
     User root
-
-Host dockerpi
-    HostName 10.180.0.213
-    Port 22
-    User michael
 
 Host *
     StrictHostKeyChecking no
