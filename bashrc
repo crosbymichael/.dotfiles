@@ -30,6 +30,8 @@ case $(uname) in
         alias lsa='ls -lah --color=auto'
         alias ls='ls -lh --color=auto'
         alias iptbleshow='iptables -L -n -t nat'
+        alias bcopy='xclip -i -sel clip'
+        alias bpaste='xclip -o -sel clip'
         ;;
     Darwin)
         export DOCKER_HOST=tcp://docker:2375
@@ -48,6 +50,7 @@ export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
 
 # ---------------------- ALIAS -------------------------
+alias tmux="TERM=screen-256color-bce tmux"
 alias gs='git status -u'
 alias gc='git commit'
 alias gca='git commit -a'

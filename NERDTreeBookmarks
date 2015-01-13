@@ -1,6 +1,6 @@
 home /root
+
 dotfiles /root/.dotfiles
 gocode /root/development/gocode/src
 docker /root/development/gocode/src/github.com/docker
-
 random /root/development/random
