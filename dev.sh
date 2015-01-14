@@ -23,10 +23,15 @@ apt-get update && apt-get install --no-install-recommends -y \
     mercurial \
     valgrind \
     gdb \
+    tig \
     tmux
 
-curl -sSL https://storage.googleapis.com/golang/go1.3.3.src.tar.gz | tar -v -C $HOME -xz
-	cd $HOME/go/src && ./make.bash --no-clean 2>&1
+(
+    cd $HOME
+    git clone https://github.com/golang/go.git
+    cd go/src
+    ./make.bash 2>$1
+)
 
 cd $HOME
 
