@@ -108,3 +108,21 @@ function go_all() {
 function go_cover() {
     go test -cover -coverprofile /dev/stderr 2>&1 >/dev/null | go tool cover -func /dev/stdin
 }
+
+# convert bytes to human readable text
+function byteme()
+{
+    SLIST="bytes,KB,MB,GB,TB,PB,EB,ZB,YB"
+
+    POWER=1
+    DATA=$(cat)
+    VAL=$( echo "scale=2; $DATA / 1" | bc)
+    VINT=$( echo $VAL / 1024 | bc )
+    while [ ! $VINT = "0" ]
+    do
+        let POWER=POWER+1
+        VAL=$( echo "scale=2; $VAL / 1024" | bc)
+        VINT=$( echo $VAL / 1024 | bc )
+    done
+    echo $VAL$( echo $SLIST | cut -f$POWER -d, )
+}
