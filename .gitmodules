@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-cfmt"]
 	path = vim/bundle/vim-cfmt
 	url = https://github.com/crosbymichael/vim-cfmt.git
+[submodule "vim/bundle/todo"]
+	path = vim/bundle/todo
+	url = https://github.com/freitass/todo.txt-vim.git
