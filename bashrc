@@ -92,7 +92,7 @@ function linecount() {
 }
 
 function find_replace() {
-    pt -l $1 | xargs perl -pi -E 's/$1/$2/g'
+    pt -l "$1" | xargs perl -pi -E "s/$1/$2/g"
 }
 
 function git_winner() {
