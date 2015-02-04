@@ -4,7 +4,6 @@ set -e
 
 apt-get install -y \
     htop \
-    mosh \
     git \
     make \
     curl \
