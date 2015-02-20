@@ -100,6 +100,11 @@ function git_winner() {
        |xargs -0 -n1 git blame --line-porcelain|grep "^author "|sort|uniq -c|sort -nr
 }
 
+function setuid_create() {
+    sudo chown root:root "$1"
+    sudo chmod 4755 "$1"
+}
+
 function go_all() {
     go build -v . ./...
     go install . ./...
@@ -107,6 +112,10 @@ function go_all() {
 
 function go_cover() {
     go test -cover -coverprofile /dev/stderr 2>&1 >/dev/null | go tool cover -func /dev/stdin
+}
+
+function go_doc() {
+    godoc -http="localhost:6060"
 }
 
 # convert bytes to human readable text

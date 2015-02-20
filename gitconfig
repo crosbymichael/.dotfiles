@@ -19,3 +19,5 @@
 	user = crosbymichael
 [merge]
 	tool = vimdiff
+[mergetool]
+	keepBackup = false
