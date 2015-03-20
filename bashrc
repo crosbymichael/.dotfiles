@@ -118,6 +118,10 @@ function go_doc() {
     godoc -http="localhost:6060"
 }
 
+function tunnel() {
+    ssh $1 -L "$2:$3" -N
+}
+
 # convert bytes to human readable text
 function byteme()
 {
