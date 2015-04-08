@@ -24,6 +24,9 @@ apt-get update && apt-get install --no-install-recommends -y \
     valgrind \
     gdb \
     tig \
+    autoconf \
+    libtool \
+    bison \
     tmux
 
 (
