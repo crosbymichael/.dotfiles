@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-systemd"]
+	path = vim/bundle/vim-systemd
+	url = https://github.com/Matt-Deacalion/vim-systemd-syntax.git
