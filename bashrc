@@ -48,7 +48,6 @@ export GOROOT=$HOME/go
 export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
-export DOCKER_HOST=unix:///containers/rootfs/docker/var/run/docker.sock
 
 # ---------------------- ALIAS -------------------------
 alias tmux="TERM=screen-256color-bce tmux"
