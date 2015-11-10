@@ -2,7 +2,9 @@
 
 set -e
 
-# install system dependencies 
+apt-get update 
+apt-get upgrade -y
+
 apt-get install -y \
     htop \
     git \
@@ -11,10 +13,5 @@ apt-get install -y \
     supervisor \
     cgroup-lite \
     libapparmor-dev \
+    libseccomp-dev \
     apparmor
-
-# install docker from master
-curl -SsL -o /usr/local/bin/docker https://master.dockerproject.com/linux/amd64/docker
-chmod +x /usr/local/bin/docker
-curl -o /etc/supervisor/conf.d/docker.conf https://raw.githubusercontent.com/crosbymichael/.dotfiles/master/docker.conf
-

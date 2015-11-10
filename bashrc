@@ -48,6 +48,8 @@ export GOROOT=$HOME/go
 export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
+export GO15VENDOREXPERIMENT=1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # ---------------------- ALIAS -------------------------
 alias tmux="TERM=screen-256color-bce tmux"
