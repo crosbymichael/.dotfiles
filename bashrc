@@ -58,6 +58,7 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias gcs='git commit -as'
 alias gb='git branch -v -v'
+alias gbd='git branch -d'
 alias gaa='git add -A'
 alias gco='git checkout'
 alias glg='git log --graph --stat --oneline --decorate'
@@ -70,6 +71,8 @@ alias gd='git diff'
 alias cd..='cd ..'
 alias cl='clear'
 alias tree='tree -F'
+alias tre='tree -F -L 1'
+alias curl='curl -s'
 
 # ---------------------- FUNCTIONS -------------------------
 function reset_master() {
@@ -140,4 +143,15 @@ function byteme()
         VINT=$( echo $VAL / 1024 | bc )
     done
     echo $VAL$( echo $SLIST | cut -f$POWER -d, )
+}
+
+# toggle trackpad on and off
+# this only works on my dell XPS 13
+function trackpad() {
+    case "$1" in
+        "on")
+            xinput set-prop 13 139 1 ;;
+        "off")
+            xinput set-prop 13 139 0 ;;
+    esac
 }
