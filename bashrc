@@ -155,3 +155,8 @@ function trackpad() {
             xinput set-prop 13 139 0 ;;
     esac
 }
+
+# show all installed packages on a debian based system
+function installed_packages() {
+    dpkg --get-selections | grep -v deinstall
+}
