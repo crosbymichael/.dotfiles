@@ -147,7 +147,7 @@ function byteme()
 
 # toggle trackpad on and off
 # this only works on my dell XPS 13
-function trackpad() {
+function pad() {
     case "$1" in
         "on")
             xinput set-prop 13 139 1 ;;
