@@ -160,3 +160,7 @@ function pad() {
 function installed_packages() {
     dpkg --get-selections | grep -v deinstall
 }
+
+function git_undo() {
+    git reset --soft HEAD^
+}

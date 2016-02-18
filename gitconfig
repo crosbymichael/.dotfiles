@@ -12,7 +12,7 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/michael/.gitignore_global
+	excludesfile = /home/michael/.gitignore_global
 	editor = vim
     mergetool = vimdiff
 [github]
@@ -25,3 +25,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[transfer]
+    fsckobjects = true
+[fetch]
+    fsckobjects = true
+[receive]
+    fsckObjects = true
