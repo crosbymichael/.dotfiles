@@ -82,7 +82,11 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 
 " ---------------- PLUGIN SETTINGS ----------------
-let g:clang_make_default_keymappings = 0
+" let g:clang_make_default_keymappings = 0
+let g:clang_complete_auto = 1
+let g:clang_hl_errors = 1
+let g:clang_auto_select = 1
+
 let g:godef_split = 1
 let g:cfmt_style = '-linux'
 
