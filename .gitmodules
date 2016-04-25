@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-systemd"]
 	path = vim/bundle/vim-systemd
 	url = https://github.com/Matt-Deacalion/vim-systemd-syntax.git
+[submodule "vim/bundle/vim-rust"]
+	path = vim/bundle/vim-rust
+	url = https://github.com/rust-lang/rust.vim.git
