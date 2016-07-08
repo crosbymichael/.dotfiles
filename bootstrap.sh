@@ -18,6 +18,7 @@ function install_base () {
         libapparmor-dev \
         libseccomp-dev \
         make \
+        mosh \
         tmux 
 }
 
@@ -43,8 +44,6 @@ function install_dev() {
         ctags \
         curl \
         gdb \
-        git \
-        htop \
         indent \
         libc6-dev \
         libclang-dev \
