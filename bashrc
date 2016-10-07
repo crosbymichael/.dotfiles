@@ -164,3 +164,11 @@ function installed_packages() {
 function git_undo() {
     git reset --soft HEAD^
 }
+
+function gpgtty() {
+    export GPG_TTY=$(tty) $*
+}
+
+function getmysshkey() {
+    cat ~/.ssh/id_rsa.pub | bcopy
+}

@@ -1,6 +1,7 @@
 [user]
 	name = Michael Crosby
 	email = crosbymichael@gmail.com
+	signingkey = AA36D4B3
 [alias]
 	st = status
 	co = checkout
