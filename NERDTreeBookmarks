@@ -1,5 +1,7 @@
 home /home/michael
 
 dotfiles /home/michael/.dotfiles
-gocode /home/michael/development/gocode/src
+github /home/michael/development/gocode/src/github.com
 docker /home/michael/development/gocode/src/github.com/docker
+crosbymichael /home/michael/development/gocode/src/github.com/crosbymichael
+box /home/michael/development/gocode/src/github.com/box
