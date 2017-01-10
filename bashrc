@@ -172,5 +172,3 @@ function gpgtty() {
 function getmysshkey() {
     cat ~/.ssh/id_rsa.pub | bcopy
 }
-
-wunderline today
