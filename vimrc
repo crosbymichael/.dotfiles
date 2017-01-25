@@ -13,7 +13,7 @@ if has("unix")
   if s:uname == "Linux\n"
     set backspace=2
     autocmd BufWritePre *.c,*.h Cfmt
-    let g:clang_library_path='/usr/lib/llvm-3.5/lib'
+    let g:clang_library_path='/usr/lib/llvm-3.8/lib'
   endif
   if s:uname == "Darwin\n"
     let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
@@ -36,7 +36,6 @@ set incsearch
 set showmatch
 set smartindent
 set autoindent
-set expandtab
 set nofoldenable
 set t_Co=256
 set foldmethod=indent
