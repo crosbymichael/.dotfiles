@@ -73,6 +73,7 @@ alias cl='clear'
 alias tree='tree -F'
 alias tre='tree -F -L 1'
 alias curl='curl -s'
+alias tarl='tar -tvf'
 
 # ---------------------- FUNCTIONS -------------------------
 function reset_master() {
