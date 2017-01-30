@@ -18,7 +18,6 @@ function install_base () {
         libapparmor-dev \
         libseccomp-dev \
         make \
-        mosh \
         tmux 
 }
 
@@ -62,7 +61,7 @@ function install_dev() {
     # install go
     (
         cd $HOME
-        curl -s https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz | tar -zxf -
+        curl -s https://storage.googleapis.com/golang/go1.7.5.linux-amd64.tar.gz | tar -zxf -
     )
 
     cd $HOME
