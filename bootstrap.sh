@@ -61,7 +61,7 @@ function install_dev() {
     # install go
     (
         cd $HOME
-        curl -s https://storage.googleapis.com/golang/go1.7.5.linux-amd64.tar.gz | tar -zxf -
+        curl -s https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar -zxf -
     )
 
     cd $HOME
@@ -98,7 +98,7 @@ case "$1" in
         update
         install_base
         install_dev
-        souce $HOME/.bashrc
+        source $HOME/.bashrc
         go_deps 
         ;;
     *)
