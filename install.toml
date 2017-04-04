@@ -1,0 +1,98 @@
+# make this convert to cloud configs
+
+upgrade = true
+
+[sudo]
+	no_password = true
+
+[apt]
+	[apt.base]
+		recommends = true
+		packages = [
+			"apparmor",
+			"cgroup-lite",
+			"libapparmor-dev",
+			"libseccomp-dev",
+			"procps",
+		]
+	[apt.server]
+		packages = [
+			"tmux",
+			"htop",
+			"curl",
+		]
+	[apt.dev]
+		include = [
+			"base",
+			"server",
+		]
+		packages = [
+			"autoconf",
+			"bison",
+			"build-essential",
+			"ca-certificates",
+			"clang",
+			"ctags",
+			"gdb",
+			"indent",
+			"libc6-dev",
+			"libclang-dev",
+			"libtool",
+			"make",
+			"man-db",
+			"manpages-dev",
+			"mercurial",
+			"openssh-client",
+			"tree",
+			"valgrind",
+			"vim-nox",
+		]	
+
+[go]
+	type = "dev"
+	latest = true
+	path = "$HOME/development/gocode"
+	get = [
+		"goimports",
+		"godef",
+		"gistit",
+		"slex"
+		"gotags",
+		"the_platinum_searcher",
+		"gocode",
+	]
+
+[ssh]
+	[ssh.server]
+		authorized_keys = []
+
+[directory]
+	[directory.scratch]
+	type = "dev"
+	backup = false
+	[directory.development]
+	type = "dev"
+	backup = true
+
+[backup]
+	type = "tar"	
+
+[git]
+	type = "dev"
+	submodules = true
+
+# always run from $HOME
+[post_install]
+	[post_install.dev]
+		script = '''
+rm -rf $HOME/.vim
+ln -s $HOME/.dotfiles/vim $HOME/.vim && ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc 
+ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf 
+rm -f $HOME/.gitconfig && ln -s $HOME/.dotfiles/gitconfig $HOME/.gitconfig 
+ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global 
+ln -s $HOME/.dotfiles/NERDTreeBookmarks $HOME/.NERDTreeBookmarks 
+mkdir -p $HOME/.ssh && ln -s $HOME/.dotfiles/sshconf  $HOME/.ssh/config 
+rm -f $HOME/.bashrc && ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
+
+mkdir $HOME/scratch
+'''

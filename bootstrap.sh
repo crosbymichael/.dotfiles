@@ -63,6 +63,10 @@ function install_dev() {
         cd $HOME
         curl -s https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar -zxf -
     )
+	# install rust
+	(
+		curl https://sh.rustup.rs -sSf | sh
+	)
 
     cd $HOME
 
