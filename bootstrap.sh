@@ -89,7 +89,7 @@ function install_dev() {
 # main entrypoint
 
 # make sure we have all the submodules downloaded in this directory
-git submodules update --init
+git submodule update --init
 
 case "$1" in
     "server")
