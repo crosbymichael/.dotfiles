@@ -58,15 +58,18 @@ function install_dev() {
         valgrind \
         vim-nox
 
+}
+
+
+function tools () {
+	# make sure we have all the submodules downloaded in this directory
+	git submodule update --init
+
     # install go
     (
         cd $HOME
         curl -s https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar -zxf -
     )
-	# install rust
-	(
-		curl https://sh.rustup.rs -sSf | sh
-	)
 
     cd $HOME
 
@@ -87,10 +90,6 @@ function install_dev() {
 }
 
 # main entrypoint
-
-# make sure we have all the submodules downloaded in this directory
-git submodule update --init
-
 case "$1" in
     "server")
         echo "installing server dependencies..."
@@ -102,6 +101,7 @@ case "$1" in
         update
         install_base
         install_dev
+		tools
         source $HOME/.bashrc
         go_deps 
         ;;
