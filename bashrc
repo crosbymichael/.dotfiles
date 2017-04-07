@@ -174,3 +174,7 @@ function gpgtty() {
 function getmysshkey() {
     cat ~/.ssh/id_rsa.pub | bcopy
 }
+
+function ghead () {
+	git rev-parse HEAD
+}
