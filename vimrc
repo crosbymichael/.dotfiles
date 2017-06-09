@@ -57,6 +57,11 @@ autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 abbrev spell setlocal spell spelllang=en_us<CR>
 
+" handle whitespace at the end of lines
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+
 " ---------------- KEY BINDINGS ----------------
 map <C-j> <C-W>j
 map <C-k> <C-W>k
