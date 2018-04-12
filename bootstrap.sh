@@ -62,9 +62,6 @@ function install_dev() {
 
 
 function tools () {
-	# make sure we have all the submodules downloaded in this directory
-	git submodule update --init
-
     # install go
     (
         cd $HOME
