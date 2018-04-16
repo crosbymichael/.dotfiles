@@ -23,8 +23,8 @@ function install_base () {
 
 # install additional go deps
 function go_deps() {
-    go get code.google.com/p/go.tools/cmd/goimports
-    go get code.google.com/p/rog-go/exp/cmd/godef
+	go get github.com/rogpeppe/godef
+	go get golang.org/x/tools/imports
     go get github.com/crosbymichael/gistit
     go get github.com/crosbymichael/slex
     go get github.com/jstemmer/gotags
@@ -65,7 +65,7 @@ function tools () {
     # install go
     (
         cd $HOME
-        curl -s https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar -zxf -
+        curl -s https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz | tar -zxf -
     )
 
     cd $HOME
@@ -98,7 +98,7 @@ case "$1" in
         update
         install_base
         install_dev
-		tools
+	tools
         source $HOME/.bashrc
         go_deps 
         ;;
