@@ -4,7 +4,7 @@ call pathogen#infect()
 
 " ---------------- SETTINGS ----------------
 syntax on
-colorscheme LaravelDarker
+colorscheme github
 autocmd! bufwritepost .vimrc source %
 
 " platform specific settings

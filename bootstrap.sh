@@ -56,6 +56,7 @@ function install_dev() {
         tig \
         tree \
         valgrind \
+        pkg-config \
         vim-nox
 
 }
@@ -80,7 +81,8 @@ function tools () {
     rm -f $HOME/.bashrc && ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc
 
     ln -s $HOME/development/gocode/src/github.com/docker/docker $HOME/docker
-    ln -s $HOME/development/gocode/src/github.com/docker/libcontainer $HOME/libcontainer
+    ln -s $HOME/development/gocode/src/github.com/containerd $HOME/containerd
+    ln -s $HOME/development/gocode/src/github.com/opencontainers/runc $HOME/runc
 
     # additional home directories
     mkdir $HOME/scratch
