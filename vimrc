@@ -91,7 +91,7 @@ let g:clang_complete_auto = 1
 let g:clang_hl_errors = 1
 let g:clang_auto_select = 1
 
-let g:godef_split = 1
+let g:godef_split = 2
 let g:cfmt_style = '-linux'
 
 let g:ctrlp_map = '<c-p>'
