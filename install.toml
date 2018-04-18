@@ -46,11 +46,10 @@ upgrade = true
 			"tree",
 			"valgrind",
 			"vim-nox",
-		]	
+		]
 
 [go]
-	type = "dev"
-	latest = true
+	version = "1.10.1"
 	path = "$HOME/development/gocode"
 	get = [
 		"goimports",
@@ -75,7 +74,7 @@ upgrade = true
 	backup = true
 
 [backup]
-	type = "tar"	
+	type = "tar"
 
 [git]
 	type = "dev"
