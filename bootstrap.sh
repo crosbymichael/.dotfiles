@@ -100,7 +100,7 @@ case "$1" in
         update
         install_base
         install_dev
-	tools
+		tools
         source $HOME/.bashrc
         go_deps 
         ;;
