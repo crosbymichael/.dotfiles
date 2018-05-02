@@ -58,10 +58,11 @@ function install_dev() {
         vim-nox
 }
 
-function go_install () {
+function update_go () {
 	(
         cd $HOME
-        curl -s https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz | tar -zxf -
+		rm -r $HOME/go
+        curl -s https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz | tar -zxf -
     )
 }
 
@@ -99,7 +100,7 @@ case "$1" in
         update
         install_base
         install_dev
-		go_install
+		update_go
 		setup_home
         source $HOME/.bashrc
         go_deps
@@ -109,8 +110,5 @@ case "$1" in
 		setup_home
 		;;
     *)
-        echo "invalid install option"
-        echo "the two options are for a 'server' install and a 'dev' install"
-        exit 1
         ;;
 esac
