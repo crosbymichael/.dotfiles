@@ -48,7 +48,6 @@ export GOROOT=$HOME/go
 export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
-export PATH="$HOME/.cargo/bin:$PATH"
 export GO15VENDOREXPERIMENT=1
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
@@ -127,35 +126,6 @@ function go_doc() {
 
 function tunnel() {
     ssh $1 -L "$2:$3" -N
-}
-
-# convert bytes to human readable text
-function byteme()
-{
-    SLIST="bytes,KB,MB,GB,TB,PB,EB,ZB,YB"
-
-    POWER=1
-    DATA=$(cat)
-    VAL=$( echo "scale=2; $DATA / 1" | bc)
-    VINT=$( echo $VAL / 1024 | bc )
-    while [ ! $VINT = "0" ]
-    do
-        let POWER=POWER+1
-        VAL=$( echo "scale=2; $VAL / 1024" | bc)
-        VINT=$( echo $VAL / 1024 | bc )
-    done
-    echo $VAL$( echo $SLIST | cut -f$POWER -d, )
-}
-
-# toggle trackpad on and off
-# this only works on my dell XPS 13
-function pad() {
-    case "$1" in
-        "on")
-            xinput set-prop 13 139 1 ;;
-        "off")
-            xinput set-prop 13 139 0 ;;
-    esac
 }
 
 # show all installed packages on a debian based system
