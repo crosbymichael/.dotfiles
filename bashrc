@@ -148,3 +148,5 @@ function getmysshkey() {
 function ghead () {
 	git rev-parse HEAD
 }
+
+export BOSS_BUILDKIT=buildkit.service.aegis:9500

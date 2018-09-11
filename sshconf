@@ -1,12 +1,12 @@
-Host development
-    HostName development.crosbymichael.com
+Host aegis-01
+    HostName 192.168.1.40
     Port 22
-    User root
+    User aegis
 
-Host generic1
-    HostName 104.131.131.110
+Host aegis-03
+    HostName 192.168.1.42
     Port 22
-    User root
+    User aegis
 
 Host pi
     HostName 192.168.1.6

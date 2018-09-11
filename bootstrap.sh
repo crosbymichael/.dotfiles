@@ -61,7 +61,7 @@ function install_dev() {
 function update_go () {
 	(
         cd $HOME
-		rm -r $HOME/go
+		rm -fr $HOME/go
         curl -s https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz | tar -zxf -
     )
 }
@@ -100,8 +100,8 @@ case "$1" in
         update
         install_base
         install_dev
-		update_go
-		setup_home
+	update_go
+	setup_home
         source $HOME/.bashrc
         go_deps
         ;;
