@@ -19,7 +19,7 @@
 [github]
 	user = crosbymichael
 [merge]
-	tool = vimdiff
+	tool = fugitive
 [mergetool]
 	keepBackup = false
 [filter "lfs"]
@@ -32,3 +32,5 @@
     fsckobjects = true
 [receive]
     fsckObjects = true
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
