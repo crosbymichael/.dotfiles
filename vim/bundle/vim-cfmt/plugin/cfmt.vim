@@ -7,7 +7,7 @@
 " deb: apt-get install indent
 " rpm: yum install indent
 
-if exists("g:loaded_cfmt") 
+if exists("g:loaded_cfmt")
     finish
 endif
 let g:loaded_cfmt = 1
@@ -19,6 +19,9 @@ endif
 command! Cfmt call s:IndentC()
 
 function! s:IndentC()
+	if exists("g:cfmt_off")
+		return
+	endif
     let view = winsaveview()
     execute  '%!indent ' . g:cfmt_style
     if v:shell_error

@@ -92,7 +92,8 @@ let g:clang_hl_errors = 1
 let g:clang_auto_select = 1
 
 let g:godef_split = 2
-let g:cfmt_style = '-linux'
+let g:cfmt_style = '-linux -l120'
+let g:cfmt_off = 1
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
