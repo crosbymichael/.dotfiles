@@ -149,4 +149,4 @@ function ghead () {
 	git rev-parse HEAD
 }
 
-export BOSS_BUILDKIT=buildkit.service.aegis:9500
+export BUILDKIT=192.168.1.40:9500
