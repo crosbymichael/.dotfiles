@@ -55,6 +55,7 @@ function install_dev() {
         tree \
         valgrind \
         pkg-config \
+		libbtrfs-dev \
         vim-nox
 }
 
@@ -62,7 +63,7 @@ function update_go () {
 	(
         cd $HOME
 		rm -fr $HOME/go
-        curl -s https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz | tar -zxf -
+        curl -s https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz | tar -zxf -
     )
 }
 

@@ -149,4 +149,6 @@ function ghead () {
 	git rev-parse HEAD
 }
 
-export BUILDKIT=192.168.1.40:9500
+function dind() {
+	ctr -n buildkit run --privileged --rm -t --mount "type=bind,options=rbind:rw,src=$(pwd),dst=/go/src/github.com/docker/docker" docker-build docker-shell bash
+}
