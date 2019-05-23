@@ -50,6 +50,7 @@ export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
 export GO15VENDOREXPERIMENT=1
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export TERRA_CONTROLLER=10.0.10.3
 
 # ---------------------- ALIAS -------------------------
 alias tmux="TERM=screen-256color-bce tmux"
@@ -113,7 +114,9 @@ function setuid_create() {
 
 function go_all() {
     go build -v . ./...
+    go build -v ./...
     go install . ./...
+    go install ./...
 }
 
 function go_cover() {
