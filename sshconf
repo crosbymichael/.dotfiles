@@ -1,7 +1,12 @@
 Host dev
-    HostName development.rack
+    HostName development.compute
     Port 22
     User michael
+
+Host mt
+    HostName mt-01-1.compute
+    Port 22
+    User terra
 
 Host *
     StrictHostKeyChecking no
