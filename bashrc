@@ -53,7 +53,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export TERRA_CONTROLLER=10.0.10.3
 
 # ---------------------- ALIAS -------------------------
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=xterm-256color tmux"
 alias gs='git status -u'
 alias gc='git commit'
 alias gca='git commit -a'

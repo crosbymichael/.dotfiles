@@ -79,6 +79,7 @@ function setup_home () {
     ln -s $HOME/.dotfiles/NERDTreeBookmarks $HOME/.NERDTreeBookmarks || true
     mkdir -p $HOME/.ssh && ln -s $HOME/.dotfiles/sshconf  $HOME/.ssh/config || true
     rm -f $HOME/.bashrc && ln -s $HOME/.dotfiles/bashrc $HOME/.bashrc || true
+    rm -f $HOME/.bash_profile && ln -s $HOME/.dotfiles/bashrc $HOME/.bash_profile || true
 
     ln -s $HOME/development/gocode/src/github.com/docker/docker $HOME/docker || true
     ln -s $HOME/development/gocode/src/github.com/containerd $HOME/containerd  || true

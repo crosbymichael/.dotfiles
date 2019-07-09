@@ -8,6 +8,12 @@ Host mt
     Port 22
     User terra
 
+Host ctrl
+    HostName controller.compute
+    Port 22
+    User terra
+
+
 Host *
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
