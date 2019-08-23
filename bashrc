@@ -75,6 +75,10 @@ alias tree='tree -F'
 alias tre='tree -F -L 1'
 alias curl='curl -s'
 alias tarl='tar -tvf'
+alias newwork='tmux new -s docker'
+alias newmine='tmux new -s me'
+alias work='tmux a -t docker'
+alias mine='tmux a -t me'
 
 # ---------------------- FUNCTIONS -------------------------
 function reset_master() {
