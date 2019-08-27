@@ -4,7 +4,7 @@ set -e
 
 # install base software and dependencies
 function install_base () {
-    apt-get install -y \
+    apt install -y \
         apparmor \
         curl \
         git \
@@ -27,7 +27,7 @@ function go_deps() {
 
 # install development deps and setup vim, bash, and other dotfiles
 function install_dev() {
-    apt-get install --no-install-recommends -y \
+    apt install --no-install-recommends -y \
         autoconf \
         bison \
         build-essential \
