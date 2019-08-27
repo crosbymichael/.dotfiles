@@ -2,21 +2,14 @@
 
 set -e
 
-# update the host system
-function update() {
-    apt-get update && apt-get upgrade -yy
-}
-
 # install base software and dependencies
 function install_base () {
     apt-get install -y \
         apparmor \
-        cgroup-lite \
         curl \
         git \
         htop \
         libapparmor-dev \
-        libseccomp-dev \
         make \
         tmux
 }
@@ -41,29 +34,22 @@ function install_dev() {
         ca-certificates \
         clang \
         ctags \
-        curl \
-        gdb \
         indent \
         libc6-dev \
         libclang-dev \
         libtool \
         man-db \
         manpages-dev \
-        mercurial \
-        openssh-client \
-        procps \
         tree \
-        valgrind \
         pkg-config \
-		libbtrfs-dev \
-        vim-nox
+        vim
 }
 
 function update_go () {
 	(
         cd $HOME
 		rm -fr $HOME/go
-        curl -s https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz | tar -zxf -
+        curl -s https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz | tar -zxf -
     )
 }
 
@@ -94,18 +80,15 @@ function setup_home () {
 case "$1" in
     "server")
         echo "installing server dependencies..."
-        update
         install_base
         ;;
     "dev")
         echo "installing development dependencies..."
-        update
         install_base
         install_dev
-	update_go
-	setup_home
+		update_go
+		setup_home
         source $HOME/.bashrc
-        go_deps
         ;;
 	"home")
 		echo "Setup home dir..."
