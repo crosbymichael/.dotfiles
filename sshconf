@@ -1,19 +1,29 @@
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+
+Host pi
+    HostName 10.0.10.5
+    Port 22
+    User pi
+
+Host unms
+    HostName 10.0.0.100
+    Port 22
+    User crosbymichael
+
 Host dev
     HostName development.compute
     Port 22
     User michael
 
-Host mt
-    HostName mt-01-1.compute
+Host prom
+    HostName 10.0.10.179
     Port 22
     User terra
 
-Host ctrl
-    HostName controller.compute
+Host wg
+    HostName wireguard.compute
     Port 22
-    User terra
-
-
-Host *
-    StrictHostKeyChecking no
-    UserKnownHostsFile=/dev/null
+    User root
+	IdentityFile ~/.ssh/crosbymichael_rsa

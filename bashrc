@@ -50,7 +50,7 @@ export GOPATH=$HOME/development/gocode
 export PATH=$PATH:$GOBIN
 export GO15VENDOREXPERIMENT=1
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export TERRA_CONTROLLER=10.0.10.3
+export BUILDKIT=development.compute:9500
 
 # ---------------------- ALIAS -------------------------
 alias tmux="TERM=xterm-256color tmux"
