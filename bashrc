@@ -47,10 +47,11 @@ export EDITOR=vim
 export GOROOT=$HOME/go
 export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/development/gocode
-export PATH=$PATH:$GOBIN
+export PIPBIN=/home/michael/.local/bin
+export PATH=$PATH:$GOBIN:$PIPBIN
 export GO15VENDOREXPERIMENT=1
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export BUILDKIT=development.compute:9500
+# export BUILDKIT=development.compute:9500
 
 # ---------------------- ALIAS -------------------------
 alias tmux="TERM=xterm-256color tmux"
@@ -154,6 +155,11 @@ function getmysshkey() {
 
 function ghead () {
 	git rev-parse HEAD
+}
+
+function gitk() {
+	mkdir -p $1
+	touch "$1/.gitkeep"
 }
 
 function dind() {

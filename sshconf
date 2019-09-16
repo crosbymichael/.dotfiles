@@ -11,6 +11,7 @@ Host unms
     HostName 10.0.0.100
     Port 22
     User crosbymichael
+	IdentityFile ~/.ssh/crosbymichael_rsa
 
 Host dev
     HostName development.compute
