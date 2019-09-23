@@ -29,7 +29,7 @@
 [transfer]
     fsckobjects = true
 [fetch]
-    fsckobjects = true
+	fsckobjects = true
 [receive]
     fsckObjects = true
 [mergetool "fugitive"]

@@ -2,7 +2,9 @@
 set -euxo pipefail
 
 # update vim plugins
-repos="https://github.com/cespare/vim-toml.git https://github.com/kien/ctrlp.vim.git https://github.com/chr4/nginx.vim.git https://github.com/majutsushi/tagbar.git https://github.com/Chiel92/vim-autoformat.git https://github.com/tpope/vim-fugitive.git https://github.com/tpope/vim-unimpaired.git https://github.com/dgryski/vim-godef.git https://github.com/airblade/vim-gitgutter.git https://github.com/xavierd/clang_complete.git https://github.com/garbas/vim-snipmate.git https://github.com/tpope/vim-vinegar.git https://github.com/scrooloose/nerdtree.git"
+repos="https://github.com/cespare/vim-toml.git https://github.com/kien/ctrlp.vim.git https://github.com/chr4/nginx.vim.git https://github.com/majutsushi/tagbar.git https://github.com/Chiel92/vim-autoformat.git https://github.com/tpope/vim-fugitive.git https://github.com/tpope/vim-unimpaired.git https://github.com/dgryski/vim-godef.git https://github.com/airblade/vim-gitgutter.git https://github.com/xavierd/clang_complete.git https://github.com/garbas/vim-snipmate.git https://github.com/tpope/vim-vinegar.git https://github.com/scrooloose/nerdtree.git https://github.com/vimwiki/vimwiki.git"
+
+git config --global fetch.fsckobjects false
 
 cd bundle
 
@@ -14,3 +16,6 @@ do
 	git clone $repo
 	rm -rf $name/.git
 done
+
+
+git config --global fetch.fsckobjects true

@@ -15,9 +15,6 @@ if has("unix")
     autocmd BufWritePre *.c,*.h Cfmt
     let g:clang_library_path='/usr/lib/llvm-3.8/lib'
   endif
-  if s:uname == "Darwin\n"
-    let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-  endif
 endif
 
 set number
