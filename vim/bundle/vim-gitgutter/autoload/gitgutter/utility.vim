@@ -1,146 +1,218 @@
-let s:file = ''
-let s:using_xolox_shell = -1
-let s:exit_code = 0
+function! gitgutter#utility#supports_overscore_sign()
+  if gitgutter#utility#windows()
+    return &encoding ==? 'utf-8'
+  else
+    return &termencoding ==? &encoding || &termencoding == ''
+  endif
+endfunction
 
-function! gitgutter#utility#warn(message)
+function! gitgutter#utility#setbufvar(buffer, varname, val)
+  let buffer = +a:buffer
+  " Default value for getbufvar() was introduced in Vim 7.3.831.
+  let bvars = getbufvar(buffer, '')
+  if empty(bvars)
+    let bvars = {}
+  endif
+  let dict = get(bvars, 'gitgutter', {})
+  let needs_setting = empty(dict)
+  let dict[a:varname] = a:val
+  if needs_setting
+    call setbufvar(buffer, 'gitgutter', dict)
+  endif
+endfunction
+
+function! gitgutter#utility#getbufvar(buffer, varname, ...)
+  let bvars = getbufvar(a:buffer, '')
+  if !empty(bvars)
+    let dict = get(bvars, 'gitgutter', {})
+    if has_key(dict, a:varname)
+      return dict[a:varname]
+    endif
+  endif
+  if a:0
+    return a:1
+  endif
+endfunction
+
+function! gitgutter#utility#warn(message) abort
   echohl WarningMsg
-  echomsg 'vim-gitgutter: ' . a:message
+  echo 'vim-gitgutter: ' . a:message
   echohl None
-  let b:warningmsg = a:message
+  let v:warningmsg = a:message
 endfunction
 
-function! gitgutter#utility#is_active()
-  return g:gitgutter_enabled && gitgutter#utility#exists_file()
+function! gitgutter#utility#warn_once(bufnr, message, key) abort
+  if empty(gitgutter#utility#getbufvar(a:bufnr, a:key))
+    call gitgutter#utility#setbufvar(a:bufnr, a:key, '1')
+    echohl WarningMsg
+    redraw | echom 'vim-gitgutter: ' . a:message
+    echohl None
+    let v:warningmsg = a:message
+  endif
 endfunction
 
-" A replacement for the built-in `shellescape(arg)`.
-"
-" Recent versions of Vim handle shell escaping pretty well.  However older
-" versions aren't as good.  This attempts to do the right thing.
-"
-" See:
-" https://github.com/tpope/vim-fugitive/blob/8f0b8edfbd246c0026b7a2388e1d883d579ac7f6/plugin/fugitive.vim#L29-L37
-function! gitgutter#utility#shellescape(arg)
+" Returns truthy when the buffer's file should be processed; and falsey when it shouldn't.
+" This function does not and should not make any system calls.
+function! gitgutter#utility#is_active(bufnr) abort
+  return g:gitgutter_enabled &&
+        \ gitgutter#utility#getbufvar(a:bufnr, 'enabled', 1) &&
+        \ !pumvisible() &&
+        \ s:is_file_buffer(a:bufnr) &&
+        \ s:exists_file(a:bufnr) &&
+        \ s:not_git_dir(a:bufnr)
+endfunction
+
+function! s:not_git_dir(bufnr) abort
+  return s:dir(a:bufnr) !~ '[/\\]\.git\($\|[/\\]\)'
+endfunction
+
+function! s:is_file_buffer(bufnr) abort
+  return empty(getbufvar(a:bufnr, '&buftype'))
+endfunction
+
+" From tpope/vim-fugitive
+function! s:winshell()
+  return &shell =~? 'cmd' || exists('+shellslash') && !&shellslash
+endfunction
+
+" From tpope/vim-fugitive
+function! gitgutter#utility#shellescape(arg) abort
   if a:arg =~ '^[A-Za-z0-9_/.-]\+$'
     return a:arg
-  elseif &shell =~# 'cmd' || gitgutter#utility#using_xolox_shell()
+  elseif s:winshell()
     return '"' . substitute(substitute(a:arg, '"', '""', 'g'), '%', '"%"', 'g') . '"'
   else
     return shellescape(a:arg)
   endif
 endfunction
 
-function! gitgutter#utility#set_buffer(bufnr)
-  let s:bufnr = a:bufnr
-  let s:file = resolve(bufname(a:bufnr))
+function! gitgutter#utility#file(bufnr)
+  return s:abs_path(a:bufnr, 1)
 endfunction
 
-function! gitgutter#utility#bufnr()
-  return s:bufnr
+" Not shellescaped
+function! gitgutter#utility#extension(bufnr) abort
+  return fnamemodify(s:abs_path(a:bufnr, 0), ':e')
 endfunction
 
-function! gitgutter#utility#file()
-  return s:file
-endfunction
+function! gitgutter#utility#system(cmd, ...) abort
+  call gitgutter#debug#log(a:cmd, a:000)
 
-function! gitgutter#utility#filename()
-  return fnamemodify(s:file, ':t')
-endfunction
+  call s:use_known_shell()
+  silent let output = (a:0 == 0) ? system(a:cmd) : system(a:cmd, a:1)
+  call s:restore_shell()
 
-function! gitgutter#utility#directory_of_file()
-  return fnamemodify(s:file, ':h')
-endfunction
-
-function! gitgutter#utility#exists_file()
-  return filereadable(s:file)
-endfunction
-
-function! gitgutter#utility#has_unsaved_changes()
-  return getbufvar(s:bufnr, "&mod")
-endfunction
-
-function! gitgutter#utility#has_fresh_changes()
-  return getbufvar(s:bufnr, 'changedtick') != getbufvar(s:bufnr, 'gitgutter_last_tick')
-endfunction
-
-function! gitgutter#utility#save_last_seen_change()
-  call setbufvar(s:bufnr, 'gitgutter_last_tick', getbufvar(s:bufnr, 'changedtick'))
-endfunction
-
-function! gitgutter#utility#buffer_contents()
-  if &fileformat ==# "dos"
-    let eol = "\r\n"
-  elseif &fileformat ==# "mac"
-    let eol = "\r"
-  else
-    let eol = "\n"
-  endif
-  return join(getbufline(s:bufnr, 1, '$'), eol) . eol
-endfunction
-
-function! gitgutter#utility#shell_error()
-  return gitgutter#utility#using_xolox_shell() ? s:exit_code : v:shell_error
-endfunction
-
-function! gitgutter#utility#using_xolox_shell()
-  if s:using_xolox_shell == -1
-    if !g:gitgutter_avoid_cmd_prompt_on_windows
-      let s:using_xolox_shell = 0
-    " Although xolox/vim-shell works on both windows and unix we only want to use
-    " it on windows.
-    elseif has('win32') || has('win64') || has('win32unix')
-      let s:using_xolox_shell = exists('g:xolox#misc#version') && exists('g:xolox#shell#version')
-    else
-      let s:using_xolox_shell = 0
-    endif
-  endif
-  return s:using_xolox_shell
-endfunction
-
-function! gitgutter#utility#system(cmd, ...)
-  if gitgutter#utility#using_xolox_shell()
-    let options = {'command': a:cmd, 'check': 0}
-    if a:0 > 0
-      let options['stdin'] = a:1
-    endif
-    let ret = xolox#misc#os#exec(options)
-    let output = join(ret.stdout, "\n")
-    let s:exit_code = ret.exit_code
-  else
-    let output = (a:0 == 0) ? system(a:cmd) : system(a:cmd, a:1)
-  endif
   return output
 endfunction
 
-function! gitgutter#utility#file_relative_to_repo_root()
-  let file_path_relative_to_repo_root = getbufvar(s:bufnr, 'gitgutter_repo_relative_path')
-  if empty(file_path_relative_to_repo_root)
-    let dir_path_relative_to_repo_root = gitgutter#utility#system(gitgutter#utility#command_in_directory_of_file('git rev-parse --show-prefix'))
-    let dir_path_relative_to_repo_root = gitgutter#utility#strip_trailing_new_line(dir_path_relative_to_repo_root)
-    let file_path_relative_to_repo_root = dir_path_relative_to_repo_root . gitgutter#utility#filename()
-    call setbufvar(s:bufnr, 'gitgutter_repo_relative_path', file_path_relative_to_repo_root)
-  endif
-  return file_path_relative_to_repo_root
+" Path of file relative to repo root.
+"
+" *     empty string - not set
+" * non-empty string - path
+" *               -1 - pending
+" *               -2 - not tracked by git
+function! gitgutter#utility#repo_path(bufnr, shellesc) abort
+  let p = gitgutter#utility#getbufvar(a:bufnr, 'path')
+  return a:shellesc ? gitgutter#utility#shellescape(p) : p
 endfunction
 
-function! gitgutter#utility#command_in_directory_of_file(cmd)
-  return 'cd ' . gitgutter#utility#shellescape(gitgutter#utility#directory_of_file()) . ' && ' . a:cmd
-endfunction
 
-function! gitgutter#utility#highlight_name_for_change(text)
-  if a:text ==# 'added'
-    return 'GitGutterLineAdded'
-  elseif a:text ==# 'removed'
-    return 'GitGutterLineRemoved'
-  elseif a:text ==# 'removed_first_line'
-    return 'GitGutterLineRemovedFirstLine'
-  elseif a:text ==# 'modified'
-    return 'GitGutterLineModified'
-  elseif a:text ==# 'modified_removed'
-    return 'GitGutterLineModifiedRemoved'
+let s:set_path_handler = {}
+
+function! s:set_path_handler.out(buffer, path) abort
+  let path = s:strip_trailing_new_line(a:path)
+  call gitgutter#utility#setbufvar(a:buffer, 'path', path)
+
+  if type(self.continuation) == type(function('tr'))
+    call self.continuation()
+  else
+    call call(self.continuation.function, self.continuation.arguments)
   endif
 endfunction
 
-function! gitgutter#utility#strip_trailing_new_line(line)
-  return substitute(a:line, '\n$', '', '')
+function! s:set_path_handler.err(buffer) abort
+  call gitgutter#utility#setbufvar(a:buffer, 'path', -2)
+endfunction
+
+
+" continuation - a funcref or hash to call after setting the repo path asynchronously.
+"
+" Returns 'async' if the the path is set asynchronously, 0 otherwise.
+function! gitgutter#utility#set_repo_path(bufnr, continuation) abort
+  " Values of path:
+  " * non-empty string - path
+  " *               -1 - pending
+  " *               -2 - not tracked by git
+
+  call gitgutter#utility#setbufvar(a:bufnr, 'path', -1)
+  let cmd = gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' '.g:gitgutter_git_args.' ls-files --error-unmatch --full-name -z -- '.gitgutter#utility#shellescape(s:filename(a:bufnr)))
+
+  if g:gitgutter_async && gitgutter#async#available() && !has('vim_starting')
+    let handler = copy(s:set_path_handler)
+    let handler.continuation = a:continuation
+    call gitgutter#async#execute(cmd, a:bufnr, handler)
+    return 'async'
+  endif
+
+  let path = gitgutter#utility#system(cmd)
+  if v:shell_error
+    call gitgutter#utility#setbufvar(a:bufnr, 'path', -2)
+  else
+    call gitgutter#utility#setbufvar(a:bufnr, 'path', s:strip_trailing_new_line(path))
+  endif
+endfunction
+
+
+function! gitgutter#utility#cd_cmd(bufnr, cmd) abort
+  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() ? 'cd /d' : 'cd')
+  return cd.' '.s:dir(a:bufnr).' && '.a:cmd
+endfunction
+
+function! s:unc_path(bufnr)
+  return s:abs_path(a:bufnr, 0) =~ '^\\\\'
+endfunction
+
+function! s:use_known_shell() abort
+  if has('unix') && &shell !=# 'sh'
+    let [s:shell, s:shellcmdflag, s:shellredir] = [&shell, &shellcmdflag, &shellredir]
+    let &shell = 'sh'
+    set shellcmdflag=-c shellredir=>%s\ 2>&1
+  endif
+endfunction
+
+function! s:restore_shell() abort
+  if has('unix') && exists('s:shell')
+    let [&shell, &shellcmdflag, &shellredir] = [s:shell, s:shellcmdflag, s:shellredir]
+  endif
+endfunction
+
+function! s:abs_path(bufnr, shellesc)
+  let p = resolve(expand('#'.a:bufnr.':p'))
+  return a:shellesc ? gitgutter#utility#shellescape(p) : p
+endfunction
+
+function! s:dir(bufnr) abort
+  return gitgutter#utility#shellescape(fnamemodify(s:abs_path(a:bufnr, 0), ':h'))
+endfunction
+
+" Not shellescaped.
+function! s:filename(bufnr) abort
+  return fnamemodify(s:abs_path(a:bufnr, 0), ':t')
+endfunction
+
+function! s:exists_file(bufnr) abort
+  return filereadable(s:abs_path(a:bufnr, 0))
+endfunction
+
+" Get rid of any trailing new line or SOH character.
+"
+" git ls-files -z produces output with null line termination.
+" Vim's system() replaces any null characters in the output
+" with SOH (start of header), i.e. ^A.
+function! s:strip_trailing_new_line(line) abort
+  return substitute(a:line, '[[:cntrl:]]$', '', '')
+endfunction
+
+function! gitgutter#utility#windows()
+  return has('win64') || has('win32') || has('win16')
 endfunction

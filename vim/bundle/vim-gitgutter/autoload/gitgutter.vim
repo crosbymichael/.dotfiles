@@ -1,74 +1,81 @@
+let s:t_string = type('')
+
 " Primary functions {{{
 
-function! gitgutter#all()
-  for buffer_id in tabpagebuflist()
-    let file = expand('#' . buffer_id . ':p')
-    if !empty(file)
-      call gitgutter#process_buffer(buffer_id, 0)
+function! gitgutter#all(force) abort
+  let visible = tabpagebuflist()
+
+  for bufnr in range(1, bufnr('$') + 1)
+    if buflisted(bufnr)
+      let file = expand('#'.bufnr.':p')
+      if !empty(file)
+        if index(visible, bufnr) != -1
+          call gitgutter#process_buffer(bufnr, a:force)
+        elseif a:force
+          call s:reset_tick(bufnr)
+        endif
+      endif
     endif
   endfor
 endfunction
 
-" bufnr: (integer) the buffer to process.
-" realtime: (boolean) when truthy, do a realtime diff; otherwise do a disk-based diff.
-function! gitgutter#process_buffer(bufnr, realtime)
-  call gitgutter#utility#set_buffer(a:bufnr)
-  if gitgutter#utility#is_active()
-    if g:gitgutter_sign_column_always
-      call gitgutter#sign#add_dummy_sign()
+
+function! gitgutter#process_buffer(bufnr, force) abort
+  " NOTE a:bufnr is not necessarily the current buffer.
+
+  if gitgutter#utility#is_active(a:bufnr)
+
+    if has('patch-7.4.1559')
+      let l:Callback = function('gitgutter#process_buffer', [a:bufnr, a:force])
+    else
+      let l:Callback = {'function': 'gitgutter#process_buffer', 'arguments': [a:bufnr, a:force]}
     endif
-    try
-      if !a:realtime || gitgutter#utility#has_fresh_changes()
-        let diff = gitgutter#diff#run_diff(a:realtime || gitgutter#utility#has_unsaved_changes(), 1, 0)
-        call gitgutter#hunk#set_hunks(gitgutter#diff#parse_diff(diff))
-        let modified_lines = gitgutter#diff#process_hunks(gitgutter#hunk#hunks())
+    let how = s:setup_path(a:bufnr, l:Callback)
+    if [how] == ['async']  " avoid string-to-number conversion if how is a number
+      return
+    endif
 
-        if len(modified_lines) > g:gitgutter_max_signs
-          call gitgutter#utility#warn('exceeded maximum number of signs (configured by g:gitgutter_max_signs).')
-          call gitgutter#sign#clear_signs()
-          return
-        endif
+    if a:force || s:has_fresh_changes(a:bufnr)
 
-        if g:gitgutter_signs || g:gitgutter_highlight_lines
-          call gitgutter#sign#update_signs(modified_lines)
-        endif
+      let diff = ''
+      try
+        let diff = gitgutter#diff#run_diff(a:bufnr, g:gitgutter_diff_relative_to, 0)
+      catch /gitgutter not tracked/
+        call gitgutter#debug#log('Not tracked: '.gitgutter#utility#file(a:bufnr))
+      catch /gitgutter diff failed/
+        call gitgutter#debug#log('Diff failed: '.gitgutter#utility#file(a:bufnr))
+        call gitgutter#hunk#reset(a:bufnr)
+      endtry
 
-        call gitgutter#utility#save_last_seen_change()
+      if diff != 'async'
+        call gitgutter#diff#handler(a:bufnr, diff)
       endif
-    catch /diff failed/
-      call gitgutter#hunk#reset()
-    endtry
-  else
-    call gitgutter#hunk#reset()
+
+    endif
   endif
 endfunction
 
-function! gitgutter#disable()
-  " get list of all buffers (across all tabs)
-  let buflist = []
-  for i in range(tabpagenr('$'))
-    call extend(buflist, tabpagebuflist(i + 1))
-  endfor
 
-  for buffer_id in buflist
-    let file = expand('#' . buffer_id . ':p')
-    if !empty(file)
-      call gitgutter#utility#set_buffer(buffer_id)
-      call gitgutter#sign#clear_signs()
-      call gitgutter#sign#remove_dummy_sign(1)
-      call gitgutter#hunk#reset()
+function! gitgutter#disable() abort
+  " get list of all buffers (across all tabs)
+  for bufnr in range(1, bufnr('$') + 1)
+    if buflisted(bufnr)
+      let file = expand('#'.bufnr.':p')
+      if !empty(file)
+        call s:clear(bufnr)
+      endif
     endif
   endfor
 
   let g:gitgutter_enabled = 0
 endfunction
 
-function! gitgutter#enable()
+function! gitgutter#enable() abort
   let g:gitgutter_enabled = 1
-  call gitgutter#all()
+  call gitgutter#all(1)
 endfunction
 
-function! gitgutter#toggle()
+function! gitgutter#toggle() abort
   if g:gitgutter_enabled
     call gitgutter#disable()
   else
@@ -76,134 +83,129 @@ function! gitgutter#toggle()
   endif
 endfunction
 
-" }}}
 
-" Line highlights {{{
-
-function! gitgutter#line_highlights_disable()
-  let g:gitgutter_highlight_lines = 0
-  call gitgutter#highlight#define_sign_line_highlights()
-
-  if !g:gitgutter_signs
-    call gitgutter#sign#clear_signs()
-    call gitgutter#sign#remove_dummy_sign(0)
-  endif
-
-  redraw!
+function! gitgutter#buffer_disable() abort
+  let bufnr = bufnr('')
+  call gitgutter#utility#setbufvar(bufnr, 'enabled', 0)
+  call s:clear(bufnr)
 endfunction
 
-function! gitgutter#line_highlights_enable()
-  let old_highlight_lines = g:gitgutter_highlight_lines
-
-  let g:gitgutter_highlight_lines = 1
-  call gitgutter#highlight#define_sign_line_highlights()
-
-  if !old_highlight_lines && !g:gitgutter_signs
-    call gitgutter#all()
-  endif
-
-  redraw!
+function! gitgutter#buffer_enable() abort
+  let bufnr = bufnr('')
+  call gitgutter#utility#setbufvar(bufnr, 'enabled', 1)
+  call gitgutter#process_buffer(bufnr, 1)
 endfunction
 
-function! gitgutter#line_highlights_toggle()
-  if g:gitgutter_highlight_lines
-    call gitgutter#line_highlights_disable()
+function! gitgutter#buffer_toggle() abort
+  if gitgutter#utility#getbufvar(bufnr(''), 'enabled', 1)
+    call gitgutter#buffer_disable()
   else
-    call gitgutter#line_highlights_enable()
+    call gitgutter#buffer_enable()
   endif
 endfunction
 
 " }}}
 
-" Signs {{{
-
-function! gitgutter#signs_enable()
-  let old_signs = g:gitgutter_signs
-
-  let g:gitgutter_signs = 1
-  call gitgutter#highlight#define_sign_text_highlights()
-
-  if !old_signs && !g:gitgutter_highlight_lines
-    call gitgutter#all()
+function! gitgutter#setup_maps()
+  if !g:gitgutter_map_keys
+    return
   endif
+
+  " Note hasmapto() and maparg() operate on the current buffer.
+
+  let bufnr = bufnr('')
+
+  if gitgutter#utility#getbufvar(bufnr, 'mapped', 0)
+    return
+  endif
+
+  if !hasmapto('<Plug>(GitGutterPrevHunk)') && maparg('[c', 'n') ==# ''
+    nmap <buffer> [c <Plug>(GitGutterPrevHunk)
+  endif
+  if !hasmapto('<Plug>(GitGutterNextHunk)') && maparg(']c', 'n') ==# ''
+    nmap <buffer> ]c <Plug>(GitGutterNextHunk)
+  endif
+
+  if !hasmapto('<Plug>(GitGutterStageHunk)', 'v') && maparg('<Leader>hs', 'x') ==# ''
+    xmap <buffer> <Leader>hs <Plug>(GitGutterStageHunk)
+  endif
+  if !hasmapto('<Plug>(GitGutterStageHunk)', 'n') && maparg('<Leader>hs', 'n') ==# ''
+    nmap <buffer> <Leader>hs <Plug>(GitGutterStageHunk)
+  endif
+  if !hasmapto('<Plug>(GitGutterUndoHunk)') && maparg('<Leader>hu', 'n') ==# ''
+    nmap <buffer> <Leader>hu <Plug>(GitGutterUndoHunk)
+  endif
+  if !hasmapto('<Plug>(GitGutterPreviewHunk)') && maparg('<Leader>hp', 'n') ==# ''
+    nmap <buffer> <Leader>hp <Plug>(GitGutterPreviewHunk)
+  endif
+
+  if !hasmapto('<Plug>(GitGutterTextObjectInnerPending)') && maparg('ic', 'o') ==# ''
+    omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectOuterPending)') && maparg('ac', 'o') ==# ''
+    omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectInnerVisual)') && maparg('ic', 'x') ==# ''
+    xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectOuterVisual)') && maparg('ac', 'x') ==# ''
+    xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
+  endif
+
+  call gitgutter#utility#setbufvar(bufnr, 'mapped', 1)
 endfunction
 
-function! gitgutter#signs_disable()
-  let g:gitgutter_signs = 0
-  call gitgutter#highlight#define_sign_text_highlights()
+function! s:setup_path(bufnr, continuation)
+  let p = gitgutter#utility#repo_path(a:bufnr, 0)
 
-  if !g:gitgutter_highlight_lines
-    call gitgutter#sign#clear_signs()
-    call gitgutter#sign#remove_dummy_sign(0)
+  if type(p) == s:t_string && !empty(p)  " if path is known
+    return
   endif
+
+  return gitgutter#utility#set_repo_path(a:bufnr, a:continuation)
 endfunction
 
-function! gitgutter#signs_toggle()
-  if g:gitgutter_signs
-    call gitgutter#signs_disable()
-  else
-    call gitgutter#signs_enable()
-  endif
+function! s:has_fresh_changes(bufnr) abort
+  return getbufvar(a:bufnr, 'changedtick') != gitgutter#utility#getbufvar(a:bufnr, 'tick')
 endfunction
 
-" }}}
-
-" Hunks {{{
-
-function! gitgutter#stage_hunk()
-  if gitgutter#utility#is_active()
-    " Ensure the working copy of the file is up to date.
-    " It doesn't make sense to stage a hunk otherwise.
-    silent write
-
-    " construct a diff
-    let diff_for_hunk = gitgutter#diff#generate_diff_for_hunk(1, 1)
-
-    " apply the diff
-    call gitgutter#utility#system(gitgutter#utility#command_in_directory_of_file('git apply --cached --recount --allow-overlap - '), diff_for_hunk)
-
-    " refresh gitgutter's view of buffer
-    silent execute "GitGutter"
-  endif
+function! s:reset_tick(bufnr) abort
+  call gitgutter#utility#setbufvar(a:bufnr, 'tick', 0)
 endfunction
 
-function! gitgutter#revert_hunk()
-  if gitgutter#utility#is_active()
-    " Ensure the working copy of the file is up to date.
-    " It doesn't make sense to stage a hunk otherwise.
-    silent write
-
-    " construct a diff
-    let diff_for_hunk = gitgutter#diff#generate_diff_for_hunk(1, 1)
-
-    " apply the diff
-    call gitgutter#utility#system(gitgutter#utility#command_in_directory_of_file('git apply --reverse - '), diff_for_hunk)
-
-    " reload file
-    silent edit
-  endif
+function! s:clear(bufnr)
+  call gitgutter#sign#clear_signs(a:bufnr)
+  call gitgutter#hunk#reset(a:bufnr)
+  call s:reset_tick(a:bufnr)
+  call gitgutter#utility#setbufvar(a:bufnr, 'path', '')
 endfunction
 
-function! gitgutter#preview_hunk()
-  if gitgutter#utility#is_active()
-    silent write
 
-    " construct a diff
-    let diff_for_hunk = gitgutter#diff#generate_diff_for_hunk(0, 0)
-
-    " preview the diff
-    silent! wincmd P
-    if !&previewwindow
-      execute 'bo ' . &previewheight . ' new'
-      set previewwindow
-      setlocal filetype=diff buftype=nofile bufhidden=delete noswapfile
+" Note:
+" - this runs synchronously
+" - it ignores unsaved changes in buffers
+" - it does not change to the repo root
+function! gitgutter#quickfix()
+  let locations = []
+  let cmd = g:gitgutter_git_executable.' '.g:gitgutter_git_args.' --no-pager '.g:gitgutter_git_args.
+        \ ' diff --no-ext-diff --no-color -U0 '.g:gitgutter_diff_args
+  let diff = systemlist(cmd)
+  let lnum = 0
+  for line in diff
+    if line =~ '^diff --git [^"]'
+      let paths = line[11:]
+      let mid = (len(paths) - 1) / 2
+      let [fnamel, fnamer] = [paths[:mid-1], paths[mid+1:]]
+      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
+    elseif line =~ '^diff --git "'
+      let [_, fnamel, _, fnamer] = split(line, '"')
+      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
+    elseif line =~ '^@@'
+      let lnum = matchlist(line, '+\(\d\+\)')[1]
+    elseif lnum > 0
+      call add(locations, {'filename': fname, 'lnum': lnum, 'text': line})
+      let lnum = 0
     endif
-
-    execute "%delete_"
-    call append(0, split(diff_for_hunk, "\n"))
-
-    wincmd p
-  endif
+  endfor
+  call setqflist(locations)
 endfunction
-
-" }}}

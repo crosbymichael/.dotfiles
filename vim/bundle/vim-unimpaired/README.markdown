@@ -13,7 +13,7 @@ There are linewise mappings. `[<Space>` and `]<Space>` add newlines
 before and after the cursor line. `[e` and `]e` exchange the current
 line with the one above or below it.
 
-There are mappings for toggling options. `[os`, `]os`, and `cos` perform
+There are mappings for toggling options. `[os`, `]os`, and `yos` perform
 `:set spell`, `:set nospell`, and `:set invspell`, respectively.  There's also
 `l` (`list`), `n` (`number`), `w` (`wrap`), `x` (`cursorline cursorcolumn`),
 and several others, plus mappings to help alleviate the `set paste` dance.
@@ -33,22 +33,20 @@ linewise mappings as well if you install
 
 ## Installation
 
-If you don't have a preferred installation method, I recommend
-installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
-then simply copy and paste:
+Install using your favorite package manager, or use Vim's built-in package
+support:
 
-    cd ~/.vim/bundle
-    git clone git://github.com/tpope/vim-unimpaired.git
-
-Once help tags have been generated, you can view the manual with
-`:help unimpaired`.
+    mkdir -p ~/.vim/pack/tpope/start
+    cd ~/.vim/pack/tpope/start
+    git clone https://tpope.io/vim/unimpaired.git
+    vim -u NONE -c "helptags unimpaired/doc" -c q
 
 ## FAQ
 
 > My non-US keyboard makes it hard to type `[` and `]`.  Can I configure
 > different prefix characters?
 
-Not en masse, but you can just map to `[` and `]` directly:
+The easiest solution is to map to `[` and `]` directly:
 
     nmap < [
     nmap > ]
@@ -59,8 +57,6 @@ Not en masse, but you can just map to `[` and `]` directly:
 
 Note we're not using the `noremap` family because we *do* want to recursively
 invoke unimpaired.vim's maps.
-
-There are also `<Plug>` maps if you want a more granular approach.
 
 ## Contributing
 
