@@ -52,6 +52,12 @@ autocmd BufWritePre *.go Fmt
 autocmd FileType go set omnifunc=gocomplete#Complete
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
+
+" spellchecking
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
 abbrev spell setlocal spell spelllang=en_us<CR>
 
 " handle whitespace at the end of lines
