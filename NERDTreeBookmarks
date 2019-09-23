@@ -1,7 +1,8 @@
+root /
 home /home/michael
 dotfiles /home/michael/.dotfiles
 github /home/michael/development/gocode/src/github.com
 containerd /home/michael/development/gocode/src/github.com/containerd/containerd
 crosbymichael /home/michael/development/gocode/src/github.com/crosbymichael
-
-orbit /home/michael/development/gocode/src/github.com/stellarproject/orbit
+stellar /home/michael/development/gocode/src/github.com/stellarproject
+terra /home/michael/development/gocode/src/github.com/stellarproject/terraos
