@@ -52,6 +52,7 @@ autocmd BufWritePre *.go Fmt
 autocmd FileType go set omnifunc=gocomplete#Complete
 autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
+autocmd FileType gitcommit setlocal textwidth=80
 
 " spellchecking
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -135,7 +136,3 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-
-" ---------------- EXTRA FUNCTIONS ----------------
-
