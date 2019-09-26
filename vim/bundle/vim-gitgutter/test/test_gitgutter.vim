@@ -916,15 +916,26 @@ endfunction
 
 
 function Test_common_prefix()
+  " zero length
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('', 'foo'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('foo', ''))
   " nothing in common
-  call assert_equal(0, gitgutter#diff_highlight#common_prefix('-abcde', '+pqrst'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abcde', '+pqrst'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('abcde', 'pqrst'))
   " something in common
-  call assert_equal(3, gitgutter#diff_highlight#common_prefix('-abcde', '+abcpq'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abcde', '+abcpq'))
+  call assert_equal(2, gitgutter#diff_highlight#common_prefix('abcde', 'abcpq'))
+  call assert_equal(0, gitgutter#diff_highlight#common_prefix('abc', 'apq'))
   " everything in common
-  call assert_equal(5, gitgutter#diff_highlight#common_prefix('-abcde', '+abcde'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abcde', '+abcde'))
+  call assert_equal(4, gitgutter#diff_highlight#common_prefix('abcde', 'abcde'))
   " different lengths
-  call assert_equal(2, gitgutter#diff_highlight#common_prefix('-abcde', '+abx'))
-  call assert_equal(2, gitgutter#diff_highlight#common_prefix('-abx',   '+abcde'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abcde', '+abx'))
+  call assert_equal(1, gitgutter#diff_highlight#common_prefix('abcde', 'abx'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abx',   '+abcde'))
+  call assert_equal(1, gitgutter#diff_highlight#common_prefix('abx',   'abcde'))
+  call assert_equal(-1, gitgutter#diff_highlight#common_prefix('-abcde', '+abc'))
+  call assert_equal(2, gitgutter#diff_highlight#common_prefix('abcde', 'abc'))
 endfunction
 
 
@@ -941,6 +952,7 @@ function Test_common_suffix()
 endfunction
 
 
+" Note the order of lists within the overall returned list does not matter.
 function Test_diff_highlight()
   " Ignores mismatched number of added and removed lines.
   call assert_equal([], gitgutter#diff_highlight#process(['-foo']))
@@ -1010,5 +1022,20 @@ function Test_diff_highlight()
 
   " two edits
   let hunk = ['-The cat in the hat.', '+The ox in the box.']
-  call assert_equal([[1, '-', 6, 8], [1, '-', 17, 19], [2, '+', 6, 7], [2, '+', 16, 18]], gitgutter#diff_highlight#process(hunk))
+  call assert_equal([[1, '-', 6, 8], [2, '+', 6, 7], [1, '-', 17, 19], [2, '+', 16, 18]], gitgutter#diff_highlight#process(hunk))
+
+  " Requires s:gap_between_regions = 2 to pass.
+  " let hunk = ['-foo: bar.zap', '+foo: quux(bar)']
+  " call assert_equal([[2, '+', 7, 11], [1, '-', 10, 13], [2, '+', 15, 15]], gitgutter#diff_highlight#process(hunk))
+
+  let hunk = ['-gross_value: transaction.unexplained_amount', '+gross_value: amount(transaction)']
+  call assert_equal([[2, '+', 15, 21], [1, '-', 26, 44], [2, '+', 33, 33]], gitgutter#diff_highlight#process(hunk))
+endfunction
+
+
+function Test_lcs()
+  call assert_equal('', gitgutter#diff_highlight#lcs('', 'foo'))
+  call assert_equal('', gitgutter#diff_highlight#lcs('foo', ''))
+  call assert_equal('bar', gitgutter#diff_highlight#lcs('foobarbaz', 'bbart'))
+  call assert_equal('transaction', gitgutter#diff_highlight#lcs('transaction.unexplained_amount', 'amount(transaction)'))
 endfunction
