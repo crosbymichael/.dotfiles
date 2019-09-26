@@ -34,3 +34,5 @@
     fsckObjects = true
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[pull]
+	rebase = true

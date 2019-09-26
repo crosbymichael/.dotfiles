@@ -1,0 +1,170 @@
+*dadbod.txt*
+
+Author:  Tim Pope <http://tpo.pe/>
+Repo:    https://github.com/tpope/vim-dadbod
+License: Same terms as Vim itself (see |license|)
+
+USAGE                                           *dadbod* *:DB*
+
+:DB [url]               Start an interactive database console.  Uses
+                        dispatch.vim's |:Start| if available.
+
+:DB [url] {cmd}         Run {cmd} on the selected database and show the
+                        results in a preview window.
+
+:{range}DB [url]        Run the lines referenced by {range} on the selected
+                        database and show the results in a preview window.
+
+:DB [url] < {file}      Run the given {file} on the selected database and show
+                        the results in a preview window.
+
+:DB {var} = {url}       Assign the canonicalization of {url} to a |g:|, |w:|,
+                        |t:|, |b:|, or environment variable.
+
+:DB [url] :{command}    Run the Vim command {command} with the given URL set
+                        as the default.  This is mainly useful with
+                        |g:dadbod_manage_dbext|.
+
+In the preview window, you can press "R" to rerun, "r" to interactively rerun,
+or "q" to close the window.
+
+URLS                                            *dadbod-urls*
+
+URLs are adapter specific but generally take one of two formats:
+>
+    adapter://[user[:password]@][host][:port]/[database]
+    adapter:[database]
+
+A complete reference is below under |dadbod-adapters|, but a few examples should
+mostly get the point across:
+>
+    postgresql://postgres:secret@remote-host/test
+    mysql://root@localhost/test
+    sqlite:db.sqlite3
+    mongodb:///admin
+    redis:///
+<
+Additionally, one can give:
+
+* A Vim variable (e.g., g:foo, w:bar, t:baz, b:quux) or environment variable
+  (e.g., $DATABASE_URL) containing a URL.
+* File name of a supported database file (e.g. ~/db.sqlite3). Relative paths
+  must start with "./", and spaces must be %20 URL encoded (NOT backslash
+  escaped).
+
+VARIABLES                                       *dadbod-variables*
+
+If a |w:|, |t:|, |b:|, |g:|, or $ENVIRONMENT variable is given as a URL, its
+value will be used.  Additionally, if no URL is given, the first of w:db,
+t:db, b:db, $DATABASE_URL, and g:db will be used.  Suggested uses:
+
+* w:db is best set interactively.
+* b:db is most useful when set from an |autocommand|.
+* g:db and other globals can be set in your |vimrc| or other startup file.
+* $DATABASE_URL and other environment variables are easy to set externally.
+
+Set a variable with |:let|, or use |:DB| to normalize the URL first:
+>
+    :DB w:db = adapter://...
+<
+ADAPTERS                                        *dadbod-adapters*
+
+                                                *dadbod-dbext*
+dbext ~
+>
+    dbext:type=<type>[:<attr>=<value>][...]
+    dbext:profile=<profile>[...]
+<
+For supported adapters, dbext modelines and profiles can be used directly.
+
+                                                *dadbod-impala*
+Impala ~
+>
+    impala://[<host>[:<port>]]/[<database>]
+
+                                                *dadbod-mongodb*
+MongoDB ~
+>
+    mongodb://[<user>[:<password>]@][<host>[:<port>]]/[<database>][?ssl=true]
+    mongodb:[<database>]
+<
+                                                *dadbod-mysql*
+MySQL ~
+>
+    mysql://[<user>[:<password>]@][<host>[:<port>]]/[database]
+    mysql://[<user>[:<password>]@][<%2Fsocket%2Fpath>]/[<database>]
+    mysql:///[<database>]?login-path=<login-path>
+    mysql:[<database>]
+<
+                                                *dadbod-oracle*
+Oracle ~
+>
+    oracle://[<user>[:<password>]@][<host>][:<port>]/[<database>]
+    oracle:<user>/<password>@[//]<host>[:<port>]/<database>
+<
+                                                *dadbod-osquery*
+osquery ~
+>
+    osquery:relative/path
+    osquery:/absolute/path
+    osquery:C:/windows/path
+    osquery:///relative/or/absolute/path
+<
+An empty path portion uses an in-memory database, which is how osquery is
+typically invoked.
+
+                                                *dadbod-postgresql*
+PostgreSQL ~
+>
+    postgresql://[<user>[:<password>]@][<host>[:<port>]]/[<database>]
+    postgresql://[<user>[:<password>]@][<%2Fsocket%2Fpath>]/[<database>]
+    postgresql:[<database>]
+<
+For interop, postgres:// URLs are also accepted.
+
+                                                *dadbod-presto*
+Presto ~
+>
+    presto://[<host>[:<port>]]/[<catalog>[/<schema>]]
+<
+                                                *dadbod-redis*
+Redis ~
+>
+    redis://[[unused[:<password>]@]<host>]/[<database-number>]
+    redis:[<database-number>]
+<
+Redis doesn't have a username, so use a dummy one in the URL if a password is
+required.
+
+                                                *dadbod-sqlserver*
+SQL Server ~
+>
+    sqlserver://[<user>[:<password>]@][<host>][:<port>]/[<database>]
+    sqlserver://[<host>[:<port>]][;user=<user>][;...]
+<
+If the user and password are omitted, a trusted connection is used.
+
+                                                *dadbod-sqlite*
+SQLite ~
+>
+    sqlite:relative/path
+    sqlite:/absolute/path
+    sqlite:C:/windows/path
+    sqlite:///relative/or/absolute/path
+<
+In the wild, uses of sqlite:///path vary on whether the path is relative or
+absolute, so both are checked.  The preferred form is sqlite:path, which
+avoids this ambiguity.
+
+An empty path portion uses an in-memory database, which is occasionally useful
+for an interactive invocation.
+
+DBEXT MANAGEMENT                                *g:dadbod_manage_dbext*
+
+If you like Dadbod's configuration but need some of dbext's functionality, set
+the following variable to enable an experimental mode where dbext's
+configuration always mirrors Dadbod's default.
+>
+  let g:dadbod_manage_dbext = 1
+<
+ vim:tw=78:et:ft=help:norl:
